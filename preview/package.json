@@ -9,7 +9,7 @@
     "preview": "vite preview --port 4001"
   },
   "dependencies": {
-    "@appboxo/ui-kit": "file:../../freedom-ui-kit",
+    "@appboxo/ui-kit": "npm:@rex-taiwan/ui-kit@^0.2.0",
     "@arco-design/mobile-react": "^2.34",
     "@arco-design/mobile-utils": "^2.20",
     "@tanstack/react-query": "^5.0.0",

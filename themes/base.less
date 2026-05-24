@@ -1,0 +1,14 @@
+@import "~@arco-design/mobile-react/tokens/mixin/pxtorem.less";
+@import "./typography.less";
+
+// https://stackoverflow.com/questions/21278020/font-weight-turns-lighter-on-mac-safari
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+  user-select: none;
+  background-color: var(--fill-white);
+}

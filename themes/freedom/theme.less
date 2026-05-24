@@ -1,0 +1,38 @@
+// Freedom brand theme.
+//
+// This file is intentionally thin: it picks up the full token contract
+// from `../default/theme.less` and only re-declares the tokens that are
+// actually different for the Freedom brand (primary green palette,
+// the success palette that matches it, and the Freedom gradient).
+//
+// Treat this as the canonical example of how a partner brand should
+// extend the kit -- copy the file, point the import at `../default/...`
+// and override only what differs.
+
+@import "../default/theme.less";
+
+#root {
+  --primary-1: #f4f9f5;
+  --primary-2: #dcf2e3;
+  --primary-3: #89d3a2;
+  --primary-6: #4ebc73;
+  --primary-7: #309652;
+
+  // Freedom uses the same green for both `primary` and `success`, so
+  // align the lighter success shades with the primary palette. (The
+  // `--success-6` / `--success-7` defaults already match Freedom green,
+  // so they don't need to be re-declared here.)
+  --success-1: #f4f9f5;
+  --success-2: #dcf2e3;
+  --success-3: #89d3a2;
+
+  --freedom-gradient: linear-gradient(90deg, #00c57f 0%, #036bb9 100%);
+}
+
+#root.arco-theme-dark {
+  --primary-1: #19281c;
+  --primary-2: #314435;
+  --primary-3: #6dba7a;
+  --primary-6: #4ebc73;
+  --primary-7: #309652;
+}

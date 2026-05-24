@@ -1,0 +1,536 @@
+/* Generated from themes/mbank/theme.less -- do not edit. */
+/* Re-run `pnpm build:themes` after editing the .less source. */
+
+.largeTitle {
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0.8rem;
+  letter-spacing: 0;
+}
+.title1 {
+  font-size: 0.48rem;
+  font-style: normal;
+  line-height: 0.56rem;
+  letter-spacing: 0;
+}
+.title2 {
+  font-size: 0.4rem;
+  font-style: normal;
+  line-height: 0.56rem;
+  letter-spacing: 0;
+}
+.title3 {
+  font-size: 0.36rem;
+  font-style: normal;
+  line-height: 0.48rem;
+  letter-spacing: 0;
+}
+.callout {
+  font-size: 0.3rem;
+  font-style: normal;
+  line-height: 0.4rem;
+  letter-spacing: 0;
+}
+.headline {
+  font-size: 0.34rem;
+  font-style: normal;
+  line-height: 0.48rem;
+  letter-spacing: 0;
+}
+.body1 {
+  font-size: 0.32rem;
+  font-style: normal;
+  line-height: 0.48rem;
+  letter-spacing: 0;
+}
+.body2 {
+  font-size: 0.28rem;
+  font-style: normal;
+  line-height: 0.4rem;
+  letter-spacing: 0;
+}
+.footnote1 {
+  font-size: 0.26rem;
+  font-style: normal;
+  line-height: 140%;
+  letter-spacing: 0;
+}
+.footnote2 {
+  font-size: 0.24rem;
+  font-style: normal;
+  line-height: 140%;
+  letter-spacing: 0;
+}
+.regular {
+  font-weight: 400 !important;
+}
+.medium {
+  font-weight: 500 !important;
+}
+.semibold {
+  font-weight: 600 !important;
+}
+.bold {
+  font-weight: 700 !important;
+}
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+html,
+body {
+  overscroll-behavior: none;
+  user-select: none;
+  background-color: var(--fill-white);
+}
+#root {
+  --line-1: #d3d4d4;
+  --text-1: #ffffff;
+  --text-2: #d1d1d6;
+  --text-3: #8e8e93;
+  --text-4: #636366;
+  --text-5: #0f0f0f;
+  --text-1-static: #ffffff;
+  --text-5-static: #0f0f0f;
+  --fill-1: #ffffff;
+  --fill-2: #eaeced;
+  --fill-3: #eaeced;
+  --fill-4: #d7dbdd;
+  --fill-white: #f7f7f7;
+  --primary-1: #f0f7ff;
+  --primary-2: #d1e7ff;
+  --primary-3: #84b8f5;
+  --primary-6: #0a84ff;
+  --primary-7: #0066cc;
+  --success-1: #f4f9f5;
+  --success-2: #dcf2e3;
+  --success-3: #89d3a2;
+  --success-6: #4ebc73;
+  --success-7: #309652;
+  --danger-1: #fff7f8;
+  --danger-2: #ffeef1;
+  --danger-3: #ff6a79;
+  --danger-6: #ff3347;
+  --danger-7: #d40e22;
+  --warning-1: #fff7e0;
+  --warning-2: #ffeec2;
+  --warning-3: #fdde8a;
+  --warning-6: #f6c339;
+  --warning-7: #cd9a11;
+  --warning-8: #ff9500;
+  --info-1: #ebf4ff;
+  --info-2: #015fdb;
+  --primary-color: var(--primary-6);
+  --lighter-primary-color: var(--primary-2);
+  --primary-disabled-color: var(--primary-3);
+  --disabled-color: var(--text-2);
+  --font-color: var(--text-5);
+  --line-color: var(--fill-2);
+  --loading-color: var(--primary-color);
+  --scroller-buffer: 0;
+  --nav-bar-height: 1rem;
+  --nav-bar-two-sides-padding: 0 0.32rem;
+  --side-padding: 0.32rem;
+  --layout-padding: 0.32rem 0.32rem 3.4rem 0.32rem;
+  --footer-padding: 0.32rem var(--side-padding) 0.48rem;
+  --footer-gap: 0.16rem;
+  --layout-footer-prefix-gap: 0.16rem;
+  --footer-scrollable-shadow: 0 -4px 40px 0 rgba(0, 0, 0, 0.1);
+  --tabs-tab-bar-tag-active-background: var(--fill-1);
+  --tabs-tab-bar-tag-active-text-color: var(--text-5);
+  --tabs-tab-bar-tag-text-color: var(--text-3);
+  --tabs-tab-bar-tag-background: transparent;
+  --tabs-tab-bar-background: var(--fill-white);
+  --tabs-tab-bar-tag-padding: 0.16rem 0.32rem;
+  --tabs-tab-bar-tag-gutter: 0.08rem;
+  --tabs-tab-bar-tag-height: auto;
+  --search-bar-padding: 0;
+  --search-bar-round-shape-border-radius: 0.24rem;
+  --search-bar-input-placeholder-color: var(--text-3);
+  --search-bar-input-wrapper-font-size: 16px;
+  --search-bar-input-caret-color: var(--primary-color);
+  --search-bar-prefix-margin-right: 8px;
+  --search-bar-search-icon-color: var(--text-3);
+  --search-bar-background-color: var(--fill-white);
+  --search-bar-input-wrapper-background-color: var(--fill-2);
+  --search-bar-input-wrapper-padding: 0.2rem 0.32rem;
+  --search-bar-input-wrapper-height: 0.88rem;
+  --cell-horizontal-padding: 0;
+  --cell-item-height: auto;
+  --cell-item-has-desc-height: auto;
+  --cell-label-color: var(--text-5);
+  --cell-desc-color: var(--text-3);
+  --toast-vertical-padding: 0.16rem 0.32rem;
+  --toast-background: var(--text-4);
+  --toast-text-color: var(--text-1);
+  --toast-from-top-position: 18%;
+  --toast-border-radius: 19.98rem;
+  --skeleton-paragraph-height: 0.64rem;
+  --skeleton-paragraph-margin-top: 0.4rem;
+  --carousel-indicator-active-background: var(--primary-color);
+  --carousel-indicator-background: var(--fill-3);
+  --carousel-indicator-active-inverse-background: var(--primary-color);
+  --carousel-indicator-inverse-background: var(--fill-4);
+  --button-radius: 16px;
+  --button-huge-height: 1.04rem;
+  --button-huge-text-size: 0.32rem;
+  --button-large-height: 0.96rem;
+  --button-primary-background: var(--primary-6);
+  --button-primary-clicked-background: var(--primary-7);
+  --button-primary-disabled-background: var(--primary-6);
+  --button-default-background: var(--fill-2);
+  --button-default-text-color: var(--text-5);
+  --button-default-clicked-background: var(--fill-4);
+  --button-default-clicked-text-color: var(--text-5);
+  --button-default-disabled-background: var(--fill-2);
+  --button-default-disabled-text-color: var(--text-5);
+  --button-ghost-clicked-background: transparent;
+  --tertiary-button-background-color: var(--fill-2);
+  --tertiary-button-text-color: var(--text-5);
+  --tertiary-button-active-background-color: var(--fill-4);
+  --quaternary-button-background-color: transparent;
+  --quaternary-button-text-color: var(--text-5);
+  --quaternary-button-border-color: var(--line-1);
+  --quaternary-button-border-radius: var(--button-radius);
+  --quaternary-button-active-background-color: var(--fill-2);
+  --boxo-card-mobile-background: var(--fill-1);
+  --boxo-card-mobile-active-background: var(--fill-2);
+  --boxo-dial-code-selector-item-active-background: var(--fill-2);
+  --boxo-input-disabled-background: var(--fill-2);
+  --boxo-layout-mobile-padding: var(--layout-padding);
+  --boxo-layout-mobile-footer-padding: var(--footer-padding);
+  --boxo-layout-mobile-footer-gap: var(--footer-gap);
+  --boxo-layout-mobile-footer-scrollable-shadow: var(--footer-scrollable-shadow);
+}
+#root .arco-tab-cell-container-inner {
+  background-color: var(--fill-2);
+  padding: 0.08rem;
+  border-radius: 0.24rem;
+}
+#root .arco-tab-cell-container-inner .arco-tab-cell {
+  border-radius: 0.2rem !important;
+}
+#root .arco-tab-cell-container-inner .arco-tab-cell.active {
+  box-shadow: 3px 6px 15px 0 rgba(0, 0, 0, 0.1);
+}
+#root .arco-tab-cell-container-inner .arco-tab-cell.vertical:not(.custom).tag-divide.android {
+  padding-top: 0.14rem !important;
+}
+#root .arco-search-bar-wrap {
+  align-items: center;
+}
+#root .arco-search-bar-prefix {
+  display: flex;
+  align-items: center;
+}
+#root .arco-search-bar-prefix .arco-icon {
+  display: block;
+}
+#root .custom-toast-error .arco-toast-inner {
+  background: var(--text-4) !important;
+  color: var(--text-1) !important;
+}
+#root.arco-theme-dark {
+  --line-1: #2b2b2e;
+  --text-1: #0f0f0f;
+  --text-2: #636366;
+  --text-3: #8e8e93;
+  --text-4: #d1d1d6;
+  --text-5: #ffffff;
+  --text-1-static: #ffffff;
+  --text-5-static: #0f0f0f;
+  --fill-1: #1a1a1a;
+  --fill-2: #2b2b2e;
+  --fill-3: #3a3a3c;
+  --fill-4: #5b5b5d;
+  --fill-white: #000000;
+  --primary-1: #0a1929;
+  --primary-2: #103355;
+  --primary-3: #4d7fc4;
+  --primary-6: #0a84ff;
+  --primary-7: #0066cc;
+  --success-1: #09170e;
+  --success-2: #193c25;
+  --success-3: #32784a;
+  --success-6: #4ebc73;
+  --success-7: #309652;
+  --danger-1: #1f0609;
+  --danger-2: #521017;
+  --danger-3: #a3212d;
+  --danger-6: #ff3347;
+  --danger-7: #d40e22;
+  --warning-1: #1e1707;
+  --warning-2: #4f3e12;
+  --warning-3: #9d7d24;
+  --warning-6: #f6c339;
+  --warning-7: #cd9a11;
+  --warning-8: #ff9500;
+  --info-1: #162d48;
+  --info-2: #015fdb;
+  --dark-loading-color: var(--primary-6);
+  --dark-primary-color: var(--primary-6);
+  --dark-carousel-indicator-active-background: var(--dark-primary-color);
+  --dark-carousel-indicator-background: var(--fill-4);
+  --dark-carousel-indicator-active-inverse-background: var(--dark-primary-color);
+  --dark-carousel-indicator-inverse-background: var(--fill-4);
+  --dark-button-primary-background: var(--primary-6);
+  --dark-button-primary-text-color: var(--text-1-static);
+  --dark-button-primary-clicked-background: var(--primary-7);
+  --dark-button-primary-clicked-text-color: var(--text-1-static);
+  --dark-button-primary-disabled-background: var(--primary-6);
+  --dark-button-primary-disabled-text-color: var(--text-1-static);
+  --dark-button-default-background: var(--fill-2);
+  --dark-button-default-text-color: var(--text-5);
+  --dark-button-default-clicked-background: var(--fill-4);
+  --dark-button-default-clicked-text-color: var(--text-5);
+  --dark-button-default-disabled-background: var(--fill-2);
+  --dark-button-default-disabled-text-color: var(--text-5);
+  --dark-button-ghost-clicked-background: transparent;
+  --dark-cell-background-color: var(--fill-white);
+  --dark-popup-content-background: var(--fill-white);
+  --dark-toast-background: var(--fill-1);
+  --dark-toast-text-color: var(--text-5);
+  --dark-search-bar-input-placeholder-color: var(--text-3);
+  --dark-search-bar-background-color: var(--fill-white);
+  --dark-tabs-tab-bar-background: var(--fill-white);
+  --dark-tabs-tab-bar-tag-active-background: var(--fill-1);
+  --dark-tabs-tab-bar-tag-active-text-color: var(--text-5);
+  --dark-tabs-tab-bar-tag-background: transparent;
+}
+#root.arco-theme-dark .arco-search-bar-container .arco-search-bar-prefix svg path {
+  fill: var(--text-4) !important;
+}
+html,
+body {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.largeTitle {
+  font-weight: 600;
+  letter-spacing: -0.4px;
+}
+.title1 {
+  letter-spacing: -0.08px;
+}
+.title2 {
+  letter-spacing: -0.45px;
+}
+.title3 {
+  letter-spacing: -0.45px;
+}
+.headline {
+  letter-spacing: -0.45px;
+}
+.callout {
+  letter-spacing: -0.23px;
+}
+.body1 {
+  letter-spacing: -0.31px;
+}
+.body2 {
+  letter-spacing: -0.15px;
+}
+.footnote1 {
+  font-size: 0.26rem;
+  line-height: 0.36rem;
+  letter-spacing: -0.08px;
+}
+.footnote2 {
+  font-size: 0.24rem;
+  line-height: 0.36rem;
+  letter-spacing: 0;
+}
+.caption1 {
+  font-size: 0.22rem;
+  line-height: 0.32rem;
+  letter-spacing: 0;
+}
+.caption2 {
+  font-size: 0.2rem;
+  line-height: 0.28rem;
+  letter-spacing: 0;
+}
+.caption3 {
+  font-size: 0.18rem;
+  line-height: 0.24rem;
+  letter-spacing: 0;
+}
+#root {
+  --line-1: #e5e5ea;
+  --text-2: #c7c7cc;
+  --text-3: #8d8d95;
+  --text-4: #5e5e64;
+  --text-5: #313131;
+  --text-5-static: #000000;
+  --fill-1: #f2f2f7;
+  --fill-2: #eeeeef;
+  --fill-3: #e5e5ea;
+  --fill-4: #d6d9dd;
+  --fill-white: #ffffff;
+  --primary-1: #e5e5ea;
+  --primary-2: #d1d1d1;
+  --primary-3: #7a7a7a;
+  --primary-6: #313131;
+  --primary-7: #000000;
+  --success-1: #f5fdf7;
+  --success-2: #d6f6de;
+  --success-3: #43dd52;
+  --success-6: #21c7a3;
+  --success-7: #18964f;
+  --danger-1: #feeaea;
+  --danger-2: #fbbdbd;
+  --danger-3: #f77b7b;
+  --danger-6: #f23030;
+  --danger-7: #cf1b1b;
+  --warning-1: #fff9e9;
+  --warning-2: #feebb9;
+  --warning-3: #fcd673;
+  --warning-6: #fbbf24;
+  --warning-7: #d29c12;
+  --nav-bar-height: 0.88rem;
+  --footer-padding: 0.32rem var(--side-padding) 0.68rem;
+  --tabs-tab-bar-tag-active-background: var(--fill-white);
+  --tabs-tab-bar-tag-background: var(--fill-3);
+  --tabs-tab-bar-tag-padding: 0.14rem 0.32rem;
+  --search-bar-round-shape-border-radius: 0.16rem;
+  --search-bar-input-wrapper-background-color: var(--fill-1);
+  --search-bar-input-wrapper-padding: 0.16rem 0.24rem;
+  --search-bar-input-wrapper-height: 0.8rem;
+  --toast-background: var(--fill-1);
+  --toast-text-color: var(--text-5);
+  --button-huge-height: 1.12rem;
+  --button-primary-disabled-background: var(--primary-3);
+  --button-default-background: var(--fill-white);
+  --button-default-text-color: var(--primary-6);
+  --button-default-clicked-background: var(--primary-1);
+  --button-default-clicked-text-color: var(--primary-6);
+  --button-default-disabled-background: var(--fill-white);
+  --button-default-disabled-text-color: var(--primary-1);
+  --tertiary-button-text-color: var(--primary-6);
+  --tertiary-button-background-color: var(--fill-3);
+  --tertiary-button-active-background-color: var(--fill-2);
+}
+#root .arco-tab-cell-container-inner {
+  background-color: var(--fill-3);
+  padding: 0.08rem;
+  border-radius: 0.56rem;
+}
+#root .arco-tab-cell-container-inner .arco-tab-cell {
+  border-radius: 0.56rem !important;
+}
+#root .arco-tab-cell-container-inner .arco-tab-cell.active {
+  box-shadow: 3px 6px 15px 0 rgba(0, 0, 0, 0.1);
+}
+#root .arco-tab-cell-container-inner .arco-tab-cell.active .body2 {
+  font-weight: 700 !important;
+}
+#root .arco-tab-cell-container-inner .arco-tab-cell.vertical:not(.custom).tag-divide.android {
+  padding-top: 0.14rem !important;
+}
+#root .arco-search-bar-wrap {
+  border: 1px solid var(--fill-3);
+}
+#root .custom-toast-error .arco-toast-inner {
+  background: rgba(0, 0, 0, 0.9) !important;
+  color: var(--text-1) !important;
+}
+#root.arco-theme-dark {
+  --line-1: #454647;
+  --text-1: #242424;
+  --text-2: #6a6e72;
+  --text-3: #9e9fa1;
+  --text-4: #c1c1c1;
+  --text-5-static: #242424;
+  --fill-1: #2b2b2b;
+  --fill-2: #454647;
+  --fill-3: #656667;
+  --fill-4: #858687;
+  --fill-white: #202020;
+  --primary-1: #ecf0ff;
+  --primary-2: #adc0ff;
+  --primary-3: #7d9bff;
+  --primary-6: #4a74ff;
+  --primary-7: #fe42b4;
+  --success-1: #031f0f;
+  --success-2: #063419;
+  --success-3: #0e5e2e;
+  --success-6: #137a3c;
+  --success-7: #179f4e;
+  --danger-1: #2c1306;
+  --danger-2: #492009;
+  --danger-3: #672e0d;
+  --danger-6: #873c0e;
+  --danger-7: #ac4f0a;
+  --warning-1: #340d00;
+  --warning-2: #551500;
+  --warning-3: #9c2601;
+  --warning-6: #ff470d;
+  --warning-7: #ff8a65;
+  --dark-button-primary-background: var(--text-5);
+  --dark-button-primary-text-color: var(--text-1);
+  --dark-button-primary-clicked-background: var(--text-4);
+  --dark-button-primary-clicked-text-color: var(--text-1);
+  --dark-button-primary-disabled-background: var(--text-5);
+  --dark-button-primary-disabled-text-color: var(--text-1);
+  --dark-button-default-background: var(--fill-1);
+  --dark-button-default-clicked-background: var(--fill-2);
+  --dark-button-default-disabled-background: var(--fill-1);
+  --dark-tabs-tab-bar-tag-active-background: var(--text-1-static);
+  --dark-tabs-tab-bar-tag-active-text-color: var(--text-5-static);
+}
+#root.arco-theme-dark .arco-search-bar-container .arco-search-bar-prefix svg path {
+  fill: var(--text-4) !important;
+}
+.largeTitle {
+  font-family: var(--font-pp-editorial);
+}
+.title1 {
+  font-family: var(--font-pp-editorial);
+}
+.title2 {
+  font-family: var(--font-pp-editorial);
+}
+.title3 {
+  font-family: var(--font-pp-editorial);
+}
+.headline {
+  font-family: var(--font-switzer);
+}
+.callout {
+  font-family: var(--font-switzer);
+}
+.body1 {
+  font-family: var(--font-switzer);
+}
+.body2 {
+  font-family: var(--font-switzer);
+}
+.footnote1 {
+  font-size: 0.26rem;
+  line-height: 0.36rem;
+  letter-spacing: 0;
+  font-family: var(--font-switzer);
+}
+.footnote2 {
+  font-size: 0.24rem;
+  line-height: 0.36rem;
+  letter-spacing: 0;
+  font-family: var(--font-switzer);
+}
+.caption1 {
+  font-size: 0.22rem;
+  line-height: 0.32rem;
+  letter-spacing: 0;
+  font-family: var(--font-switzer);
+}
+.caption2 {
+  font-size: 0.2rem;
+  line-height: 0.28rem;
+  letter-spacing: 0;
+  font-family: var(--font-switzer);
+}
+.caption3 {
+  font-size: 0.18rem;
+  line-height: 0.24rem;
+  letter-spacing: 0;
+  font-family: var(--font-switzer);
+}

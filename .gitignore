@@ -14,11 +14,9 @@ out
 .vercel
 .idea
 .vscode
-# themes/ is synced from ../freedom-ui-kit/themes at predev. The local
-# copy is treated as a build artifact -- if you've cloned this repo
-# standalone (no kit adjacent), drop your own themes/<brand>/theme.css
-# in place and remove this line.
-/themes
+# themes/ is committed as a snapshot from ../freedom-ui-kit/themes.
+# scripts/sync-themes.mjs refreshes it during local dev when the kit
+# repo is adjacent; on Vercel / CI the committed copy is used as-is.
 # preview app: vite cache + build output
 preview/.vite
 preview/dist
