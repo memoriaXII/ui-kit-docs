@@ -1,0 +1,20 @@
+---
+title: Toast
+description: Brief feedback message at the edge of the screen.
+---
+
+<ComponentPreview name="toast-demo" description="Trigger a success toast." />
+
+## Usage
+
+```tsx
+import { toast } from "@freedom/ui-kit"
+
+export function Example() {
+  return (
+    <button onClick={() => toast.success("Saved")}>Save</button>
+  )
+}
+```
+
+Mount the `<Toaster />` once at the root of your app.

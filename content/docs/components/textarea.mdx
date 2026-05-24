@@ -1,0 +1,21 @@
+---
+title: Textarea
+description: Multi-line text input.
+---
+
+<ComponentPreview name="textarea-demo" description="Message textarea." />
+
+## Usage
+
+```tsx
+import { Textarea, Label } from "@freedom/ui-kit"
+
+export function Example() {
+  return (
+    <>
+      <Label htmlFor="message">Message</Label>
+      <Textarea id="message" rows={4} />
+    </>
+  )
+}
+```

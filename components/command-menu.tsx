@@ -54,11 +54,8 @@ export function CommandMenu({
   const handlePageHighlight = React.useCallback(
     (isComponent: boolean, item: { url: string; name?: React.ReactNode }) => {
       if (isComponent) {
-        const componentName = item.url.split("/").pop()
         setSelectedType("component")
-        setCopyPayload(
-          `${packageManager} dlx @elevenlabs/cli@latest add ${componentName}`
-        )
+        setCopyPayload(`${packageManager} add @freedom/ui-kit`)
       } else {
         setSelectedType("page")
         setCopyPayload("")
@@ -68,11 +65,9 @@ export function CommandMenu({
   )
 
   const handleBlockHighlight = React.useCallback(
-    (block: { name: string; description: string; categories: string[] }) => {
+    (_block: { name: string; description: string; categories: string[] }) => {
       setSelectedType("block")
-      setCopyPayload(
-        `${packageManager} dlx @elevenlabs/cli@latest add ${block.name}`
-      )
+      setCopyPayload(`${packageManager} add @freedom/ui-kit`)
     },
     [setSelectedType, setCopyPayload, packageManager]
   )

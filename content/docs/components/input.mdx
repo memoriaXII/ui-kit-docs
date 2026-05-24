@@ -1,0 +1,21 @@
+---
+title: Input
+description: Single line text field with label support.
+---
+
+<ComponentPreview name="input-demo" description="Email field with label." />
+
+## Usage
+
+```tsx
+import { Input, Label } from "@freedom/ui-kit"
+
+export function Example() {
+  return (
+    <>
+      <Label htmlFor="email">Email</Label>
+      <Input id="email" type="email" />
+    </>
+  )
+}
+```

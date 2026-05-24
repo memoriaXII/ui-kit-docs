@@ -1,0 +1,27 @@
+---
+title: Drawer
+description: Bottom sheet for confirmations and contextual flows.
+---
+
+<ComponentPreview name="drawer-demo" description="Confirm purchase drawer." />
+
+## Usage
+
+```tsx
+import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle, Button } from "@freedom/ui-kit"
+
+export function Example() {
+  return (
+    <Drawer>
+      <DrawerTrigger asChild>
+        <Button>Open</Button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>Confirm</DrawerTitle>
+        </DrawerHeader>
+      </DrawerContent>
+    </Drawer>
+  )
+}
+```

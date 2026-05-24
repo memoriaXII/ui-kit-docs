@@ -1,0 +1,21 @@
+---
+title: Radio
+description: Choose one option from a list.
+---
+
+<ComponentPreview name="radio-demo" description="Payment method radio group." />
+
+## Usage
+
+```tsx
+import { RadioGroup, RadioGroupItem, Label } from "@freedom/ui-kit"
+
+export function Example() {
+  return (
+    <RadioGroup defaultValue="card">
+      <RadioGroupItem value="card" id="card" />
+      <Label htmlFor="card">Credit card</Label>
+    </RadioGroup>
+  )
+}
+```

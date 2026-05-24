@@ -1,4 +1,23 @@
 {
   "title": "Components",
-  "pages": ["index", "button"]
+  "pages": [
+    "index",
+    "---Inputs---",
+    "button",
+    "input",
+    "textarea",
+    "checkbox",
+    "radio",
+    "search-bar",
+    "date-picker",
+    "time-picker",
+    "dial-code-selector",
+    "---Layout---",
+    "card",
+    "tabs",
+    "drawer",
+    "---Feedback---",
+    "toast",
+    "tip"
+  ]
 }

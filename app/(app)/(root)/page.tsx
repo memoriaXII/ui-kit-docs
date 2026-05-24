@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 
 import {
@@ -34,14 +35,22 @@ export default function IndexPage() {
         />
         <PageHeader className="relative z-10">
           <PageHeaderHeading className="max-w-4xl">
-            <span className="flex items-baseline gap-2 sm:gap-3">
-              <span className="leading-[0.95] font-bold tracking-[-0.03em]">
-                Freedom
-              </span>
-              <span className="font-normal tracking-[-0.02em] opacity-90">
-                UI Kit
-              </span>
-            </span>
+            <Image
+              src="/logo-light.svg"
+              alt="Freedom UI Kit"
+              width={274}
+              height={63}
+              className="block h-12 w-auto dark:hidden sm:h-16"
+              priority
+            />
+            <Image
+              src="/logo-dark.svg"
+              alt="Freedom UI Kit"
+              width={274}
+              height={63}
+              className="hidden h-12 w-auto dark:block sm:h-16"
+              priority
+            />
           </PageHeaderHeading>
           <PageHeaderDescription>{description}</PageHeaderDescription>
           <PageActions>

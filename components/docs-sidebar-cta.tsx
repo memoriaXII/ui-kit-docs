@@ -15,22 +15,22 @@ export function DocsSidebarCta({ className }: React.ComponentProps<"div">) {
       <div className="bg-surface/80 absolute inset-0" />
 
       <div className="relative z-10 text-base leading-tight font-semibold text-balance group-hover:underline">
-        Deploy and Scale Agents with ElevenLabs
+        Build mini-apps with Boxo
       </div>
       <div className="text-muted-foreground relative z-10">
-        ElevenLabs delivers the infrastructure and developer experience you need
-        to ship reliable audio & agent applications at scale.
+        Freedom UI Kit is the design system behind partner mini-apps shipping on
+        the Boxo platform.
       </div>
       <Button size="sm" className="relative z-10 mt-2 w-fit">
-        Deploy Now
+        Learn more
       </Button>
       <Link
-        href={siteConfig.utm.agents}
+        href={siteConfig.links.github}
         target="_blank"
         rel="noreferrer"
         className="absolute inset-0 z-20"
       >
-        <span className="sr-only">Talk to an expert</span>
+        <span className="sr-only">Learn more about Boxo</span>
       </Link>
     </div>
   )

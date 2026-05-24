@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 import { siteConfig } from "@/lib/config"
 
 export function SiteFooter() {
@@ -9,14 +7,15 @@ export function SiteFooter() {
         <div className="flex h-(--footer-height) items-center justify-between">
           <div className="text-muted-foreground w-full px-1 text-center text-xs leading-loose sm:text-sm">
             Engineered by{" "}
-            <Link
-              href={siteConfig.utm.main}
+            <a
+              href="https://appboxo.com"
+              target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
             >
-              ElevenLabs
-            </Link>
-            . The source code is available on{" "}
+              Appboxo
+            </a>
+            . Source on{" "}
             <a
               href={siteConfig.links.github}
               target="_blank"

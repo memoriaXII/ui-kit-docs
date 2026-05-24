@@ -1,11 +1,10 @@
 ---
 title: Button
-description: Button variants from Freedom UI Kit (currently using shadcn placeholder).
+description: Trigger an action or event with a tap.
 ---
 
 <ComponentPreview
-  name="freedom-button-demo"
-  title="Button"
+  name="button-demo"
   description="Primary, secondary, outline, ghost and destructive variants."
 />
 
@@ -20,7 +19,11 @@ pnpm add @freedom/ui-kit
 ```tsx
 import { Button } from "@freedom/ui-kit"
 
-export default function Example() {
-  return <Button variant="primary">Click me</Button>
+export function Example() {
+  return <Button variant="primary">Confirm</Button>
 }
 ```
+
+## Variants
+
+`Button` exposes the variants used across all Boxo partner mini-apps. Use `primary` for the dominant call to action on a screen and at most one `destructive` per view.

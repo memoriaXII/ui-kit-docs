@@ -1,0 +1,26 @@
+---
+title: Card
+description: Surface for grouping related content.
+---
+
+<ComponentPreview name="card-demo" description="Boxo Pass balance card." />
+
+## Usage
+
+```tsx
+import { Card, CardHeader, CardTitle, CardContent, CardFooter, Button } from "@freedom/ui-kit"
+
+export function Example() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Boxo Pass</CardTitle>
+      </CardHeader>
+      <CardContent>12,480 pts</CardContent>
+      <CardFooter>
+        <Button>Redeem</Button>
+      </CardFooter>
+    </Card>
+  )
+}
+```
