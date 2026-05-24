@@ -1,0 +1,40 @@
+---
+title: Setup
+description: Getting started with Freedom UI Kit
+---
+
+Install Freedom UI Kit as a normal npm dependency.
+
+```bash
+pnpm add @freedom/ui-kit @arco-design/mobile-react @arco-design/mobile-utils react react-dom
+```
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) version 18 or later
+- React 18+
+- A bundler that handles CSS and less (Vite, Next.js, etc.)
+
+## Importing styles
+
+Import the base theme stylesheet once at your app entry:
+
+```ts
+import "@freedom/ui-kit/styles.css"
+```
+
+To use a packaged theme, also import the matching theme css:
+
+```ts
+import "@freedom/ui-kit/themes/freedom.css"
+```
+
+## Using a component
+
+```tsx
+import { Button } from "@freedom/ui-kit"
+
+export default function App() {
+  return <Button variant="primary">Hello</Button>
+}
+```

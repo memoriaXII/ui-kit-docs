@@ -1,0 +1,16 @@
+node_modules
+.next
+.turbo
+.contentlayer
+.source
+.fumadocs
+.DS_Store
+.env.local
+*.log
+.cache
+dist
+out
+.swc
+.vercel
+.idea
+.vscode

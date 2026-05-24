@@ -1,0 +1,28 @@
+---
+title: Usage
+description: How to use Freedom UI Kit components in your application.
+---
+
+Freedom UI Kit components are React components imported from `@freedom/ui-kit`. Wrap your app in the theme provider so components pick up the active theme tokens.
+
+```tsx
+import { Button, FreedomThemeProvider } from "@freedom/ui-kit"
+
+export default function App() {
+  return (
+    <FreedomThemeProvider theme="freedom">
+      <Button variant="primary">Hello</Button>
+    </FreedomThemeProvider>
+  )
+}
+```
+
+## Switching themes
+
+`FreedomThemeProvider` accepts any theme exposed via `@freedom/ui-kit/themes/*`. Switching the prop at runtime swaps the active CSS variables.
+
+```tsx
+<FreedomThemeProvider theme="pass-freedom">
+  <App />
+</FreedomThemeProvider>
+```
