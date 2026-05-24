@@ -1,0 +1,29 @@
+{
+  "name": "freedom-ui-kit-docs-preview",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 4001 --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --port 4001"
+  },
+  "dependencies": {
+    "@appboxo/ui-kit": "file:../../freedom-ui-kit",
+    "@arco-design/mobile-react": "^2.34",
+    "@arco-design/mobile-utils": "^2.20",
+    "@tanstack/react-query": "^5.0.0",
+    "i18next": "^23.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "less": "^4.6.4",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.0"
+  }
+}

@@ -1,21 +1,31 @@
 ---
 title: Checkbox
-description: Two-state selection control.
+description: Two-state selection control with kit-specific icon variants.
 ---
 
-<ComponentPreview name="checkbox-demo" description="Single checkbox with label." />
+<ComponentPreview name="checkbox-demo" description="Checked checkbox with label." />
 
 ## Usage
 
+Forwards every Arco Checkbox prop and adds an `iconType` for the kit's custom marks.
+
 ```tsx
-import { Checkbox, Label } from "@freedom/ui-kit"
+import { Checkbox } from "@appboxo/ui-kit"
 
 export function Example() {
   return (
-    <>
-      <Checkbox id="terms" />
-      <Label htmlFor="terms">Accept terms</Label>
-    </>
+    <Checkbox
+      iconType="circle-dot"
+      defaultChecked
+      onChange={(checked) => console.log(checked)}
+    >
+      Accept terms
+    </Checkbox>
   )
 }
 ```
+
+## `iconType`
+
+- `"circle-dot"` — solid filled circle (default)
+- `"circle-outline-dot"` — outlined ring

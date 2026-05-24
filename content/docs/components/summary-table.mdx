@@ -1,0 +1,26 @@
+---
+title: SummaryTable
+description: Key-value list optimised for transaction summaries, order details, and ticket info.
+---
+
+<ComponentPreview name="summary-table-demo" description="Order summary." />
+
+## Usage
+
+```tsx
+import { SummaryTable } from "@appboxo/ui-kit"
+
+export function Example() {
+  return (
+    <SummaryTable
+      rows={[
+        { label: "Subtotal", value: "$120.00" },
+        { label: "Tax", value: "$9.60" },
+        { label: "Total", value: "$129.60", emphasised: true },
+      ]}
+    />
+  )
+}
+```
+
+Set `emphasised: true` on the row that should stand out (typically the total).

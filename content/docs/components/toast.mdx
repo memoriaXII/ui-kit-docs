@@ -1,20 +1,37 @@
 ---
 title: Toast
-description: Brief feedback message at the edge of the screen.
+description: Static API for transient feedback at the top of the screen.
 ---
 
-<ComponentPreview name="toast-demo" description="Trigger a success toast." />
+<ComponentPreview name="toast-demo" description="Trigger an info toast." />
 
 ## Usage
 
+`Toast` is **not a React component**. It exposes two static methods that mount a transient overlay.
+
 ```tsx
-import { toast } from "@freedom/ui-kit"
+import { Toast, PrimaryButton } from "@appboxo/ui-kit"
 
 export function Example() {
   return (
-    <button onClick={() => toast.success("Saved")}>Save</button>
+    <PrimaryButton
+      text="Save"
+      onClick={() => Toast.info("Saved")}
+    />
   )
 }
 ```
 
-Mount the `<Toaster />` once at the root of your app.
+## Methods
+
+| | Visual | Use for |
+|---|---|---|
+| `Toast.info(msg)` | Neutral pill | Confirmations, success messages |
+| `Toast.error(msg)` | Tinted danger pill | Failures, validation errors |
+
+Both auto-dismiss after 2000 ms and anchor to the top of the viewport. Content is rendered via the kit's `Footnote2` typography.
+
+## Theme tokens
+
+Required: `--toast-background`, `--toast-text-color`, `--toast-*`.
+Optional: `--boxo-toast-error-*` (falls back to `--toast-*`).

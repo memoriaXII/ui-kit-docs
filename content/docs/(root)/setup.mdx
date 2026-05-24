@@ -1,40 +1,99 @@
 ---
 title: Setup
-description: Getting started with Freedom UI Kit
+description: Install @appboxo/ui-kit and wire it into your app.
 ---
 
-Install Freedom UI Kit as a normal npm dependency.
+## Install
+
+The package is published on npm as `@rex-taiwan/ui-kit` while the team waits for the official `@appboxo/*` publish token. Use the npm alias syntax so your imports never change:
 
 ```bash
-pnpm add @freedom/ui-kit @arco-design/mobile-react @arco-design/mobile-utils react react-dom
+pnpm add @appboxo/ui-kit@npm:@rex-taiwan/ui-kit
+```
+
+Then add the peer dependencies your app needs:
+
+```bash
+pnpm add react react-dom react-i18next i18next \
+         @arco-design/mobile-react @arco-design/mobile-utils \
+         @tanstack/react-query
+```
+
+Next.js apps also need:
+
+```bash
+pnpm add next next-i18next
+```
+
+## Wire up styles
+
+Order matters — Arco's component CSS must load **before** the kit theme so the kit's `--*` tokens win the cascade:
+
+```ts
+// app entry (main.tsx / _app.tsx)
+import "@arco-design/mobile-react/esm/style"
+import "@appboxo/ui-kit/styles.css"
+import "@appboxo/ui-kit/themes/freedom/theme.css"
+```
+
+## Mandatory host setup
+
+Two side-effects the kit relies on. Run them once at startup before React mounts:
+
+```ts
+// All bundled themes are scoped under #root. Mirror the id on <body>
+// so top-level styles resolve even before React paints.
+document.body.id = "root"
+
+// Arco Mobile is laid out against a 750px artboard with pxtorem(value / 50).
+// Without an explicit root font-size 1rem defaults to 16px and the page
+// renders at ~3x scale on desktop.
+document.documentElement.style.fontSize = "50px"
+```
+
+## Wrap in providers
+
+The kit ships sane no-op defaults, so the minimum host wrapping is just Arco's `ContextProvider`:
+
+```tsx
+import { ContextProvider } from "@arco-design/mobile-react"
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <ContextProvider system="ios" useRtl={false} useDarkMode={false}>
+    <App />
+  </ContextProvider>
+)
+```
+
+For Next.js, also wrap in `<NextUIKitProvider>` so the kit picks up Next's router / link / i18n:
+
+```tsx
+import { NextUIKitProvider } from "@appboxo/ui-kit/next"
+
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <NextUIKitProvider>
+      <Component {...pageProps} />
+    </NextUIKitProvider>
+  )
+}
+```
+
+For Vite / CRA / Astro, pass your own router / translation / Link to `<UIKitProvider>` (or skip it entirely and let the kit use no-ops):
+
+```tsx
+import { UIKitProvider } from "@appboxo/ui-kit"
+import { useTranslation } from "react-i18next"
+
+<UIKitProvider translation={useTranslation}>
+  <App />
+</UIKitProvider>
 ```
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) version 18 or later
+- Node.js 18 or later
 - React 18+
-- A bundler that handles CSS and less (Vite, Next.js, etc.)
+- A bundler that handles CSS (Vite, Next.js, …). LESS is **not** required — every theme ships pre-compiled `theme.css` alongside the `theme.less` source.
 
-## Importing styles
-
-Import the base theme stylesheet once at your app entry:
-
-```ts
-import "@freedom/ui-kit/styles.css"
-```
-
-To use a packaged theme, also import the matching theme css:
-
-```ts
-import "@freedom/ui-kit/themes/freedom.css"
-```
-
-## Using a component
-
-```tsx
-import { Button } from "@freedom/ui-kit"
-
-export default function App() {
-  return <Button variant="primary">Hello</Button>
-}
-```
+See the runnable [`basic-app`](https://github.com/Appboxo/ui-kit/tree/main/examples/basic-app) example for an end-to-end 70-line consumer.

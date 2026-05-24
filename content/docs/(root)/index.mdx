@@ -1,22 +1,29 @@
 ---
-title: Freedom UI Kit
-description: Introduction
+title: Appboxo UI Kit
+description: Themeable, host-agnostic React UI kit for Boxo and partner mini-apps.
 ---
 
-Freedom UI Kit is a themeable, host-agnostic React UI kit built on top of [Arco Design Mobile](https://arco.design/mobile/react) for Boxo and partner mini-apps.
+`@appboxo/ui-kit` is the design system distilled out of the Boxo mini-apps monorepo: typography, layout primitives, form controls and surfaces — themeable through CSS custom properties, host-agnostic by design.
 
-Install via your favourite package manager:
+The kit ships **37 brand themes** (`default` + 36 partner brands) and works in Next.js, Vite, CRA and any environment that runs React 18.
 
-```bash
-pnpm add @freedom/ui-kit
-```
+## What you get
 
-A quick taste of what a component preview looks like in this doc shell:
+- **45+ components** built on Arco Design Mobile (Buttons, Inputs, Card, Drawer, Toast, Tip, DatePicker, …)
+- **Typography scale** (`LargeTitle`, `Title1-3`, `Body1-2`, `Footnote1-2`, `Callout`, `Headline`, `Caption1-3`)
+- **Hooks** (`useDevice`, `useBreakpoint`, `useDarkMode`, `useSafeArea`, …)
+- **Host integration setters** for haptic feedback and native share
+- **Provider context** (`UIKitProvider`) that lets components route / link / translate through whichever host you wire in
+
+## Quick taste
 
 <ComponentPreview
-  name="freedom-button-demo"
-  title="Button"
-  description="Primary, secondary, outline and ghost button variants."
+  name="button-demo"
+  description="PrimaryButton / SecondaryButton variants from @appboxo/ui-kit."
 />
 
-This page is a stripped-down clone of [elevenlabs/ui](https://github.com/elevenlabs/ui)'s docs app, kept as a sandbox to evaluate whether to replace Storybook as the public-facing component reference.
+## Status
+
+`0.2.0` — API is stabilizing. Internal apps are being white-labeled onto the kit before external partners onboard.
+
+> The kit is currently published as [`@rex-taiwan/ui-kit`](https://www.npmjs.com/package/@rex-taiwan/ui-kit) on npm. Use the npm alias install command in [Setup](/docs/setup) so your imports stay `from "@appboxo/ui-kit"`.

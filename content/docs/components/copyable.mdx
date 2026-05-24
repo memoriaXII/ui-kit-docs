@@ -1,0 +1,22 @@
+---
+title: Copyable
+description: Inline text that copies to clipboard on tap, with optional haptic feedback.
+---
+
+<ComponentPreview name="copyable-demo" description="Tap to copy." />
+
+## Usage
+
+```tsx
+import { Copyable } from "@appboxo/ui-kit"
+
+export function Example() {
+  return (
+    <Copyable value="boxo-ABCD-1234">
+      boxo-ABCD-1234
+    </Copyable>
+  )
+}
+```
+
+Uses `react-copy-to-clipboard` under the hood. If a haptic handler is registered via `setHapticHandler`, the kit fires a `"light"` impact on successful copy.

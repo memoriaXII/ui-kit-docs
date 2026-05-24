@@ -1,29 +1,55 @@
 ---
 title: Button
-description: Trigger an action or event with a tap.
+description: Four button variants for the dominant action on a screen and supporting actions around it.
 ---
 
 <ComponentPreview
   name="button-demo"
-  description="Primary, secondary, outline, ghost and destructive variants."
+  description="Primary, secondary, outline and ghost variants."
 />
 
 ## Installation
 
 ```bash
-pnpm add @freedom/ui-kit
+pnpm add @appboxo/ui-kit@npm:@rex-taiwan/ui-kit
 ```
 
 ## Usage
 
+Buttons are **separate exports per variant**. Pass copy via `text` (not children). All variants accept an optional `href` + `replace` that route through `<UIKitLink>` (Next's `<Link>` when wrapped in `<NextUIKitProvider>`, plain `<a>` otherwise).
+
 ```tsx
-import { Button } from "@freedom/ui-kit"
+import {
+  PrimaryButton,
+  SecondaryButton,
+  TertiaryButton,
+  QuaternaryButton,
+} from "@appboxo/ui-kit"
 
 export function Example() {
-  return <Button variant="primary">Confirm</Button>
+  return (
+    <>
+      <PrimaryButton text="Continue" onClick={() => {}} />
+      <SecondaryButton text="Skip" />
+      <TertiaryButton text="More" />
+      <QuaternaryButton text="Filter" />
+
+      {/* As a link */}
+      <PrimaryButton text="Open" href="/checkout" />
+    </>
+  )
 }
 ```
 
 ## Variants
 
-`Button` exposes the variants used across all Boxo partner mini-apps. Use `primary` for the dominant call to action on a screen and at most one `destructive` per view.
+| Component | Use for |
+|---|---|
+| `PrimaryButton` | The single dominant call-to-action on a screen |
+| `SecondaryButton` | Supporting action sitting beside primary (e.g. Skip / Cancel) |
+| `TertiaryButton` | Inline action inside a card or list row |
+| `QuaternaryButton` | Outline filter / chip-like action |
+
+## Theme tokens
+
+`--button-primary-*`, `--button-default-*`, `--button-ghost-*` (Arco-managed) plus `--tertiary-button-*` and `--quaternary-button-*` (kit-only).

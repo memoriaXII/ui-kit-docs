@@ -1,0 +1,49 @@
+---
+title: Hooks
+description: Reusable React hooks for breakpoints, device detection, safe areas, and scroll state.
+---
+
+The kit exports utility hooks that the components themselves use internally, available for app code to reuse.
+
+## Hooks
+
+| Hook | Use for |
+|---|---|
+| `useDevice()` | `react-device-detect` summary (mobile / desktop / iOS / Android booleans) |
+| `useBreakpoint()` | Current breakpoint name + boolean flags |
+| `useDesktopDetection()` | Boolean — `true` on desktop viewports |
+| `useDarkMode()` | Resolved dark mode (system + override) |
+| `useSafeArea()` | `{ top, bottom, left, right }` from CSS env vars |
+| `useScrollTop()` | Scrolls back to top on route change |
+| `useIsScrolled()` | Boolean — `true` once user has scrolled past 0 |
+| `usePlatformVariant()` | Combined platform + dark mode variant string |
+| `useBlurInput()` | Blurs the active text input (closes mobile keyboard) |
+| `useUpdateQuery()` | Shallow update URL query without re-mounting |
+
+## Example
+
+```tsx
+import { useBreakpoint, useDarkMode } from "@appboxo/ui-kit"
+
+export function Example() {
+  const { isMobile } = useBreakpoint()
+  const isDark = useDarkMode()
+
+  return (
+    <div>
+      {isMobile ? "Mobile" : "Desktop"} — {isDark ? "Dark" : "Light"}
+    </div>
+  )
+}
+```
+
+## Host integration setters (not hooks, but related)
+
+```ts
+import { setHapticHandler, setShareFileHandler } from "@appboxo/ui-kit"
+
+setHapticHandler((style) => myHost.haptic(style))
+setShareFileHandler(async (url, name) => myHost.share({ url, name }))
+```
+
+Defaults are no-ops, so calling `triggerHaptic` / `shareFile` from inside a kit component without a registered handler is safe.

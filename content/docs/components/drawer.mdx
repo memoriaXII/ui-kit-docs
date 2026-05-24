@@ -1,27 +1,43 @@
 ---
 title: Drawer
-description: Bottom sheet for confirmations and contextual flows.
+description: Bottom sheet for confirmations, pickers and contextual flows. Wraps Arco's PopupSwiper.
 ---
 
-<ComponentPreview name="drawer-demo" description="Confirm purchase drawer." />
+<ComponentPreview name="drawer-demo" description="Drawer trigger." />
 
 ## Usage
 
 ```tsx
-import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle, Button } from "@freedom/ui-kit"
+import { Drawer, Flex, PrimaryButton, SecondaryButton } from "@appboxo/ui-kit"
 
 export function Example() {
+  const [open, setOpen] = useState(false)
+
   return (
-    <Drawer>
-      <DrawerTrigger asChild>
-        <Button>Open</Button>
-      </DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader>
-          <DrawerTitle>Confirm</DrawerTitle>
-        </DrawerHeader>
-      </DrawerContent>
-    </Drawer>
+    <>
+      <PrimaryButton text="Confirm purchase" onClick={() => setOpen(true)} />
+      <Drawer close={() => setOpen(false)} visible={open}>
+        <Flex vertical gap={16} className="p-6">
+          <div>Redeem 1,200 points for a $12 voucher?</div>
+          <Flex gap={8}>
+            <PrimaryButton text="Confirm" onClick={() => setOpen(false)} />
+            <SecondaryButton text="Cancel" onClick={() => setOpen(false)} />
+          </Flex>
+        </Flex>
+      </Drawer>
+    </>
   )
 }
 ```
+
+## `hideControl`
+
+Hide the drag handle at the top of the sheet:
+
+```tsx
+<Drawer hideControl visible={open} close={() => setOpen(false)}>
+  {/* ... */}
+</Drawer>
+```
+
+Swipe-down to dismiss is wired automatically.

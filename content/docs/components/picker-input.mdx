@@ -1,0 +1,33 @@
+---
+title: PickerInput
+description: Touch-friendly wheel picker for selecting from a fixed list of options.
+---
+
+## Usage
+
+Wraps Arco's `Picker` with the kit's typography and theming.
+
+```tsx
+import { PickerInput } from "@appboxo/ui-kit"
+
+const options = [
+  { label: "Light", value: "light" },
+  { label: "Dark", value: "dark" },
+  { label: "System", value: "system" },
+]
+
+export function Example() {
+  const [value, setValue] = useState("light")
+
+  return (
+    <PickerInput
+      label="Theme"
+      value={value}
+      options={options}
+      onChange={(next) => setValue(next as string)}
+    />
+  )
+}
+```
+
+See [DatePicker](/docs/components/date-picker) and [TimePicker](/docs/components/time-picker) for date-aware specializations built on this primitive.

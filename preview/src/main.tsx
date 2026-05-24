@@ -1,0 +1,88 @@
+// Arco Mobile's component CSS must load before the kit theme so the
+// kit's --* tokens win the cascade.
+import "@arco-design/mobile-react/esm/style"
+// Inject every brand stylesheet as a raw string at build time. We
+// flip between them at runtime by mutating a single <style> tag,
+// matching the Storybook brand toolbar mechanism used by the kit.
+// (See ~/freedom-ui-kit/.storybook/preview.tsx for the original.)
+
+import React from "react"
+import ReactDOM from "react-dom/client"
+import { ContextProvider } from "@arco-design/mobile-react"
+import { UIKitProvider } from "@appboxo/ui-kit"
+
+import { App } from "./App"
+
+// Build-time inline: every brand's compiled theme.css as a string.
+const BRAND_CSS_MAP: Record<string, string> = Object.fromEntries(
+  Object.entries(
+    import.meta.glob("../../themes/*/theme.css", {
+      eager: true,
+      import: "default",
+      query: "?raw",
+    }) as Record<string, string>
+  )
+    .map(([path, css]) => {
+      const m = path.match(/themes\/([^/]+)\/theme\.css/)
+      return m ? ([m[1], css] as const) : null
+    })
+    .filter((e): e is readonly [string, string] => e !== null)
+)
+
+const ACTIVE_BRAND_STYLE_ID = "__active-brand-theme"
+
+function applyBrand(brand: string) {
+  let el = document.getElementById(
+    ACTIVE_BRAND_STYLE_ID
+  ) as HTMLStyleElement | null
+  if (!el) {
+    el = document.createElement("style")
+    el.id = ACTIVE_BRAND_STYLE_ID
+    document.head.appendChild(el)
+  }
+  el.textContent = BRAND_CSS_MAP[brand] ?? BRAND_CSS_MAP.freedom ?? ""
+}
+
+// Required setup. See troubleshooting.mdx — without these the kit
+// renders at 3x scale and themes don't apply.
+document.body.id = "root"
+document.documentElement.style.fontSize = "50px"
+
+// Resolve initial brand / dark from URL.
+function parseQuery() {
+  const params = new URLSearchParams(window.location.search)
+  return {
+    brand: params.get("brand") ?? "freedom",
+    dark: params.get("dark") === "true",
+  }
+}
+
+const initial = parseQuery()
+applyBrand(initial.brand)
+
+function mount(brand: string, dark: boolean) {
+  applyBrand(brand)
+  document.documentElement.classList.toggle("arco-theme-dark", dark)
+  root.render(
+    <React.StrictMode>
+      <ContextProvider system="ios" useRtl={false} useDarkMode={dark}>
+        <UIKitProvider>
+          <App />
+        </UIKitProvider>
+      </ContextProvider>
+    </React.StrictMode>
+  )
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root")!)
+mount(initial.brand, initial.dark)
+
+// Allow the docs site to drive brand / dark mode from outside the
+// iframe via postMessage.
+window.addEventListener("message", (event) => {
+  const data = event.data
+  if (!data || data.type !== "freedom-preview:update") return
+  const brand: string = data.brand ?? initial.brand
+  const dark: boolean = data.dark ?? initial.dark
+  mount(brand, dark)
+})

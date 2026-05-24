@@ -55,7 +55,9 @@ export function CommandMenu({
     (isComponent: boolean, item: { url: string; name?: React.ReactNode }) => {
       if (isComponent) {
         setSelectedType("component")
-        setCopyPayload(`${packageManager} add @freedom/ui-kit`)
+        setCopyPayload(
+          `${packageManager} add @appboxo/ui-kit@npm:@rex-taiwan/ui-kit`
+        )
       } else {
         setSelectedType("page")
         setCopyPayload("")
@@ -67,7 +69,9 @@ export function CommandMenu({
   const handleBlockHighlight = React.useCallback(
     (_block: { name: string; description: string; categories: string[] }) => {
       setSelectedType("block")
-      setCopyPayload(`${packageManager} add @freedom/ui-kit`)
+      setCopyPayload(
+        `${packageManager} add @appboxo/ui-kit@npm:@rex-taiwan/ui-kit`
+      )
     },
     [setSelectedType, setCopyPayload, packageManager]
   )

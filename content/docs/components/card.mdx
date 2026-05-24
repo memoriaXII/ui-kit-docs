@@ -1,26 +1,39 @@
 ---
 title: Card
-description: Surface for grouping related content.
+description: Plain surface for grouping related content. Compose with Flex + typography to build richer layouts.
 ---
 
-<ComponentPreview name="card-demo" description="Boxo Pass balance card." />
+<ComponentPreview name="card-demo" description="Card with content composed using Flex." />
 
 ## Usage
 
+`Card` is intentionally **just a `<div>` wrapper** — no Header / Body / Footer slots. Compose using `Flex` and typography components.
+
 ```tsx
-import { Card, CardHeader, CardTitle, CardContent, CardFooter, Button } from "@freedom/ui-kit"
+import { Card, Flex, Body1, PrimaryButton } from "@appboxo/ui-kit"
 
 export function Example() {
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Boxo Pass</CardTitle>
-      </CardHeader>
-      <CardContent>12,480 pts</CardContent>
-      <CardFooter>
-        <Button>Redeem</Button>
-      </CardFooter>
+      <Flex vertical gap={12}>
+        <Body1 weight="semibold">Boxo Pass</Body1>
+        <div>12,480 pts</div>
+        <PrimaryButton text="Redeem" />
+      </Flex>
     </Card>
   )
 }
 ```
+
+## `active`
+
+Toggle the "pressed" / selected style:
+
+```tsx
+<Card active>Selected</Card>
+```
+
+## Theme tokens
+
+Required: `--boxo-card-mobile-background`, `--boxo-card-mobile-active-background`.
+Optional (have fallbacks): `--boxo-card-mobile-padding`, `--boxo-card-mobile-border-*`, `--boxo-card-mobile-shadow`.

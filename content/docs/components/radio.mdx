@@ -1,21 +1,33 @@
 ---
 title: Radio
-description: Choose one option from a list.
+description: Pure visual radio mark — bring your own group state.
 ---
 
-<ComponentPreview name="radio-demo" description="Payment method radio group." />
+<ComponentPreview name="radio-demo" description="A radio mark in active state." />
 
 ## Usage
 
+`Radio` is intentionally just the **visual mark** (a circle that fills when active). It does **not** ship a `RadioGroup` — wire your own selection state and place a `Radio` inside each option.
+
 ```tsx
-import { RadioGroup, RadioGroupItem, Label } from "@freedom/ui-kit"
+import { Radio, Flex, TouchCell } from "@appboxo/ui-kit"
+
+const options = ["card", "paypal", "apple"]
 
 export function Example() {
+  const [selected, setSelected] = useState("card")
+
   return (
-    <RadioGroup defaultValue="card">
-      <RadioGroupItem value="card" id="card" />
-      <Label htmlFor="card">Credit card</Label>
-    </RadioGroup>
+    <Flex vertical gap={8}>
+      {options.map((value) => (
+        <TouchCell key={value} onClick={() => setSelected(value)}>
+          <Flex align="center" gap={8}>
+            <Radio active={selected === value} />
+            <span>{value}</span>
+          </Flex>
+        </TouchCell>
+      ))}
+    </Flex>
   )
 }
 ```

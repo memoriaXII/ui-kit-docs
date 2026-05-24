@@ -1,0 +1,22 @@
+---
+title: Placeholder
+description: Empty state for lists / screens with no content.
+---
+
+<ComponentPreview name="placeholder-demo" description="Empty state with title and CTA." />
+
+## Usage
+
+```tsx
+import { Placeholder, PrimaryButton } from "@appboxo/ui-kit"
+
+export function Example() {
+  return (
+    <Placeholder
+      title="No tickets yet"
+      description="Your purchased lounge passes will show up here."
+      action={<PrimaryButton text="Browse lounges" />}
+    />
+  )
+}
+```

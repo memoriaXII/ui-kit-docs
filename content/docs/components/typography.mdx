@@ -1,0 +1,54 @@
+---
+title: Typography
+description: 11 typography components matching the kit's mobile-first scale.
+---
+
+<ComponentPreview name="typography-demo" description="The full type scale." />
+
+## Usage
+
+```tsx
+import {
+  LargeTitle,
+  Title1,
+  Title2,
+  Title3,
+  Headline,
+  Body1,
+  Body2,
+  Callout,
+  Footnote1,
+  Footnote2,
+} from "@appboxo/ui-kit"
+
+export function Example() {
+  return (
+    <>
+      <LargeTitle>Welcome back, Nurs.</LargeTitle>
+      <Title1>Your rewards</Title1>
+      <Body1 weight="semibold">Boxo Pass</Body1>
+      <Body2 color="text-4">12,480 points available</Body2>
+      <Footnote1 color="text-3">~ $124.80 USD</Footnote1>
+    </>
+  )
+}
+```
+
+## Scale
+
+| Component | Approx size | Use for |
+|---|---|---|
+| `LargeTitle` | 34px | Top-of-screen titles |
+| `Title1` / `Title2` / `Title3` | 24 / 20 / 18 | Section headings |
+| `Headline` | 17 | Inline emphasis |
+| `Body1` / `Body2` | 16 / 15 | Default body copy |
+| `Callout` | 15 | Quoted / highlighted body |
+| `Footnote1` / `Footnote2` | 13 / 12 | Captions, helper text |
+
+## `color` and `weight`
+
+Most accept `color` (any `--text-*` token name) and `weight` (`regular` / `medium` / `semibold` / `bold`):
+
+```tsx
+<Body1 color="text-3" weight="medium">Subtle</Body1>
+```

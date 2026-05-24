@@ -1,21 +1,24 @@
 ---
-title: Textarea
-description: Multi-line text input.
+title: TextArea
+description: Multi-line text input (note the capital A).
 ---
 
-<ComponentPreview name="textarea-demo" description="Message textarea." />
+<ComponentPreview name="textarea-demo" description="Multi-line message field." />
 
 ## Usage
 
+Exported as `TextArea` (not `Textarea`). Same `hasError` flag as `Input`.
+
 ```tsx
-import { Textarea, Label } from "@freedom/ui-kit"
+import { TextArea } from "@appboxo/ui-kit"
 
 export function Example() {
   return (
-    <>
-      <Label htmlFor="message">Message</Label>
-      <Textarea id="message" rows={4} />
-    </>
+    <TextArea
+      placeholder="Tell us what happened"
+      rows={4}
+      autoSize={{ minRows: 4, maxRows: 8 }}
+    />
   )
 }
 ```

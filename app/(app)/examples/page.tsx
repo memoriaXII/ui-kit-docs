@@ -20,7 +20,7 @@ import {
 
 const title = "Examples"
 const description =
-  "End-to-end reference apps built with @freedom/ui-kit, mirroring real Boxo partner mini-app shapes."
+  "End-to-end reference apps built with @appboxo/ui-kit, mirroring real Boxo partner mini-app shapes."
 
 export const metadata: Metadata = {
   title,
@@ -40,54 +40,50 @@ type Example = {
 
 const examples: Example[] = [
   {
-    slug: "pass-freedom",
-    name: "Pass Freedom",
+    slug: "basic-app",
+    name: "Basic App",
     description:
-      "Full-fledged loyalty / pass mini-app. Hits stubbed backends, demonstrates auth, lists, transactions and theme switching.",
-    tags: ["Next.js", "Full app", "Stubbed backend"],
-    source:
-      "https://github.com/Appboxo/freedom-ui-kit/tree/main/examples/pass-freedom",
-    run: "pnpm --filter pass-freedom dev",
+      "70-line hello world. The minimum @appboxo/ui-kit consumer that still looks like a real screen.",
+    tags: ["Vite", "Starter"],
+    source: "https://github.com/Appboxo/ui-kit/tree/main/examples/basic-app",
+    run: "cd examples/basic-app && pnpm install && pnpm dev",
   },
   {
     slug: "kitchen-sink",
     name: "Kitchen Sink",
     description:
-      "Every component rendered side by side. Useful for visual regressions and seeing the full API surface at a glance.",
-    tags: ["Vite", "All components"],
-    source:
-      "https://github.com/Appboxo/freedom-ui-kit/tree/main/examples/kitchen-sink",
-    run: "pnpm --filter kitchen-sink dev",
-  },
-  {
-    slug: "basic-app",
-    name: "Basic App",
-    description:
-      "Minimal starter that wires up FreedomThemeProvider, the host shell and a few primitives. Best entry point for a new mini-app.",
-    tags: ["Vite", "Starter"],
-    source:
-      "https://github.com/Appboxo/freedom-ui-kit/tree/main/examples/basic-app",
-    run: "pnpm --filter basic-app dev",
+      "Single-page kit gallery: every component on one page with a brand toolbar (37 themes) and light/dark toggle.",
+    tags: ["Vite", "All components", "Brand toolbar"],
+    source: "https://github.com/Appboxo/ui-kit/tree/main/examples/kitchen-sink",
+    run: "cd examples/kitchen-sink && pnpm install && pnpm dev",
   },
   {
     slug: "freedom-theme",
     name: "Freedom Theme",
     description:
-      "Demonstrates the default Freedom theme across all primitives. Use as a reference when designing new themes.",
+      "Paired example A. Same App.tsx as custom-theme but rendered with the bundled themes/freedom/theme.css.",
     tags: ["Vite", "Theming"],
     source:
-      "https://github.com/Appboxo/freedom-ui-kit/tree/main/examples/freedom-theme",
-    run: "pnpm --filter freedom-theme dev",
+      "https://github.com/Appboxo/ui-kit/tree/main/examples/freedom-theme",
+    run: "cd examples/freedom-theme && pnpm install && pnpm dev",
   },
   {
     slug: "custom-theme",
     name: "Custom Theme",
     description:
-      "Shows how partners override theme tokens to match their own brand without forking the kit.",
-    tags: ["Vite", "Theming", "Partner"],
-    source:
-      "https://github.com/Appboxo/freedom-ui-kit/tree/main/examples/custom-theme",
-    run: "pnpm --filter custom-theme dev",
+      "Paired example B. Same App.tsx but using themes/default + a 30-line my-brand.css overlay (fictional Citrus brand). `diff -r` against freedom-theme shows exactly what BYO theming costs.",
+    tags: ["Vite", "Theming", "BYO brand"],
+    source: "https://github.com/Appboxo/ui-kit/tree/main/examples/custom-theme",
+    run: "cd examples/custom-theme && pnpm install && pnpm dev",
+  },
+  {
+    slug: "pass-freedom",
+    name: "Pass Freedom",
+    description:
+      "Full 11-page mini-app forked from production pass-freedom. All backend / host calls stubbed. Soak test for the kit.",
+    tags: ["Next.js", "Full app", "Mocked backend"],
+    source: "https://github.com/Appboxo/ui-kit/tree/main/examples/pass-freedom",
+    run: "cd examples/pass-freedom && pnpm install && pnpm dev",
   },
 ]
 

@@ -1,0 +1,35 @@
+---
+title: TouchCell
+description: Tappable row with proper mobile touch feedback. Use for list items, settings entries, picker triggers.
+---
+
+<ComponentPreview name="touch-cell-demo" description="Two tappable rows." />
+
+## Usage
+
+```tsx
+import { TouchCell, Flex, Body1, Footnote1 } from "@appboxo/ui-kit"
+
+export function Example() {
+  return (
+    <Flex vertical gap={4}>
+      <TouchCell onClick={() => console.log("notifications")}>
+        <Flex justify="between" align="center">
+          <Body1>Notifications</Body1>
+          <Footnote1 color="text-3">On</Footnote1>
+        </Flex>
+      </TouchCell>
+      <TouchCell onClick={() => console.log("language")}>
+        <Flex justify="between" align="center">
+          <Body1>Language</Body1>
+          <Footnote1 color="text-3">English</Footnote1>
+        </Flex>
+      </TouchCell>
+    </Flex>
+  )
+}
+```
+
+## Theme tokens
+
+`--cell-*` (required, Arco-managed).

@@ -1,0 +1,27 @@
+---
+title: Markdown
+description: Render markdown strings using the kit's typography components so headings, lists and paragraphs stay on-brand.
+---
+
+<ComponentPreview name="markdown-demo" description="Rendered markdown snippet." />
+
+## Usage
+
+```tsx
+import { Markdown } from "@appboxo/ui-kit"
+
+const content = `
+## Terms
+
+By tapping continue you agree to our [terms](/terms) and [privacy policy](/privacy).
+
+- Points expire after 12 months
+- Redemption is final
+`
+
+export function Example() {
+  return <Markdown>{content}</Markdown>
+}
+```
+
+Backed by `react-markdown` with the kit's typography wired into each element. Use this when copy comes from a CMS or i18n catalog and you don't want to hand-render JSX.

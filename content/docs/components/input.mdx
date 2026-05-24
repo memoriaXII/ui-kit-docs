@@ -1,21 +1,41 @@
 ---
 title: Input
-description: Single line text field with label support.
+description: Single-line text field built on Arco Mobile's Input.
 ---
 
-<ComponentPreview name="input-demo" description="Email field with label." />
+<ComponentPreview name="input-demo" description="Input with label." />
 
 ## Usage
 
+`Input` is a thin wrapper that disables Arco's border, manages active state, and adds a `hasError` flag.
+
 ```tsx
-import { Input, Label } from "@freedom/ui-kit"
+import { Input, Body1 } from "@appboxo/ui-kit"
 
 export function Example() {
+  const [value, setValue] = useState("")
+
   return (
     <>
-      <Label htmlFor="email">Email</Label>
-      <Input id="email" type="email" />
+      <Body1 weight="semibold">Your name</Body1>
+      <Input
+        value={value}
+        onChange={(_e, next) => setValue(next)}
+        placeholder="e.g. Nurs"
+      />
     </>
   )
 }
 ```
+
+The `onChange` signature is Arco's: `(event, value) => void`.
+
+## Error state
+
+```tsx
+<Input value={phone} onChange={(_e, v) => setPhone(v)} hasError />
+```
+
+## Theme tokens
+
+`--boxo-input-disabled-background` (required), `--boxo-input-border-*`, `--boxo-input-background`, `--boxo-input-active-border-color` (optional).

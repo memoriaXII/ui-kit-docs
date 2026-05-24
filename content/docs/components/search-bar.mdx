@@ -1,16 +1,32 @@
 ---
-title: Search Bar
-description: Search input with a leading icon.
+title: SearchBar
+description: Search input forwarding to Arco's SearchBar with active-state styling.
 ---
 
-<ComponentPreview name="search-bar-demo" description="Search rewards input." />
+<ComponentPreview name="search-bar-demo" description="Search input." />
 
 ## Usage
 
+`forwardRef` exposes Arco's `SearchBarRef` for imperative focus / blur.
+
 ```tsx
-import { SearchBar } from "@freedom/ui-kit"
+import { SearchBar } from "@appboxo/ui-kit"
+import { useRef } from "react"
+import type { SearchBarRef } from "@arco-design/mobile-react/cjs/search-bar"
 
 export function Example() {
-  return <SearchBar placeholder="Search rewards…" />
+  const ref = useRef<SearchBarRef>(null)
+
+  return (
+    <SearchBar
+      ref={ref}
+      placeholder="Search rewards, stores, brands…"
+      onChange={(value) => console.log(value)}
+    />
+  )
 }
 ```
+
+## Theme tokens
+
+`--search-bar-input-wrapper-background-color`, `--search-bar-*` (all required).

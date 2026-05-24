@@ -23,6 +23,9 @@ export function ComponentPreviewTabs({
 }) {
   const [tab, setTab] = React.useState("preview")
   const { brand } = useBrand()
+  // Iframe previews don't have a serialisable React source — they live in
+  // the sibling Vite app. Hide the Code tab in that case.
+  const showCode = !hideCode && source != null
 
   return (
     <div
@@ -36,7 +39,7 @@ export function ComponentPreviewTabs({
         onValueChange={setTab}
       >
         <div className="flex items-center justify-between">
-          {!hideCode && (
+          {showCode && (
             <TabsList className="justify-start gap-4 rounded-none bg-transparent px-2 md:px-0">
               <TabsTrigger
                 value="preview"

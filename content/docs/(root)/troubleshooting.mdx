@@ -1,37 +1,79 @@
 ---
 title: Troubleshooting
-description: Common issues when integrating Freedom UI Kit.
+description: Common issues when integrating @appboxo/ui-kit.
 ---
 
-## Components render unstyled
+## Everything renders at 3x scale on desktop
 
-Make sure you have imported the kit's base stylesheet at your app entry:
-
-```ts
-import "@freedom/ui-kit/styles.css"
-```
-
-If you are also using a packaged theme, import its CSS too:
+Arco Mobile is laid out against a 750px artboard. The kit's styles use `pxtorem(value / 50)` so 1rem must equal 50px:
 
 ```ts
-import "@freedom/ui-kit/themes/freedom.css"
+document.documentElement.style.fontSize = "50px"
 ```
 
-## Less files fail to compile
+Without this `1rem = 16px` and the whole page balloons.
 
-The kit ships less sources. Configure your bundler to handle `.less`:
+## Theme tokens look wrong
 
-- Vite: add `vite-plugin-less` or `@arco-design/vite-plugin-less` (already in our examples)
-- Next.js: use `next-with-less` or transpile via `next-transpile-modules`
+All bundled themes scope tokens under `#root`. Mirror the id on `<body>` so they actually apply:
 
-## arco-design components are missing
+```ts
+document.body.id = "root"
+```
 
-`@arco-design/mobile-react` and `@arco-design/mobile-utils` are peer dependencies. Install them yourself in your app:
+## Tailwind / your own reset is overriding the kit
 
-```bash
-pnpm add @arco-design/mobile-react @arco-design/mobile-utils
+Load Arco's component CSS **before** the kit's theme:
+
+```ts
+import "@arco-design/mobile-react/esm/style"
+import "@appboxo/ui-kit/styles.css"
+import "@appboxo/ui-kit/themes/freedom/theme.css"
+```
+
+The order matters: the kit's `--*` tokens must win the cascade.
+
+## `ReferenceError: process is not defined` in a Vite app
+
+You're on a pre-0.2 kit version that hard-imported `next/router`. Upgrade to `0.2.0+` — the kit is now host-agnostic and only pulls in Next code when you explicitly import from `@appboxo/ui-kit/next`.
+
+## `<DatePicker>` / `<TimePicker>` labels are untranslated
+
+These pickers call `useUIKitTranslation` internally. Wrap your tree in `<UIKitProvider translation={...}>` (or `<NextUIKitProvider>` for Next) and pass a real `useTranslation` hook.
+
+## `import { Button } from "@appboxo/ui-kit"` fails
+
+There is no generic `Button`. Use the variant exports:
+
+```tsx
+import {
+  PrimaryButton,
+  SecondaryButton,
+  TertiaryButton,
+  QuaternaryButton,
+} from "@appboxo/ui-kit"
+```
+
+## `Toast.success` does not exist
+
+The Toast API exposes two methods, both static — they are **not** React components:
+
+```ts
+import { Toast } from "@appboxo/ui-kit"
+
+Toast.info("Saved")
+Toast.error("Failed")
+```
+
+## Bundler can't process `.less`
+
+Every theme also ships pre-compiled CSS. Import that instead:
+
+```ts
+// instead of: import "@appboxo/ui-kit/themes/freedom/theme.less"
+import "@appboxo/ui-kit/themes/freedom/theme.css"
 ```
 
 ## Still stuck?
 
-Open an issue on [GitHub](https://github.com/Appboxo/freedom-ui-kit/issues).
+Open an issue at [Appboxo/ui-kit](https://github.com/Appboxo/ui-kit/issues).

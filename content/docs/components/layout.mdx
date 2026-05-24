@@ -1,0 +1,38 @@
+---
+title: Layout
+description: Legacy full-screen layout — top nav bar, scrollable content area, sticky footer.
+---
+
+## Usage
+
+```tsx
+import { Layout, Footer, PrimaryButton } from "@appboxo/ui-kit"
+
+export function Example() {
+  return (
+    <Layout
+      navBarProps={{
+        title: "Checkout",
+        showLeftButton: true,
+        onClickLeftButton: () => window.history.back(),
+      }}
+      footer={
+        <Footer>
+          <PrimaryButton text="Confirm" />
+        </Footer>
+      }
+    >
+      {/* scrollable content */}
+    </Layout>
+  )
+}
+```
+
+## When to use
+
+- `Layout` — the original full-screen app shell. Has built-in scroll state, loading screens, top nav.
+- [`ResponsiveLayout`](/docs/components/responsive-layout) — the newer responsive shell that adds a desktop layer (sidebars, max-width content).
+
+## Types
+
+`Layout`, `LayoutProps`, `NavBarProps`, `ScreenStateProps` are all exported. `combineHooksResultsToLayoutScreenState` helps merge multiple data-loading hooks into Layout's screen state.

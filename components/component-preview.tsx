@@ -2,9 +2,11 @@ import Image from "next/image"
 
 import { BRANDS, type Swatch } from "@/lib/brands"
 import { getBrandSwatches } from "@/lib/brands.server"
+import { resolveIframeSlug } from "@/lib/iframe-previews"
 import { BrandSwatches } from "@/components/brand-swatches"
 import { ComponentPreviewTabs } from "@/components/component-preview-tabs"
 import { ComponentSource } from "@/components/component-source"
+import { IframePreview } from "@/components/iframe-preview"
 import { Index } from "@/registry/__index__"
 
 const swatchesByBrand: Record<string, Swatch[]> = Object.fromEntries(
@@ -27,16 +29,17 @@ export function ComponentPreview({
   type?: "block" | "component" | "example"
   marginOff?: boolean
 }) {
+  const iframeSlug = resolveIframeSlug(name)
   const Component = Index[name]?.component
 
-  if (!Component) {
+  if (!iframeSlug && !Component) {
     return (
       <p className="text-muted-foreground text-sm">
         Component{" "}
         <code className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm">
           {name}
         </code>{" "}
-        not found in registry.
+        not found in registry or iframe-previews.
       </p>
     )
   }
@@ -65,6 +68,12 @@ export function ComponentPreview({
     )
   }
 
+  const previewBody = iframeSlug ? (
+    <IframePreview slug={iframeSlug} />
+  ) : Component ? (
+    <Component />
+  ) : null
+
   return (
     <div className="flex flex-col gap-2">
       <BrandSwatches swatchesByBrand={swatchesByBrand} />
@@ -72,8 +81,8 @@ export function ComponentPreview({
         className={className}
         align={align}
         hideCode={hideCode}
-        component={<Component />}
-        source={<ComponentSource name={name} collapsible={false} />}
+        component={previewBody}
+        source={Component ? <ComponentSource name={name} collapsible={false} /> : null}
         marginOff={marginOff}
         {...props}
       />

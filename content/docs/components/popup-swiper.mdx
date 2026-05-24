@@ -1,0 +1,29 @@
+---
+title: PopupSwiper
+description: Lower-level swipe-dismissable popup. Drawer is built on top of this.
+---
+
+## Usage
+
+`PopupSwiper` is re-exported from Arco for cases where `Drawer`'s defaults aren't right (custom swipe directions, full-screen popups, etc.).
+
+```tsx
+import { PopupSwiper } from "@appboxo/ui-kit"
+
+export function Example() {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <PopupSwiper
+      visible={open}
+      close={() => setOpen(false)}
+      direction="bottom"
+      allowSwipeDirections={["bottom"]}
+    >
+      <div className="p-6">Custom content</div>
+    </PopupSwiper>
+  )
+}
+```
+
+For the standard bottom-sheet confirmation pattern, prefer [Drawer](/docs/components/drawer).

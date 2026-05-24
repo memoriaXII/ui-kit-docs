@@ -1,6 +1,6 @@
 ---
-title: Date Picker
-description: Touch-friendly date selection.
+title: DatePicker
+description: Wheel-style date picker. Requires a UIKitProvider in the tree for i18n labels.
 ---
 
 <ComponentPreview name="date-picker-demo" description="Date picker trigger." />
@@ -8,9 +8,26 @@ description: Touch-friendly date selection.
 ## Usage
 
 ```tsx
-import { DatePicker } from "@freedom/ui-kit"
+import { DatePicker } from "@appboxo/ui-kit"
 
 export function Example() {
-  return <DatePicker placeholder="Pick a date" />
+  const [value, setValue] = useState<number | null>(null)
+  const today = Date.now()
+  const inOneYear = today + 365 * 24 * 60 * 60 * 1000
+
+  return (
+    <DatePicker
+      value={value}
+      minTs={today}
+      maxTs={inOneYear}
+      onChange={(ts) => setValue(ts)}
+    />
+  )
 }
 ```
+
+`value` is a unix ms timestamp. Labels are formatted via `date-fns` (`dd MMM yyyy`).
+
+## Requires UIKitProvider
+
+The picker reads `useUIKitTranslation()` for the OK / cancel labels. Wrap the tree in `<NextUIKitProvider>` (Next) or `<UIKitProvider translation={useTranslation}>` (Vite / CRA) so translations resolve correctly.

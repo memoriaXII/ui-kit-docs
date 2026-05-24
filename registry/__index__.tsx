@@ -1,6 +1,10 @@
 // Auto-stub. Maps component name -> { component, files } for
 // ComponentPreview / ComponentSource lookups. Each entry is rendered lazily
 // inside MDX via <ComponentPreview name="..." />.
+//
+// The demos currently use shadcn primitives as visual placeholders. The real
+// @appboxo/ui-kit components are rendered in the iframe preview app at
+// preview:4001 — wired via the "iframe" mode of ComponentPreview.
 
 import * as React from "react"
 
@@ -31,21 +35,28 @@ function example(name: string): RegistryEntry {
 }
 
 export const Index: Record<string, RegistryEntry> = {
-  // Legacy alias used in /docs landing page.
+  // Legacy alias still referenced by the root index.mdx.
   "freedom-button-demo": example("button-demo"),
 
   "button-demo": example("button-demo"),
   "card-demo": example("card-demo"),
   "checkbox-demo": example("checkbox-demo"),
+  "copyable-demo": example("copyable-demo"),
   "date-picker-demo": example("date-picker-demo"),
   "dial-code-selector-demo": example("dial-code-selector-demo"),
   "drawer-demo": example("drawer-demo"),
+  "flex-demo": example("flex-demo"),
   "input-demo": example("input-demo"),
+  "markdown-demo": example("markdown-demo"),
+  "placeholder-demo": example("placeholder-demo"),
   "radio-demo": example("radio-demo"),
   "search-bar-demo": example("search-bar-demo"),
+  "summary-table-demo": example("summary-table-demo"),
   "tabs-demo": example("tabs-demo"),
   "textarea-demo": example("textarea-demo"),
   "time-picker-demo": example("time-picker-demo"),
   "tip-demo": example("tip-demo"),
   "toast-demo": example("toast-demo"),
+  "touch-cell-demo": example("touch-cell-demo"),
+  "typography-demo": example("typography-demo"),
 }

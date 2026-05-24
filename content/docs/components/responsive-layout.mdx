@@ -1,0 +1,31 @@
+---
+title: ResponsiveLayout
+description: Newer adaptive shell with mobile + desktop layers. Replaces Layout in newer mini-apps.
+---
+
+## Usage
+
+```tsx
+import { ResponsiveLayout, Footer, PrimaryButton } from "@appboxo/ui-kit"
+
+export function Example() {
+  return (
+    <ResponsiveLayout
+      navBarProps={{ title: "Profile" }}
+      footer={
+        <Footer>
+          <PrimaryButton text="Save" />
+        </Footer>
+      }
+    >
+      {/* content */}
+    </ResponsiveLayout>
+  )
+}
+```
+
+Picks mobile vs desktop layers automatically via the kit's `useBreakpoint` hook.
+
+## Theme tokens
+
+`--boxo-layout-mobile-padding`, `--boxo-layout-mobile-footer-*` (all required).

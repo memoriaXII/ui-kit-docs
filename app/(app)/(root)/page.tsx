@@ -10,9 +10,9 @@ import {
 } from "@/components/page-header"
 import { Button } from "@/registry/elevenlabs-ui/ui/button"
 
-const title = "Freedom UI Kit"
+const title = "Appboxo UI Kit"
 const description =
-  "A themeable, host-agnostic React UI kit for Boxo and partner mini-apps."
+  "A themeable, host-agnostic React UI kit for Boxo and partner mini-apps. Built on Arco Design Mobile, ships 37 brand themes, works in Next.js / Vite / CRA."
 
 export const dynamic = "force-static"
 export const revalidate = false
@@ -37,7 +37,7 @@ export default function IndexPage() {
           <PageHeaderHeading className="max-w-4xl">
             <Image
               src="/logo-light.svg"
-              alt="Freedom UI Kit"
+              alt="Appboxo UI Kit"
               width={274}
               height={63}
               className="block h-12 w-auto dark:hidden sm:h-16"
@@ -45,7 +45,7 @@ export default function IndexPage() {
             />
             <Image
               src="/logo-dark.svg"
-              alt="Freedom UI Kit"
+              alt="Appboxo UI Kit"
               width={274}
               height={63}
               className="hidden h-12 w-auto dark:block sm:h-16"

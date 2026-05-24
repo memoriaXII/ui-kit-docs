@@ -1,6 +1,6 @@
 ---
-title: Time Picker
-description: Touch-friendly time selection.
+title: TimePicker
+description: Wheel-style time picker, 12h or 24h. Requires a UIKitProvider for i18n.
 ---
 
 <ComponentPreview name="time-picker-demo" description="Time picker trigger." />
@@ -8,9 +8,29 @@ description: Touch-friendly time selection.
 ## Usage
 
 ```tsx
-import { TimePicker } from "@freedom/ui-kit"
+import { TimePicker } from "@appboxo/ui-kit"
 
 export function Example() {
-  return <TimePicker value="09:30" />
+  const [value, setValue] = useState<Date>(new Date())
+
+  return (
+    <TimePicker
+      value={value}
+      format="12h"
+      onChange={(next) => setValue(next)}
+    />
+  )
 }
 ```
+
+## Props
+
+| Prop | Type | Description |
+|---|---|---|
+| `value` | `Date` | Current time |
+| `format` | `"12h" \| "24h"` | Display format |
+| `onChange` | `(date: Date) => void` | Fired on commit |
+
+## Requires UIKitProvider
+
+Same as `DatePicker` — translation is sourced from the host context.

@@ -1,0 +1,34 @@
+---
+title: Flex
+description: Thin Flexbox primitive — vertical / gap / align / justify shortcuts that the rest of the kit composes with.
+---
+
+<ComponentPreview name="flex-demo" description="Vertical stack with gap." />
+
+## Usage
+
+```tsx
+import { Flex, Body1, PrimaryButton } from "@appboxo/ui-kit"
+
+export function Example() {
+  return (
+    <Flex vertical gap={16}>
+      <Body1>Welcome</Body1>
+      <Flex gap={8}>
+        <PrimaryButton text="Continue" />
+        <PrimaryButton text="Skip" />
+      </Flex>
+    </Flex>
+  )
+}
+```
+
+## Props
+
+| Prop | Type | Description |
+|---|---|---|
+| `vertical` | `boolean` | `flex-direction: column` when true |
+| `gap` | `number` | Spacing between children in `px` |
+| `align` | `"start" \| "center" \| "end" \| "stretch"` | `align-items` |
+| `justify` | `"start" \| "center" \| "end" \| "between" \| "around"` | `justify-content` |
+| `className` | `string` | Forwarded to the wrapper div |

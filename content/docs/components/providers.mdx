@@ -1,0 +1,78 @@
+---
+title: Providers
+description: Context providers shipped by the kit — UIKitProvider, NextUIKitProvider, MultiProvider, QueryProvider.
+---
+
+## UIKitProvider
+
+Wires host capabilities (router, link, translation) into the kit. The kit ships sane no-op defaults so this is **optional** for Vite / CRA / Astro consumers.
+
+```tsx
+import { UIKitProvider } from "@appboxo/ui-kit"
+import { useTranslation } from "react-i18next"
+
+<UIKitProvider translation={useTranslation}>
+  <App />
+</UIKitProvider>
+```
+
+Props:
+
+| Prop | Type | Description |
+|---|---|---|
+| `router` | `() => UIKitRouter` | Real router hook (e.g. `useRouter` from `next/router`) |
+| `translation` | `() => { t: (key: string) => string }` | Real translation hook |
+| `Link` | `ComponentType<UIKitLinkProps>` | Real link component (e.g. `next/link`) |
+
+## NextUIKitProvider
+
+Pre-wired for Next.js — installs `next/router`, `next/link` and `next-i18next` automatically.
+
+```tsx
+// pages/_app.tsx
+import { NextUIKitProvider } from "@appboxo/ui-kit/next"
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <NextUIKitProvider>
+      <Component {...pageProps} />
+    </NextUIKitProvider>
+  )
+}
+```
+
+## MultiProvider
+
+Flattens deeply-nested provider trees:
+
+```tsx
+import { MultiProvider, QueryProvider, UIKitProvider } from "@appboxo/ui-kit"
+import { QueryClient } from "@tanstack/react-query"
+
+const providers = [
+  <QueryProvider queryClient={new QueryClient()} />,
+  <UIKitProvider />,
+  // <YourAuthProvider />, ...
+]
+
+<MultiProvider providers={providers}>{children}</MultiProvider>
+```
+
+## QueryProvider
+
+Thin wrapper around `<QueryClientProvider>` from `@tanstack/react-query` with kit defaults.
+
+```tsx
+import { QueryProvider } from "@appboxo/ui-kit"
+import { QueryClient } from "@tanstack/react-query"
+
+<QueryProvider queryClient={new QueryClient()}>{children}</QueryProvider>
+```
+
+## Hooks for the host context
+
+| Hook | Returns |
+|---|---|
+| `useUIKitHost()` | The full host record |
+| `useUIKitRouter()` | The active router |
+| `useUIKitTranslation()` | `{ t }` |
