@@ -11,7 +11,13 @@ export function ComponentsList() {
   }
 
   const list = components.children
-    .filter((c) => c.type === "page" && c.$id !== "components/index")
+    .filter(
+      (c) =>
+        c.type === "page" &&
+        // The folder's own index page (Components) renders this list,
+        // so skip it to avoid a recursive-looking card.
+        c.url !== "/docs/components"
+    )
     .map((c) => ({
       id: c.$id,
       name: typeof c.name === "string" ? c.name : String(c.name),
