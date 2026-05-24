@@ -20,5 +20,3 @@ export const BRANDS = [
 export type BrandSlug = (typeof BRANDS)[number]["slug"]
 
 export const DEFAULT_BRAND: BrandSlug = "freedom"
-
-export type Swatch = { token: string; value: string }

@@ -3,7 +3,7 @@ import "server-only"
 import fs from "node:fs"
 import path from "node:path"
 
-import { BRANDS, type Swatch } from "@/lib/brands"
+import { BRANDS } from "@/lib/brands"
 
 const THEMES_DIR = path.resolve(process.cwd(), "themes")
 
@@ -36,25 +36,3 @@ export function getAllBrandCss(): string {
   )
 }
 
-const SWATCH_TOKENS = [
-  "primary-6",
-  "primary-7",
-  "success-6",
-  "danger-6",
-  "warning-6",
-  "text-5",
-  "fill-1",
-  "fill-white",
-] as const
-
-export function getBrandSwatches(slug: string): Swatch[] {
-  const file = path.join(THEMES_DIR, slug, "theme.css")
-  if (!fs.existsSync(file)) return []
-  const raw = fs.readFileSync(file, "utf-8")
-
-  return SWATCH_TOKENS.flatMap((token) => {
-    const re = new RegExp(`--${token}:\\s*(#[0-9a-fA-F]{3,8}|rgba?\\([^)]+\\))`)
-    const m = raw.match(re)
-    return m ? [{ token, value: m[1] }] : []
-  })
-}
