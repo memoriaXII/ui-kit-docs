@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "pnpm fumadocs:compile",
     "dev": "next dev --turbopack --port 4000",
+    "prebuild": "pnpm fumadocs:compile",
     "build": "next build",
     "start": "next start --port 4000",
     "lint": "eslint .",
@@ -12,6 +14,7 @@
     "typecheck": "tsc --noEmit",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
+    "fumadocs:compile": "fumadocs-mdx && node scripts/compile-source-config.mjs",
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
@@ -93,6 +96,7 @@
     "@types/node": "^20",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
+    "esbuild": "^0.28.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
     "prettier": "^3.4.2",
@@ -102,6 +106,14 @@
     "typescript": "^5",
     "unist-builder": "3.0.0",
     "unist-util-visit": "^4.1.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "unrs-resolver",
+      "msw"
+    ]
   },
   "prettier": {
     "endOfLine": "lf",
