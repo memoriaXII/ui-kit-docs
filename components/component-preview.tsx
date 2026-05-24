@@ -1,8 +1,15 @@
 import Image from "next/image"
 
+import { BRANDS, type Swatch } from "@/lib/brands"
+import { getBrandSwatches } from "@/lib/brands.server"
+import { BrandSwatches } from "@/components/brand-swatches"
 import { ComponentPreviewTabs } from "@/components/component-preview-tabs"
 import { ComponentSource } from "@/components/component-source"
 import { Index } from "@/registry/__index__"
+
+const swatchesByBrand: Record<string, Swatch[]> = Object.fromEntries(
+  BRANDS.map((b) => [b.slug, getBrandSwatches(b.slug)])
+)
 
 export function ComponentPreview({
   name,
@@ -59,14 +66,17 @@ export function ComponentPreview({
   }
 
   return (
-    <ComponentPreviewTabs
-      className={className}
-      align={align}
-      hideCode={hideCode}
-      component={<Component />}
-      source={<ComponentSource name={name} collapsible={false} />}
-      marginOff={marginOff}
-      {...props}
-    />
+    <div className="flex flex-col gap-2">
+      <BrandSwatches swatchesByBrand={swatchesByBrand} />
+      <ComponentPreviewTabs
+        className={className}
+        align={align}
+        hideCode={hideCode}
+        component={<Component />}
+        source={<ComponentSource name={name} collapsible={false} />}
+        marginOff={marginOff}
+        {...props}
+      />
+    </div>
   )
 }

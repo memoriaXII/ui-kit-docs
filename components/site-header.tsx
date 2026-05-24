@@ -2,6 +2,7 @@ import Link from "next/link"
 
 import { siteConfig } from "@/lib/config"
 import { source } from "@/lib/source"
+import { BrandSwitcher } from "@/components/brand-switcher"
 import { CommandMenu } from "@/components/command-menu"
 import { GitHubLink } from "@/components/github-link"
 import { Icons } from "@/components/icons"
@@ -48,6 +49,7 @@ export function SiteHeader() {
               orientation="vertical"
               className="ml-2 hidden lg:block"
             />
+            <BrandSwitcher />
             <GitHubLink />
 
             <ModeSwitcher />

@@ -1,6 +1,5 @@
-import Link from "next/link"
-
 import { source } from "@/lib/source"
+import { ComponentsListClient } from "@/components/components-list-client"
 
 export function ComponentsList() {
   const components = source.pageTree.children.find(
@@ -8,24 +7,16 @@ export function ComponentsList() {
   )
 
   if (components?.type !== "folder") {
-    return
+    return null
   }
 
-  const list = components.children.filter(
-    (component) => component.type === "page"
-  )
+  const list = components.children
+    .filter((c) => c.type === "page" && c.$id !== "components/index")
+    .map((c) => ({
+      id: c.$id,
+      name: typeof c.name === "string" ? c.name : String(c.name),
+      url: c.url,
+    }))
 
-  return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 lg:gap-x-16 lg:gap-y-6 xl:gap-x-20">
-      {list.map((component) => (
-        <Link
-          key={component.$id}
-          href={component.url}
-          className="text-lg font-medium underline-offset-4 hover:underline md:text-base"
-        >
-          {component.name}
-        </Link>
-      ))}
-    </div>
-  )
+  return <ComponentsListClient list={list} />
 }

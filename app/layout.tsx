@@ -1,11 +1,13 @@
 import type { Metadata } from "next"
 
+import { getAllBrandCss } from "@/lib/brands.server"
 import { META_THEME_COLORS, siteConfig } from "@/lib/config"
 import { fontVariables } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { LayoutProvider } from "@/hooks/use-layout"
 import { ActiveThemeProvider } from "@/components/active-theme"
 import { Analytics } from "@/components/analytics"
+import { BrandProvider } from "@/components/brand-context"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/registry/elevenlabs-ui/ui/sonner"
@@ -42,11 +44,6 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
   },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
 }
 
 export default function RootLayout({
@@ -54,6 +51,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const brandCss = getAllBrandCss()
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -72,6 +71,10 @@ export default function RootLayout({
           }}
         />
         <meta name="theme-color" content={META_THEME_COLORS.light} />
+        <style
+          id="freedom-brand-themes"
+          dangerouslySetInnerHTML={{ __html: brandCss }}
+        />
       </head>
       <body
         className={cn(
@@ -82,10 +85,12 @@ export default function RootLayout({
         <ThemeProvider>
           <LayoutProvider>
             <ActiveThemeProvider>
-              {children}
-              <TailwindIndicator />
-              <Toaster position="top-center" />
-              <Analytics />
+              <BrandProvider>
+                {children}
+                <TailwindIndicator />
+                <Toaster position="top-center" />
+                <Analytics />
+              </BrandProvider>
             </ActiveThemeProvider>
           </LayoutProvider>
         </ThemeProvider>

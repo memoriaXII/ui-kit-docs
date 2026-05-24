@@ -3,6 +3,7 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { useBrand } from "@/components/brand-context"
 import { Tabs, TabsList, TabsTrigger } from "@/registry/elevenlabs-ui/ui/tabs"
 
 export function ComponentPreviewTabs({
@@ -21,10 +22,12 @@ export function ComponentPreviewTabs({
   marginOff?: boolean
 }) {
   const [tab, setTab] = React.useState("preview")
+  const { brand } = useBrand()
 
   return (
     <div
       className={cn("group relative mt-4 mb-12 flex flex-col gap-2", className)}
+      data-freedom-brand={brand}
       {...props}
     >
       <Tabs
