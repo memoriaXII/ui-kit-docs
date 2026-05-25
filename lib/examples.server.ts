@@ -23,15 +23,41 @@ const SKIP_FILES = new Set([
   "package-lock.json",
 ])
 
-async function walk(absDir: string, relDir: string): Promise<ExampleFileNode[]> {
+/**
+ * Directories we hide from the docs file tree entirely. These are runtime
+ * assets (locale bundles, lottie animations, images) that the consumer
+ * doesn't need to read source for. The kit's pass-freedom example ships
+ * a 28MB confetti animation JSON — pre-highlighting it ballooned the
+ * static page payload past Vercel's 19MB ISR limit.
+ */
+const SKIP_DIR_NAMES = new Set([
+  "animations",
+  "locales",
+  "fonts",
+])
+
+/** Hard cap per file — anything bigger is shown in the tree but its
+ * contents are skipped so the page payload stays bounded. */
+const MAX_FILE_BYTES = 64 * 1024 // 64 KB
+
+async function walk(
+  absDir: string,
+  relDir: string,
+  insidePublic = false
+): Promise<ExampleFileNode[]> {
   const entries = await fs.readdir(absDir, { withFileTypes: true })
   const out: ExampleFileNode[] = []
   for (const entry of entries) {
     if (SKIP_FILES.has(entry.name) || entry.name.startsWith(".")) continue
+    // Hide asset-heavy directories. `public/` itself is allowed (so e.g.
+    // `public/favicon.ico` shows up), but any nested SKIP_DIR_NAMES is
+    // dropped — that's where the multi-MB JSON lottie files live.
+    if (SKIP_DIR_NAMES.has(entry.name)) continue
     const relPath = path.join(relDir, entry.name)
     const absPath = path.join(absDir, entry.name)
     if (entry.isDirectory()) {
-      const children = await walk(absPath, relPath)
+      const isPublic = insidePublic || entry.name === "public"
+      const children = await walk(absPath, relPath, isPublic)
       if (children.length > 0) {
         out.push({ type: "dir", name: entry.name, path: relPath, children })
       }
@@ -86,6 +112,20 @@ export async function getExampleFile(
   if (!abs.startsWith(path.join(EXAMPLES_DIR, slug) + path.sep)) return null
   const ext = path.extname(relPath).toLowerCase()
   if (!TEXT_EXT.has(ext) && path.basename(relPath) !== "package.json") {
+    return null
+  }
+  // Size cap so a single multi-MB JSON can't blow past Vercel's static
+  // page size limit. The tree still lists the file; the viewer just
+  // shows a stub asking the reader to open it on GitHub.
+  try {
+    const stat = await fs.stat(abs)
+    if (stat.size > MAX_FILE_BYTES) {
+      return {
+        content: `// File is ${(stat.size / 1024).toFixed(0)} KB — too large to inline.\n// View the full source on GitHub.\n`,
+        language: "ts",
+      }
+    }
+  } catch {
     return null
   }
   try {
