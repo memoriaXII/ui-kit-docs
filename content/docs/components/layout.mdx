@@ -5,15 +5,15 @@ description: Legacy full-screen layout — top nav bar, scrollable content area,
 
 ## Default
 
-`Layout` is the original full-screen app shell. Has built-in scroll state, loading screens, top nav, sticky footer. Showcased here inside a phone-frame mock so the demo reads as a screen.
+`Layout` is the original full-screen app shell. Has built-in scroll state, loading screens, top nav, sticky footer. Defaults to a mobile viewport — use the device switcher in the preview to see how it adapts.
 
-<ComponentPreview name="layout-default" />
+<ComponentPreview name="layout-default" device="mobile" />
 
 ## With loading state
 
 Pass `screenState={{ isLoading: true }}` + a `loadingNode={<LayoutLoading />}` for the initial render of a route.
 
-<ComponentPreview name="layout-loading" />
+<ComponentPreview name="layout-loading" device="mobile" />
 
 ## When to use
 
