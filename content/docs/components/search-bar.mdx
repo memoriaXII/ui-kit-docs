@@ -3,30 +3,24 @@ title: SearchBar
 description: Search input forwarding to Arco's SearchBar with active-state styling.
 ---
 
-<ComponentPreview name="search-bar-demo" description="Search input." />
+## Empty
 
-## Usage
+Placeholder-only state.
 
-`forwardRef` exposes Arco's `SearchBarRef` for imperative focus / blur.
+<ComponentPreview name="search-bar-empty" />
 
-```tsx
-import { SearchBar } from "@appboxo/ui-kit"
-import { useRef } from "react"
-import type { SearchBarRef } from "@arco-design/mobile-react/cjs/search-bar"
+## With value
 
-export function Example() {
-  const ref = useRef<SearchBarRef>(null)
+A clear button appears automatically once there's content.
 
-  return (
-    <SearchBar
-      ref={ref}
-      placeholder="Search rewards, stores, brands…"
-      onChange={(value) => console.log(value)}
-    />
-  )
-}
+<ComponentPreview name="search-bar-filled" />
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```
 
 ## Theme tokens
 
-`--search-bar-input-wrapper-background-color`, `--search-bar-*` (all required).
+`--search-bar-input-wrapper-background-color`, `--search-bar-*`.

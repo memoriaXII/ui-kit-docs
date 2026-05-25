@@ -9,30 +9,11 @@ Buttons are **separate exports per variant**. Pick the dominant one per screen �
 
 <ComponentPreview name="button-variants" />
 
-```tsx
-import {
-  PrimaryButton,
-  SecondaryButton,
-  TertiaryButton,
-  QuaternaryButton,
-} from "@appboxo/ui-kit"
-
-<PrimaryButton text="Primary" onClick={() => {}} />
-<SecondaryButton text="Secondary" />
-<TertiaryButton text="More" />
-<QuaternaryButton text="Filter" />
-```
-
 ## As a link
 
 Pass `href` and the button renders inside `<UIKitLink>` — that resolves to `next/link` when wrapped in `<NextUIKitProvider>`, a plain `<a>` otherwise. `replace` controls history vs push.
 
 <ComponentPreview name="button-link" />
-
-```tsx
-<PrimaryButton text="Open checkout" href="/checkout" />
-<SecondaryButton text="View terms" href="/terms" replace />
-```
 
 ## Disabled
 
@@ -40,19 +21,11 @@ Pass `disabled` — forwarded straight to Arco.
 
 <ComponentPreview name="button-disabled" />
 
-```tsx
-<PrimaryButton text="Disabled" disabled />
-```
-
 ## Loading
 
 Pass `loading` and the label is swapped for a spinner. Use during async actions to block double-submits.
 
 <ComponentPreview name="button-loading" />
-
-```tsx
-<PrimaryButton text="Save" loading={isSaving} onClick={save} />
-```
 
 ## Installation
 

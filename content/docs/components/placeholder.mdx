@@ -3,20 +3,20 @@ title: Placeholder
 description: Empty state for lists / screens with no content.
 ---
 
-<ComponentPreview name="placeholder-demo" description="Empty state with title and CTA." />
+## Full
 
-## Usage
+Title + supporting copy + CTA. The standard empty-list state.
 
-```tsx
-import { Placeholder, PrimaryButton } from "@appboxo/ui-kit"
+<ComponentPreview name="placeholder-full" />
 
-export function Example() {
-  return (
-    <Placeholder
-      title="No tickets yet"
-      description="Your purchased lounge passes will show up here."
-      action={<PrimaryButton text="Browse lounges" />}
-    />
-  )
-}
+## Title only
+
+Use for terse states where the surrounding context already explains why nothing is there.
+
+<ComponentPreview name="placeholder-title-only" />
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```

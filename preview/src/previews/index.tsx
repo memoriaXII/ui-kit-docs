@@ -1,3 +1,8 @@
+// Each preview is mounted at /<slug> in the preview app and iframed
+// into the docs site via <ComponentPreview name="<slug>" />. Adding a
+// new variant = drop a *.tsx in this folder, re-export it from the
+// matching umbrella file, and register it here + in lib/iframe-previews.ts.
+
 import {
   ButtonDisabledPreview,
   ButtonLinkPreview,
@@ -5,49 +10,194 @@ import {
   ButtonPreview,
   ButtonVariantsPreview,
 } from "./button"
-import { CardPreview } from "./card"
-import { CheckboxPreview } from "./checkbox"
-import { CopyablePreview } from "./copyable"
+import {
+  CardDefaultPreview,
+  CardFormPreview,
+  CardPreview,
+  CardSelectablePreview,
+  CardStatPreview,
+} from "./card"
+import {
+  CheckboxDisabledPreview,
+  CheckboxOutlinePreview,
+  CheckboxPreview,
+  CheckboxSolidPreview,
+} from "./checkbox"
+import { CopyableInlinePreview, CopyableLongPreview, CopyablePreview } from "./copyable"
 import { DatePickerPreview } from "./date-picker"
 import { DialCodeSelectorPreview } from "./dial-code-selector"
-import { DrawerPreview } from "./drawer"
-import { FlexPreview } from "./flex"
-import { InputPreview } from "./input"
-import { PlaceholderPreview } from "./placeholder"
-import { RadioPreview } from "./radio"
-import { SearchBarPreview } from "./search-bar"
-import { SummaryTablePreview } from "./summary-table"
-import { TextareaPreview } from "./textarea"
-import { TimePickerPreview } from "./time-picker"
-import { TipPreview } from "./tip"
-import { ToastPreview } from "./toast"
-import { TouchCellPreview } from "./touch-cell"
-import { TypographyPreview } from "./typography"
+import {
+  DrawerConfirmPreview,
+  DrawerDetailsPreview,
+  DrawerNoHandlePreview,
+  DrawerPreview,
+} from "./drawer"
+import {
+  FlexBetweenPreview,
+  FlexCenteredPreview,
+  FlexHorizontalPreview,
+  FlexPreview,
+  FlexVerticalPreview,
+} from "./flex"
+import {
+  InputDefaultPreview,
+  InputDisabledPreview,
+  InputErrorPreview,
+  InputFilledPreview,
+  InputPreview,
+} from "./input"
+import {
+  PlaceholderFullPreview,
+  PlaceholderPreview,
+  PlaceholderTitleOnlyPreview,
+} from "./placeholder"
+import { RadioGroupPreview, RadioPreview, RadioStandalonePreview } from "./radio"
+import {
+  SearchBarEmptyPreview,
+  SearchBarFilledPreview,
+  SearchBarPreview,
+} from "./search-bar"
+import {
+  SummaryTableLoyaltyPreview,
+  SummaryTableOrderPreview,
+  SummaryTablePreview,
+} from "./summary-table"
+import {
+  TextareaDefaultPreview,
+  TextareaDisabledPreview,
+  TextareaErrorPreview,
+  TextareaFilledPreview,
+  TextareaPreview,
+} from "./textarea"
+import {
+  TimePicker12hPreview,
+  TimePicker24hPreview,
+  TimePickerPreview,
+} from "./time-picker"
+import {
+  TipDefaultPreview,
+  TipEmphasisPreview,
+  TipInCardPreview,
+  TipPreview,
+} from "./tip"
+import { ToastErrorPreview, ToastInfoPreview, ToastPreview } from "./toast"
+import {
+  TouchCellDescPreview,
+  TouchCellPlainPreview,
+  TouchCellPreview,
+  TouchCellTrailingPreview,
+} from "./touch-cell"
+import {
+  TypographyColorsPreview,
+  TypographyPreview,
+  TypographyScalePreview,
+  TypographyWeightsPreview,
+} from "./typography"
 
 export const previews = {
+  // Button
   button: ButtonPreview,
   "button-variants": ButtonVariantsPreview,
   "button-link": ButtonLinkPreview,
   "button-disabled": ButtonDisabledPreview,
   "button-loading": ButtonLoadingPreview,
+
+  // Card
   card: CardPreview,
+  "card-default": CardDefaultPreview,
+  "card-stat": CardStatPreview,
+  "card-selectable": CardSelectablePreview,
+  "card-form": CardFormPreview,
+
+  // Checkbox
   checkbox: CheckboxPreview,
+  "checkbox-solid": CheckboxSolidPreview,
+  "checkbox-outline": CheckboxOutlinePreview,
+  "checkbox-disabled": CheckboxDisabledPreview,
+
+  // Copyable
   copyable: CopyablePreview,
+  "copyable-inline": CopyableInlinePreview,
+  "copyable-long": CopyableLongPreview,
+
+  // Pickers
   "date-picker": DatePickerPreview,
   "dial-code-selector": DialCodeSelectorPreview,
+
+  // Drawer
   drawer: DrawerPreview,
+  "drawer-confirm": DrawerConfirmPreview,
+  "drawer-details": DrawerDetailsPreview,
+  "drawer-no-handle": DrawerNoHandlePreview,
+
+  // Flex
   flex: FlexPreview,
+  "flex-vertical": FlexVerticalPreview,
+  "flex-horizontal": FlexHorizontalPreview,
+  "flex-between": FlexBetweenPreview,
+  "flex-centered": FlexCenteredPreview,
+
+  // Input
   input: InputPreview,
+  "input-default": InputDefaultPreview,
+  "input-filled": InputFilledPreview,
+  "input-error": InputErrorPreview,
+  "input-disabled": InputDisabledPreview,
+
+  // Placeholder
   placeholder: PlaceholderPreview,
+  "placeholder-full": PlaceholderFullPreview,
+  "placeholder-title-only": PlaceholderTitleOnlyPreview,
+
+  // Radio
   radio: RadioPreview,
+  "radio-standalone": RadioStandalonePreview,
+  "radio-group": RadioGroupPreview,
+
+  // SearchBar
   "search-bar": SearchBarPreview,
+  "search-bar-empty": SearchBarEmptyPreview,
+  "search-bar-filled": SearchBarFilledPreview,
+
+  // SummaryTable
   "summary-table": SummaryTablePreview,
+  "summary-table-order": SummaryTableOrderPreview,
+  "summary-table-loyalty": SummaryTableLoyaltyPreview,
+
+  // Textarea
   textarea: TextareaPreview,
+  "textarea-default": TextareaDefaultPreview,
+  "textarea-filled": TextareaFilledPreview,
+  "textarea-error": TextareaErrorPreview,
+  "textarea-disabled": TextareaDisabledPreview,
+
+  // TimePicker
   "time-picker": TimePickerPreview,
+  "time-picker-12h": TimePicker12hPreview,
+  "time-picker-24h": TimePicker24hPreview,
+
+  // Tip
   tip: TipPreview,
+  "tip-default": TipDefaultPreview,
+  "tip-emphasis": TipEmphasisPreview,
+  "tip-in-card": TipInCardPreview,
+
+  // Toast
   toast: ToastPreview,
+  "toast-info": ToastInfoPreview,
+  "toast-error": ToastErrorPreview,
+
+  // TouchCell
   "touch-cell": TouchCellPreview,
+  "touch-cell-plain": TouchCellPlainPreview,
+  "touch-cell-desc": TouchCellDescPreview,
+  "touch-cell-trailing": TouchCellTrailingPreview,
+
+  // Typography
   typography: TypographyPreview,
+  "typography-scale": TypographyScalePreview,
+  "typography-colors": TypographyColorsPreview,
+  "typography-weights": TypographyWeightsPreview,
 } as const
 
 export type PreviewName = keyof typeof previews

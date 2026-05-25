@@ -3,22 +3,32 @@ title: TextArea
 description: Multi-line text input (note the capital A).
 ---
 
-<ComponentPreview name="textarea-demo" description="Multi-line message field." />
+## Default
 
-## Usage
+Empty state with `autoSize` between 3 and 8 rows.
 
-Exported as `TextArea` (not `Textarea`). Same `hasError` flag as `Input`.
+<ComponentPreview name="textarea-default" />
 
-```tsx
-import { TextArea } from "@appboxo/ui-kit"
+## Filled
 
-export function Example() {
-  return (
-    <TextArea
-      placeholder="Tell us what happened"
-      rows={4}
-      autoSize={{ minRows: 4, maxRows: 8 }}
-    />
-  )
-}
+Pre-filled content. `autoSize` grows the box up to the cap as the user types.
+
+<ComponentPreview name="textarea-filled" />
+
+## Error
+
+`hasError` mirrors `Input`.
+
+<ComponentPreview name="textarea-error" />
+
+## Disabled
+
+Greyed out + non-interactive.
+
+<ComponentPreview name="textarea-disabled" />
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```

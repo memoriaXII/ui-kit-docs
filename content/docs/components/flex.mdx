@@ -3,32 +3,32 @@ title: Flex
 description: Thin Flexbox primitive — vertical / gap / align / justify shortcuts that the rest of the kit composes with.
 ---
 
-<ComponentPreview name="flex-demo" description="Vertical stack with gap." />
+## Vertical stack
 
-## Usage
+`vertical` + `gap`.
 
-```tsx
-import { Flex, Body1, PrimaryButton } from "@appboxo/ui-kit"
+<ComponentPreview name="flex-vertical" />
 
-export function Example() {
-  return (
-    <Flex vertical gap={16}>
-      <Body1>Welcome</Body1>
-      <Flex gap={8}>
-        <PrimaryButton text="Continue" />
-        <PrimaryButton text="Skip" />
-      </Flex>
-    </Flex>
-  )
-}
+## Horizontal row
+
+Default direction. `wrap="wrap"` for responsive overflow.
+
+<ComponentPreview name="flex-horizontal" />
+
+## Space between
+
+`justify="space-between"` + `align="center"` for label/value rows.
+
+<ComponentPreview name="flex-between" />
+
+## Centered
+
+Combine `align="center"` + `justify="center"` for empty states.
+
+<ComponentPreview name="flex-centered" />
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```
-
-## Props
-
-| Prop | Type | Description |
-|---|---|---|
-| `vertical` | `boolean` | `flex-direction: column` when true |
-| `gap` | `number` | Spacing between children in `px` |
-| `align` | `"start" \| "center" \| "end" \| "stretch"` | `align-items` |
-| `justify` | `"start" \| "center" \| "end" \| "between" \| "around"` | `justify-content` |
-| `className` | `string` | Forwarded to the wrapper div |

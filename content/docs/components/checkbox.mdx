@@ -3,29 +3,26 @@ title: Checkbox
 description: Two-state selection control with kit-specific icon variants.
 ---
 
-<ComponentPreview name="checkbox-demo" description="Checked checkbox with label." />
+## Solid dot
 
-## Usage
+`iconType="circle-dot"` — the default mark.
 
-Forwards every Arco Checkbox prop and adds an `iconType` for the kit's custom marks.
+<ComponentPreview name="checkbox-solid" />
 
-```tsx
-import { Checkbox } from "@appboxo/ui-kit"
+## Outline ring
 
-export function Example() {
-  return (
-    <Checkbox
-      iconType="circle-dot"
-      defaultChecked
-      onChange={(checked) => console.log(checked)}
-    >
-      Accept terms
-    </Checkbox>
-  )
-}
+`iconType="circle-outline-dot"` — subtler variant for nested lists.
+
+<ComponentPreview name="checkbox-outline" />
+
+## Disabled
+
+`disabled` is forwarded to Arco.
+
+<ComponentPreview name="checkbox-disabled" />
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```
-
-## `iconType`
-
-- `"circle-dot"` — solid filled circle (default)
-- `"circle-outline-dot"` — outlined ring

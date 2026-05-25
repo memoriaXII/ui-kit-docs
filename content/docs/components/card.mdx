@@ -1,39 +1,39 @@
 ---
 title: Card
-description: Plain surface for grouping related content. Compose with Flex + typography to build richer layouts.
+description: Plain surface for grouping related content. Compose freely with Flex + typography.
 ---
 
-<ComponentPreview name="card-demo" description="Card with content composed using Flex." />
+## Default
 
-## Usage
+`Card` is intentionally **just a `<div>` wrapper** — no Header / Body / Footer slots.
 
-`Card` is intentionally **just a `<div>` wrapper** — no Header / Body / Footer slots. Compose using `Flex` and typography components.
+<ComponentPreview name="card-default" />
 
-```tsx
-import { Card, Flex, Body1, PrimaryButton } from "@appboxo/ui-kit"
+## Stat / metric
 
-export function Example() {
-  return (
-    <Card>
-      <Flex vertical gap={12}>
-        <Body1 weight="semibold">Boxo Pass</Body1>
-        <div>12,480 pts</div>
-        <PrimaryButton text="Redeem" />
-      </Flex>
-    </Card>
-  )
-}
-```
+Compose `Footnote1` + `LargeTitle` for a balance or KPI display.
 
-## `active`
+<ComponentPreview name="card-stat" />
 
-Toggle the "pressed" / selected style:
+## Selectable
 
-```tsx
-<Card active>Selected</Card>
+Pass `active` to flip into the pressed / selected style.
+
+<ComponentPreview name="card-selectable" />
+
+## With form actions
+
+Cards group form sections without adding visual weight.
+
+<ComponentPreview name="card-form" />
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```
 
 ## Theme tokens
 
 Required: `--boxo-card-mobile-background`, `--boxo-card-mobile-active-background`.
-Optional (have fallbacks): `--boxo-card-mobile-padding`, `--boxo-card-mobile-border-*`, `--boxo-card-mobile-shadow`.
+Optional: `--boxo-card-mobile-padding`, `--boxo-card-mobile-border-*`, `--boxo-card-mobile-shadow`.

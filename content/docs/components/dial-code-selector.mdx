@@ -3,57 +3,16 @@ title: DialCodeSelector
 description: Controlled bottom-sheet popup that lets the user pick a country dialing code.
 ---
 
-<ComponentPreview
-  name="dial-code-selector-demo"
-  description="Trigger (the popup mounts when visible toggles)."
-/>
+## Default
 
-## Usage
+Controlled popup — you own the `visible` boolean and listen for `onSelect`. Country list comes from `libphonenumber-js` by default; pass `countriesData` for a localized list.
 
-This is a **controlled popup** — you own the `visible` boolean and listen for `onSelect`. Country list comes from `libphonenumber-js` by default; pass your own `countriesData` for a localized list.
+<ComponentPreview name="dial-code-selector" />
 
-```tsx
-import { DialCodeSelector, type DialCodeItem } from "@appboxo/ui-kit"
+## Installation
 
-export function Example() {
-  const [open, setOpen] = useState(false)
-  const [picked, setPicked] = useState<DialCodeItem | null>(null)
-
-  return (
-    <>
-      <button onClick={() => setOpen(true)}>
-        {picked ? `${picked.flag} ${picked.callingCode}` : "Pick country"}
-      </button>
-      <DialCodeSelector
-        visible={open}
-        onClose={() => setOpen(false)}
-        onSelect={(item) => {
-          setPicked(item)
-          setOpen(false)
-        }}
-      />
-    </>
-  )
-}
-```
-
-## Custom country list
-
-```tsx
-import { DialCodeSelector, type CountryData } from "@appboxo/ui-kit"
-
-const localized: Record<string, CountryData> = {
-  SG: { name: "新加坡", flag: "🇸🇬" },
-  TW: { name: "台灣", flag: "🇹🇼" },
-  // ...
-}
-
-<DialCodeSelector
-  visible={open}
-  onClose={() => setOpen(false)}
-  onSelect={(item) => {}}
-  countriesData={localized}
-/>
+```bash
+pnpm add @appboxo/ui-kit
 ```
 
 ## Theme tokens

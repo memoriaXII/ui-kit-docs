@@ -3,37 +3,26 @@ title: Tip
 description: Inline contextual hint with an icon and optional emphasised prefix.
 ---
 
-<ComponentPreview name="tip-demo" description="Info tip with default icon." />
+## Default
 
-## Usage
+Text-only hint with the bundled InfoCircle icon.
 
-```tsx
-import { Tip } from "@appboxo/ui-kit"
-
-export function Example() {
-  return (
-    <Tip text="We only use this on your device. Nothing leaves the phone." />
-  )
-}
-```
+<ComponentPreview name="tip-default" />
 
 ## Emphasised prefix
 
-```tsx
-<Tip
-  emphasisPrefix="Heads up:"
-  text="You can stack rewards from multiple partners on the same Boxo Pass."
-/>
+`emphasisPrefix` bolds the leading clause without breaking the layout.
+
+<ComponentPreview name="tip-emphasis" />
+
+## Inside a card
+
+Tips slot into card layouts to highlight a single rule without dominating.
+
+<ComponentPreview name="tip-in-card" />
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```
-
-## Custom icon
-
-Pass any SVG-as-React-component (the kit's icons are already such components):
-
-```tsx
-import { Tip, InfoCircleIcon } from "@appboxo/ui-kit"
-
-<Tip icon={InfoCircleIcon} text="Read the fine print." />
-```
-
-The icon defaults to the kit's `InfoCircleIcon`.

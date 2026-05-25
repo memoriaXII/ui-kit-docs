@@ -3,24 +3,20 @@ title: SummaryTable
 description: Key-value list optimised for transaction summaries, order details, and ticket info.
 ---
 
-<ComponentPreview name="summary-table-demo" description="Order summary." />
+## Order summary
 
-## Usage
+`emphasised` on the total line keeps the eye where it belongs.
 
-```tsx
-import { SummaryTable } from "@appboxo/ui-kit"
+<ComponentPreview name="summary-table-order" />
 
-export function Example() {
-  return (
-    <SummaryTable
-      rows={[
-        { label: "Subtotal", value: "$120.00" },
-        { label: "Tax", value: "$9.60" },
-        { label: "Total", value: "$129.60", emphasised: true },
-      ]}
-    />
-  )
-}
+## Loyalty breakdown
+
+Same component, points / cashback context.
+
+<ComponentPreview name="summary-table-loyalty" />
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```
-
-Set `emphasised: true` on the row that should stand out (typically the total).

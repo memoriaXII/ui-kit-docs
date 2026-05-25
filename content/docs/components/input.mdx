@@ -3,37 +3,34 @@ title: Input
 description: Single-line text field built on Arco Mobile's Input.
 ---
 
-<ComponentPreview name="input-demo" description="Input with label." />
+## Default
 
-## Usage
+Empty state with a placeholder. `onChange` signature is Arco's: `(event, value) => void`.
 
-`Input` is a thin wrapper that disables Arco's border, manages active state, and adds a `hasError` flag.
+<ComponentPreview name="input-default" />
 
-```tsx
-import { Input, Body1 } from "@appboxo/ui-kit"
+## Filled
 
-export function Example() {
-  const [value, setValue] = useState("")
+Once the user types, the active state is wired automatically via the kit's wrapper.
 
-  return (
-    <>
-      <Body1 weight="semibold">Your name</Body1>
-      <Input
-        value={value}
-        onChange={(_e, next) => setValue(next)}
-        placeholder="e.g. Nurs"
-      />
-    </>
-  )
-}
-```
+<ComponentPreview name="input-filled" />
 
-The `onChange` signature is Arco's: `(event, value) => void`.
+## Error
 
-## Error state
+Pass `hasError` to surface validation feedback. Pair with a `Footnote2` helper underneath for the reason.
 
-```tsx
-<Input value={phone} onChange={(_e, v) => setPhone(v)} hasError />
+<ComponentPreview name="input-error" />
+
+## Disabled
+
+Greyed out + non-interactive.
+
+<ComponentPreview name="input-disabled" />
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```
 
 ## Theme tokens

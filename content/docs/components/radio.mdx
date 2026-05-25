@@ -3,31 +3,20 @@ title: Radio
 description: Pure visual radio mark — bring your own group state.
 ---
 
-<ComponentPreview name="radio-demo" description="A radio mark in active state." />
+## Standalone marks
 
-## Usage
+The `Radio` export is just the **visual circle**. Active fills, inactive is an outlined ring.
 
-`Radio` is intentionally just the **visual mark** (a circle that fills when active). It does **not** ship a `RadioGroup` — wire your own selection state and place a `Radio` inside each option.
+<ComponentPreview name="radio-standalone" />
 
-```tsx
-import { Radio, Flex, TouchCell } from "@appboxo/ui-kit"
+## Grouped with TouchCell
 
-const options = ["card", "paypal", "apple"]
+The kit doesn't ship a `RadioGroup` — wire your own selection state and compose with `TouchCell` for the row affordance.
 
-export function Example() {
-  const [selected, setSelected] = useState("card")
+<ComponentPreview name="radio-group" />
 
-  return (
-    <Flex vertical gap={8}>
-      {options.map((value) => (
-        <TouchCell key={value} onClick={() => setSelected(value)}>
-          <Flex align="center" gap={8}>
-            <Radio active={selected === value} />
-            <span>{value}</span>
-          </Flex>
-        </TouchCell>
-      ))}
-    </Flex>
-  )
-}
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```

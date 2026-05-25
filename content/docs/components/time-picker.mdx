@@ -3,34 +3,24 @@ title: TimePicker
 description: Wheel-style time picker, 12h or 24h. Requires a UIKitProvider for i18n.
 ---
 
-<ComponentPreview name="time-picker-demo" description="Time picker trigger." />
+## 12-hour clock
 
-## Usage
+Default. Three wheels: hour / minute / AM-PM.
 
-```tsx
-import { TimePicker } from "@appboxo/ui-kit"
+<ComponentPreview name="time-picker-12h" />
 
-export function Example() {
-  const [value, setValue] = useState<Date>(new Date())
+## 24-hour clock
 
-  return (
-    <TimePicker
-      value={value}
-      format="12h"
-      onChange={(next) => setValue(next)}
-    />
-  )
-}
+Pass `hourFormat="24h"` for two wheels (hour / minute).
+
+<ComponentPreview name="time-picker-24h" />
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```
-
-## Props
-
-| Prop | Type | Description |
-|---|---|---|
-| `value` | `Date` | Current time |
-| `format` | `"12h" \| "24h"` | Display format |
-| `onChange` | `(date: Date) => void` | Fired on commit |
 
 ## Requires UIKitProvider
 
-Same as `DatePicker` — translation is sourced from the host context.
+The picker reads `useUIKitTranslation()` for OK / cancel labels. Wrap in `<NextUIKitProvider>` (Next) or `<UIKitProvider translation={useTranslation}>` (Vite / CRA).
