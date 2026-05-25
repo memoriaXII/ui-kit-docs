@@ -59,7 +59,7 @@ export function ComponentPreviewTabs({
       </Tabs>
       <div
         data-tab={tab}
-        className="data-[tab=code]:border-code relative rounded-lg border md:-mx-1"
+        className="data-[tab=code]:border-code bg-background relative overflow-hidden rounded-lg border md:-mx-1"
       >
         <div
           data-slot="preview"
@@ -69,7 +69,7 @@ export function ComponentPreviewTabs({
           <div
             data-align={align}
             className={cn(
-              "preview flex h-[450px] w-full justify-center data-[align=center]:items-center data-[align=end]:items-end data-[align=start]:items-start",
+              "preview bg-background flex h-[450px] w-full justify-center data-[align=center]:items-center data-[align=end]:items-end data-[align=start]:items-start",
               marginOff ? "p-0" : "p-10"
             )}
           >
