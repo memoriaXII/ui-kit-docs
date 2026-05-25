@@ -13,9 +13,12 @@ export function PreviewLayout({ children }: { children: ReactNode }) {
       gap={28}
       style={{
         padding: 20,
-        background: "var(--fill-1)",
+        // Transparent so the iframe inherits the docs site's surface
+        // colour. Brand tokens still apply to children that opt in via
+        // var(--*); we just don't paint a full-page fill underneath.
+        background: "transparent",
         color: "var(--text-5)",
-        minHeight: "100vh",
+        minHeight: "100%",
       }}
     >
       {children}
