@@ -9,6 +9,20 @@
  * snippet, no live preview).
  */
 
+/**
+ * Category tabs on /examples. `featured` is the default landing tab and
+ * pulls a curated cross-section. Other tabs filter by intent so partners
+ * can jump straight to the closest reference.
+ */
+export const EXAMPLE_CATEGORIES = [
+  { slug: "featured", label: "Featured" },
+  { slug: "starter", label: "Starters" },
+  { slug: "theming", label: "Theming" },
+  { slug: "full-app", label: "Full apps" },
+] as const
+
+export type ExampleCategorySlug = (typeof EXAMPLE_CATEGORIES)[number]["slug"]
+
 export const EXAMPLES = [
   {
     slug: "basic-app",
@@ -16,6 +30,7 @@ export const EXAMPLES = [
     description:
       "70-line hello world. The minimum @appboxo/ui-kit consumer that still looks like a real screen.",
     tags: ["Vite", "Starter"],
+    categories: ["featured", "starter"] as ExampleCategorySlug[],
     iframe: true,
   },
   {
@@ -24,6 +39,7 @@ export const EXAMPLES = [
     description:
       "Single-page kit gallery: every component on one page with a brand toolbar (37 themes) and light/dark toggle.",
     tags: ["Vite", "All components", "Brand toolbar"],
+    categories: ["featured"] as ExampleCategorySlug[],
     iframe: true,
   },
   {
@@ -32,6 +48,7 @@ export const EXAMPLES = [
     description:
       "Paired example A. Same App.tsx as custom-theme but rendered with the bundled themes/freedom/theme.css.",
     tags: ["Vite", "Theming"],
+    categories: ["featured", "theming"] as ExampleCategorySlug[],
     iframe: true,
   },
   {
@@ -40,6 +57,7 @@ export const EXAMPLES = [
     description:
       "Paired example B. Same App.tsx but using themes/default + a 30-line my-brand.css overlay (fictional Citrus brand). `diff -r` against freedom-theme shows exactly what BYO theming costs. Run locally to see the orange Citrus palette in action.",
     tags: ["Vite", "Theming", "BYO brand"],
+    categories: ["theming"] as ExampleCategorySlug[],
     iframe: false,
   },
   {
@@ -48,6 +66,7 @@ export const EXAMPLES = [
     description:
       "Full 11-page mini-app forked from production pass-freedom. All backend / host calls stubbed. Best soak test for the kit.",
     tags: ["Next.js", "Full app", "Mocked backend"],
+    categories: ["featured", "full-app"] as ExampleCategorySlug[],
     iframe: false,
   },
   {
@@ -56,6 +75,7 @@ export const EXAMPLES = [
     description:
       "Smallest possible consumer that installs @appboxo/ui-kit from npm and renders one button. Use as a sanity check.",
     tags: ["Vite", "npm"],
+    categories: ["starter"] as ExampleCategorySlug[],
     iframe: false,
   },
 ] as const

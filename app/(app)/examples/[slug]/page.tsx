@@ -3,19 +3,9 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ChevronLeft } from "lucide-react"
 
-import {
-  EXAMPLES,
-  exampleRunCommand,
-  exampleSourceUrl,
-  type ExampleSlug,
-} from "@/lib/examples"
-import {
-  exampleExists,
-  getExampleFile,
-  getExampleTree,
-  type ExampleFileNode,
-} from "@/lib/examples.server"
-import { highlightCode } from "@/lib/highlight-code"
+import { EXAMPLES, type ExampleSlug } from "@/lib/examples"
+import { loadExampleData } from "@/lib/examples-data"
+import { exampleExists } from "@/lib/examples.server"
 import { Badge } from "@/registry/ui/ui/badge"
 import { Button } from "@/registry/ui/ui/button"
 import { ExampleViewer } from "@/components/example-viewer"
@@ -41,33 +31,6 @@ export async function generateMetadata({
   }
 }
 
-function flatten(nodes: ExampleFileNode[]): string[] {
-  const out: string[] = []
-  for (const node of nodes) {
-    if (node.type === "file") out.push(node.path)
-    else out.push(...flatten(node.children))
-  }
-  return out
-}
-
-/**
- * Best file to show by default. Prefer the entry point (App.tsx / main.tsx /
- * pages/_app.tsx) so the partner sees the wiring first.
- */
-function pickDefaultFile(files: string[]): string {
-  const priority = [
-    "src/App.tsx",
-    "src/main.tsx",
-    "src/pages/_app.tsx",
-    "src/pages/index.tsx",
-    "package.json",
-  ]
-  for (const p of priority) {
-    if (files.includes(p)) return p
-  }
-  return files[0] ?? "package.json"
-}
-
 export default async function ExampleDetailPage({
   params,
 }: {
@@ -77,23 +40,7 @@ export default async function ExampleDetailPage({
   if (!exampleExists(slug)) notFound()
   const example = EXAMPLES.find((e) => e.slug === slug)!
   const typedSlug = slug as ExampleSlug
-
-  const tree = await getExampleTree(typedSlug)
-  const allFiles = flatten(tree)
-  const defaultFile = pickDefaultFile(allFiles)
-
-  // Pre-highlight every file so the client can switch instantly without
-  // a round-trip. At ~3-20 files per example the bundle hit is small.
-  const files: Record<string, { language: string; highlightedCode: string }> =
-    {}
-  for (const filePath of allFiles) {
-    const file = await getExampleFile(typedSlug, filePath)
-    if (!file) continue
-    files[filePath] = {
-      language: file.language,
-      highlightedCode: await highlightCode(file.content, file.language),
-    }
-  }
+  const data = await loadExampleData(typedSlug)
 
   return (
     <div className="container-wrapper section-soft flex flex-1 flex-col gap-6 pb-12">
@@ -124,12 +71,12 @@ export default async function ExampleDetailPage({
 
         <ExampleViewer
           slug={typedSlug}
-          tree={tree}
+          tree={data.tree}
           iframe={example.iframe}
-          defaultFile={defaultFile}
-          files={files}
-          sourceUrl={exampleSourceUrl(typedSlug)}
-          runCommand={exampleRunCommand(typedSlug)}
+          defaultFile={data.defaultFile}
+          files={data.files}
+          sourceUrl={data.sourceUrl}
+          runCommand={data.runCommand}
         />
       </div>
     </div>
