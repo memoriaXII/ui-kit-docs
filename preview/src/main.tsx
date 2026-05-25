@@ -33,6 +33,19 @@ const BRAND_CSS_MAP: Record<string, string> = Object.fromEntries(
     .filter((e): e is readonly [string, string] => e !== null)
 )
 
+/**
+ * Brand themes ship `body { background-color: var(--fill-white); }` (and a
+ * dark-mode override) — fine inside a standalone app, ugly inside a docs
+ * iframe where the surrounding chrome is already white. This override is
+ * appended after every brand CSS swap so the body always stays
+ * transparent regardless of which brand is active.
+ */
+const BG_OVERRIDE = `
+html, body, #root {
+  background: transparent !important;
+}
+`
+
 const ACTIVE_BRAND_STYLE_ID = "__active-brand-theme"
 
 function applyBrand(brand: string) {
@@ -44,7 +57,8 @@ function applyBrand(brand: string) {
     el.id = ACTIVE_BRAND_STYLE_ID
     document.head.appendChild(el)
   }
-  el.textContent = BRAND_CSS_MAP[brand] ?? BRAND_CSS_MAP.freedom ?? ""
+  el.textContent =
+    (BRAND_CSS_MAP[brand] ?? BRAND_CSS_MAP.freedom ?? "") + BG_OVERRIDE
 }
 
 // Required setup. See troubleshooting.mdx — without these the kit
