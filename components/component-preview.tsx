@@ -1,3 +1,6 @@
+import fs from "node:fs"
+import path from "node:path"
+
 import Image from "next/image"
 
 import { resolveIframeSlug } from "@/lib/iframe-previews"
@@ -5,6 +8,26 @@ import { ComponentPreviewTabs } from "@/components/component-preview-tabs"
 import { ComponentSource } from "@/components/component-source"
 import { IframePreview } from "@/components/iframe-preview"
 import { Index } from "@/registry/__index__"
+
+/**
+ * Resolve which file to show in the Code tab.
+ *
+ * - iframe-mode previews: show the real `preview/src/previews/<slug>.tsx`
+ *   that drives the iframe — actual @appboxo/ui-kit code.
+ * - placeholder previews: show the shadcn-based demo file under
+ *   `registry/freedom/examples/<name>.tsx`.
+ *
+ * Returns a path relative to the project root, or null if no file is found.
+ * `<ComponentSource src={...} />` reads files relative to `process.cwd()`.
+ */
+function resolveCodePath(name: string, iframeSlug: string | null) {
+  const candidates: string[] = []
+  if (iframeSlug) {
+    candidates.push(`preview/src/previews/${iframeSlug}.tsx`)
+  }
+  candidates.push(`registry/freedom/examples/${name}.tsx`)
+  return candidates.find((p) => fs.existsSync(path.join(process.cwd(), p)))
+}
 
 export function ComponentPreview({
   name,
@@ -67,13 +90,19 @@ export function ComponentPreview({
     <Component />
   ) : null
 
+  const codePath = resolveCodePath(name, iframeSlug)
+
   return (
     <ComponentPreviewTabs
       className={className}
       align={align}
       hideCode={hideCode}
       component={previewBody}
-      source={Component ? <ComponentSource name={name} collapsible={false} /> : null}
+      source={
+        codePath ? (
+          <ComponentSource src={codePath} collapsible={false} />
+        ) : null
+      }
       marginOff={marginOff}
       {...props}
     />
