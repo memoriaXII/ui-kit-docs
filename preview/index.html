@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UI Kit Preview</title>
     <style>
+      /* Loaded BEFORE any brand CSS so even during the first paint the
+         body never shows the brand --fill-white. The !important is here
+         so the brand stylesheet (which paints body with the page tint)
+         can never win — partners use brand colors on the components,
+         not on the surrounding chrome. */
       html,
       body,
       #root {
-        margin: 0;
-        padding: 0;
-        background: transparent;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
       }
-      /* docs iframe wants no scrollbars in the small slot */
+      /* Allow scrolling inside the iframe — the docs preview slot caps
+         height at 450px, but some previews (Button, Card, Drawer) have
+         multiple variants stacked vertically and need to scroll. */
       body {
-        overflow: hidden;
+        overflow: auto;
       }
     </style>
   </head>
