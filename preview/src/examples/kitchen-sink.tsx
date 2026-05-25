@@ -1,7 +1,7 @@
 // Condensed version of examples/kitchen-sink. The full kitchen-sink has
 // 9 sections + a brand toolbar; here we render a representative subset
 // (typography, buttons, inputs, surfaces, toast triggers) so the iframe
-// stays scannable. Use the file tree on the docs page to read the full
+// stays scannable. Open the file tree on the docs page to read the full
 // section files, or `pnpm dev` the example locally for the complete tour.
 
 import { useState } from "react"
@@ -23,7 +23,6 @@ import {
   TertiaryButton,
   TextArea,
   Tip,
-  Title2,
   Title3,
   Toast,
   TouchCell,
@@ -38,16 +37,14 @@ export function KitchenSinkExample() {
   return (
     <div
       style={{
-        minHeight: "100vh",
-        background: "var(--fill-1)",
-        color: "var(--text-5)",
-        padding: "32px 24px 48px",
-        maxWidth: 820,
+        padding: "24px 16px 48px",
+        maxWidth: 680,
         margin: "0 auto",
+        color: "var(--text-5)",
       }}
     >
-      <Flex vertical gap={24}>
-        <Flex vertical gap={4}>
+      <Flex vertical gap={32}>
+        <Flex vertical gap={6}>
           <LargeTitle>Kitchen sink</LargeTitle>
           <Body2 color="text-3">
             A trimmed tour through the kit's typography, forms, buttons and
@@ -56,11 +53,13 @@ export function KitchenSinkExample() {
           </Body2>
         </Flex>
 
-        <Section title="Typography">
+        <Section
+          eyebrow="Typography"
+          title="11 components, one consistent scale"
+        >
           <Card>
-            <Flex vertical gap={4}>
+            <Flex vertical gap={6}>
               <LargeTitle>LargeTitle</LargeTitle>
-              <Title2>Title 2</Title2>
               <Title3>Title 3</Title3>
               <Body1>Body 1 — the workhorse paragraph style.</Body1>
               <Body2 color="text-3">
@@ -71,26 +70,20 @@ export function KitchenSinkExample() {
           </Card>
         </Section>
 
-        <Section title="Buttons">
+        <Section eyebrow="Buttons" title="Four variants, four token paths">
           <Card>
-            <Flex vertical gap={12}>
-              <Flex vertical={false} gap={8} wrap="wrap">
-                <PrimaryButton text="Primary" onClick={() => Toast.info("Primary")} />
-                <SecondaryButton text="Secondary" onClick={() => Toast.info("Secondary")} />
-                <TertiaryButton text="Tertiary" onClick={() => Toast.info("Tertiary")} />
-                <QuaternaryButton text="Quaternary" onClick={() => Toast.info("Quaternary")} />
-              </Flex>
-              <Footnote2 color="text-3">
-                Four exports, four token paths — see the Components docs for
-                the full prop surface.
-              </Footnote2>
+            <Flex vertical gap={10}>
+              <PrimaryButton text="Primary" onClick={() => Toast.info("Primary")} />
+              <SecondaryButton text="Secondary" onClick={() => Toast.info("Secondary")} />
+              <TertiaryButton text="Tertiary" onClick={() => Toast.info("Tertiary")} />
+              <QuaternaryButton text="Quaternary" onClick={() => Toast.info("Quaternary")} />
             </Flex>
           </Card>
         </Section>
 
-        <Section title="Forms">
+        <Section eyebrow="Forms" title="Inputs, selectors, agreements">
           <Card>
-            <Flex vertical gap={16}>
+            <Flex vertical gap={20}>
               <Flex vertical gap={6}>
                 <Body1 weight="semibold">Search</Body1>
                 <SearchBar placeholder="Search rewards, stores, brands…" />
@@ -122,69 +115,74 @@ export function KitchenSinkExample() {
               >
                 Agree to terms and conditions
               </Checkbox>
-
-              <Flex vertical gap={4}>
-                <Body1 weight="semibold">Plan</Body1>
-                {(["monthly", "yearly"] as const).map((opt) => (
-                  <TouchCell
-                    key={opt}
-                    onClick={() => setPlan(opt)}
-                    activeClass="cell-active"
-                    label={
-                      <Flex vertical={false} align="center" gap={10}>
-                        <Radio active={plan === opt} />
-                        <Body1 style={{ textTransform: "capitalize" }}>{opt}</Body1>
-                      </Flex>
-                    }
-                  />
-                ))}
-              </Flex>
             </Flex>
           </Card>
         </Section>
 
-        <Section title="Surfaces">
+        <Section eyebrow="Choice" title="Plan selector with Radio + TouchCell">
+          <Card style={{ padding: 0 }}>
+            {(["monthly", "yearly"] as const).map((opt) => (
+              <TouchCell
+                key={opt}
+                onClick={() => setPlan(opt)}
+                activeClass="cell-active"
+                label={
+                  <Flex vertical={false} align="center" gap={12}>
+                    <Radio active={plan === opt} />
+                    <Body1 style={{ textTransform: "capitalize" }}>{opt}</Body1>
+                  </Flex>
+                }
+              />
+            ))}
+          </Card>
+        </Section>
+
+        <Section eyebrow="Feedback" title="Tips and toasts">
           <Card>
-            <Flex vertical gap={12}>
+            <Flex vertical gap={16}>
               <Tip text="Tip — inline hint with an icon. Reads --info-* tokens." />
               <Tip
                 emphasisPrefix="Heads up:"
                 text="emphasisPrefix bolds the leading clause without changing the icon or layout."
               />
-            </Flex>
-          </Card>
-        </Section>
-
-        <Section title="Toasts">
-          <Card>
-            <Flex vertical={false} gap={8}>
-              <PrimaryButton
-                text="Info"
-                onClick={() => Toast.info("Saved")}
-              />
-              <SecondaryButton
-                text="Error"
-                onClick={() => Toast.error("Network error")}
-              />
+              <Flex vertical={false} gap={8}>
+                <PrimaryButton text="Info" onClick={() => Toast.info("Saved")} />
+                <SecondaryButton
+                  text="Error"
+                  onClick={() => Toast.error("Network error")}
+                />
+              </Flex>
             </Flex>
           </Card>
         </Section>
       </Flex>
 
-      <style>{`
-        .cell-active { background: var(--fill-2); }
-      `}</style>
+      <style>{`.cell-active { background: var(--fill-2); }`}</style>
     </div>
   )
 }
 
-const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <section>
-    <Flex vertical gap={8}>
-      <Footnote2 color="text-3" style={{ textTransform: "uppercase", letterSpacing: 0.6 }}>
-        {title}
-      </Footnote2>
+function Section({
+  eyebrow,
+  title,
+  children,
+}: {
+  eyebrow: string
+  title: string
+  children: React.ReactNode
+}) {
+  return (
+    <section>
+      <Flex vertical gap={6} style={{ marginBottom: 12 }}>
+        <Footnote2
+          color="text-3"
+          style={{ textTransform: "uppercase", letterSpacing: 0.8 }}
+        >
+          {eyebrow}
+        </Footnote2>
+        <Title3>{title}</Title3>
+      </Flex>
       {children}
-    </Flex>
-  </section>
-)
+    </section>
+  )
+}

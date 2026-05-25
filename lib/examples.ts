@@ -25,21 +25,21 @@ export type ExampleCategorySlug = (typeof EXAMPLE_CATEGORIES)[number]["slug"]
 
 export const EXAMPLES = [
   {
+    slug: "kitchen-sink",
+    name: "Kitchen Sink",
+    description:
+      "Single-page kit gallery — every component on one page with a brand toolbar (37 themes) and light/dark toggle. Start here to see the full surface in one scroll.",
+    tags: ["Vite", "All components", "Brand toolbar"],
+    categories: ["featured"] as ExampleCategorySlug[],
+    iframe: true,
+  },
+  {
     slug: "basic-app",
     name: "Basic App",
     description:
       "70-line hello world. The minimum @appboxo/ui-kit consumer that still looks like a real screen.",
     tags: ["Vite", "Starter"],
     categories: ["featured", "starter"] as ExampleCategorySlug[],
-    iframe: true,
-  },
-  {
-    slug: "kitchen-sink",
-    name: "Kitchen Sink",
-    description:
-      "Single-page kit gallery: every component on one page with a brand toolbar (37 themes) and light/dark toggle.",
-    tags: ["Vite", "All components", "Brand toolbar"],
-    categories: ["featured"] as ExampleCategorySlug[],
     iframe: true,
   },
   {
