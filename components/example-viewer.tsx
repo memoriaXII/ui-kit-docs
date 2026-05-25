@@ -83,13 +83,23 @@ export function ExampleViewer({
   return (
     <div className="bg-card flex flex-col overflow-hidden rounded-lg border">
       {/* Top bar: tabs + device + actions */}
-      <div className="flex flex-wrap items-center gap-2 border-b px-3 py-2">
-        <Tabs value={tab} onValueChange={(v) => setTab(v as "preview" | "code")}>
-          <TabsList className="h-8">
-            <TabsTrigger value="preview" disabled={!iframe} className="px-3 py-1">
+      <div className="flex flex-wrap items-center gap-2 border-b px-3">
+        <Tabs
+          value={tab}
+          onValueChange={(v) => setTab(v as "preview" | "code")}
+        >
+          <TabsList className="h-auto gap-6 rounded-none border-0 bg-transparent p-0">
+            <TabsTrigger
+              value="preview"
+              disabled={!iframe}
+              className="text-muted-foreground data-[state=active]:text-foreground hover:text-foreground/80 data-[state=active]:border-foreground -mb-px h-10 rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 text-sm font-medium transition-colors data-[state=active]:bg-transparent data-[state=active]:shadow-none disabled:opacity-50 dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent dark:data-[state=active]:border-b-foreground"
+            >
               Preview
             </TabsTrigger>
-            <TabsTrigger value="code" className="px-3 py-1">
+            <TabsTrigger
+              value="code"
+              className="text-muted-foreground data-[state=active]:text-foreground hover:text-foreground/80 data-[state=active]:border-foreground -mb-px h-10 rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 text-sm font-medium transition-colors data-[state=active]:bg-transparent data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent dark:data-[state=active]:border-b-foreground"
+            >
               Code
             </TabsTrigger>
           </TabsList>
