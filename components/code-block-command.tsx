@@ -4,7 +4,6 @@ import * as React from "react"
 import { CheckIcon, ClipboardIcon, TerminalIcon } from "lucide-react"
 
 import { useConfig } from "@/hooks/use-config"
-import { copyToClipboardWithMeta } from "@/components/copy-button"
 import { Button } from "@/registry/elevenlabs-ui/ui/button"
 import {
   Tabs,
@@ -51,18 +50,8 @@ export function CodeBlockCommand({
 
   const copyCommand = React.useCallback(() => {
     const command = tabs[packageManager]
-
-    if (!command) {
-      return
-    }
-
-    copyToClipboardWithMeta(command, {
-      name: "copy_npm_command",
-      properties: {
-        command,
-        pm: packageManager,
-      },
-    })
+    if (!command) return
+    navigator.clipboard.writeText(command)
     setHasCopied(true)
   }, [packageManager, tabs])
 

@@ -9,7 +9,6 @@ import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
 import { ModeSwitcher } from "@/components/mode-switcher"
-import blocks from "@/registry/__blocks__.json"
 import { Button } from "@/registry/elevenlabs-ui/ui/button"
 import { Separator } from "@/registry/elevenlabs-ui/ui/separator"
 
@@ -42,7 +41,7 @@ export function SiteHeader() {
               <CommandMenu
                 tree={pageTree}
                 navItems={siteConfig.navItems}
-                blocks={blocks}
+                blocks={[]}
               />
             </div>
             <Separator
