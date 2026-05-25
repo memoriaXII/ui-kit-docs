@@ -3,35 +3,28 @@ title: Layout
 description: Legacy full-screen layout — top nav bar, scrollable content area, sticky footer.
 ---
 
-## Usage
+## Default
 
-```tsx
-import { Layout, Footer, PrimaryButton } from "@appboxo/ui-kit"
+`Layout` is the original full-screen app shell. Has built-in scroll state, loading screens, top nav, sticky footer. Showcased here inside a phone-frame mock so the demo reads as a screen.
 
-export function Example() {
-  return (
-    <Layout
-      navBarProps={{
-        title: "Checkout",
-        showLeftButton: true,
-        onClickLeftButton: () => window.history.back(),
-      }}
-      footer={
-        <Footer>
-          <PrimaryButton text="Confirm" />
-        </Footer>
-      }
-    >
-      {/* scrollable content */}
-    </Layout>
-  )
-}
-```
+<ComponentPreview name="layout-default" />
+
+## With loading state
+
+Pass `screenState={{ isLoading: true }}` + a `loadingNode={<LayoutLoading />}` for the initial render of a route.
+
+<ComponentPreview name="layout-loading" />
 
 ## When to use
 
-- `Layout` — the original full-screen app shell. Has built-in scroll state, loading screens, top nav.
-- [`ResponsiveLayout`](/docs/components/responsive-layout) — the newer responsive shell that adds a desktop layer (sidebars, max-width content).
+- `Layout` — original full-screen app shell. Owns viewport, has built-in scroll state.
+- [`ResponsiveLayout`](/docs/components/responsive-layout) — newer responsive shell that adds a desktop layer.
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
+```
 
 ## Types
 

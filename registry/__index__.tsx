@@ -60,7 +60,6 @@ export const Index: Record<string, RegistryEntry> = {
   "responsive-layout-demo": example("responsive-layout-demo"),
   "search-bar-demo": example("search-bar-demo"),
   "summary-table-demo": example("summary-table-demo"),
-  "tabs-demo": example("tabs-demo"),
   "textarea-demo": example("textarea-demo"),
   "time-picker-demo": example("time-picker-demo"),
   "tip-demo": example("tip-demo"),

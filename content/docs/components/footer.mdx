@@ -3,22 +3,25 @@ title: Footer
 description: Sticky bottom action area for Layout / ResponsiveLayout. Adds safe-area padding and shadow on scroll.
 ---
 
-## Usage
+## Two actions
 
-```tsx
-import { Footer, PrimaryButton, SecondaryButton } from "@appboxo/ui-kit"
+The standard layout — primary + cancel side by side.
 
-export function Example() {
-  return (
-    <Footer>
-      <PrimaryButton text="Confirm" />
-      <SecondaryButton text="Cancel" />
-    </Footer>
-  )
-}
+<ComponentPreview name="footer-default" />
+
+## Single action
+
+For destination screens where there's just one obvious next step.
+
+<ComponentPreview name="footer-single" />
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```
 
-Place inside `Layout`'s or `ResponsiveLayout`'s `footer` slot. Standalone use works too but the safe-area padding assumes a full-screen container.
+Place inside `Layout`'s or `ResponsiveLayout`'s `footer` slot for the full sticky behaviour. Standalone use works too but the safe-area padding assumes a full-screen container.
 
 ## Theme tokens
 

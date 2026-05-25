@@ -3,14 +3,20 @@ title: LayoutLoading
 description: Full-screen loading state for the initial render of a route.
 ---
 
-## Usage
+## Standalone
 
-```tsx
-import { LayoutLoading } from "@appboxo/ui-kit"
+`LayoutLoading` on its own — use as a Suspense fallback or as the rendered output while a route's primary data is loading.
 
-export function Example() {
-  return <LayoutLoading />
-}
+<ComponentPreview name="layout-loading-standalone" />
+
+## Inside a Layout
+
+Most commonly mounted via `Layout`'s `loadingNode` slot. Pair with `screenState={{ isLoading: true }}` so the layout knows to hide content + nav transitions.
+
+<ComponentPreview name="layout-loading" />
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
 ```
-
-Use as the fallback for Suspense boundaries or as the rendered output while a route's primary data is loading.

@@ -39,6 +39,7 @@ import {
   FlexPreview,
   FlexVerticalPreview,
 } from "./flex"
+import { FooterDefaultPreview, FooterPreview, FooterSinglePreview } from "./footer"
 import {
   InputDefaultPreview,
   InputDisabledPreview,
@@ -46,12 +47,22 @@ import {
   InputFilledPreview,
   InputPreview,
 } from "./input"
+import { LayoutDefaultPreview, LayoutLoadingDefaultPreview, LayoutPreview } from "./layout"
+import { LayoutLoadingStandalonePreview } from "./layout-loading-standalone"
+import { MarkdownCmsPreview, MarkdownDefaultPreview, MarkdownPreview } from "./markdown"
+import {
+  PickerInputDefaultPreview,
+  PickerInputErrorPreview,
+  PickerInputPreview,
+} from "./picker-input"
 import {
   PlaceholderFullPreview,
   PlaceholderPreview,
   PlaceholderTitleOnlyPreview,
 } from "./placeholder"
+import { PopupSwiperDefaultPreview, PopupSwiperPreview } from "./popup-swiper"
 import { RadioGroupPreview, RadioPreview, RadioStandalonePreview } from "./radio"
+import { ResponsiveLayoutDefaultPreview, ResponsiveLayoutPreview } from "./responsive-layout"
 import {
   SearchBarEmptyPreview,
   SearchBarFilledPreview,
@@ -137,6 +148,11 @@ export const previews = {
   "flex-between": FlexBetweenPreview,
   "flex-centered": FlexCenteredPreview,
 
+  // Footer
+  footer: FooterPreview,
+  "footer-default": FooterDefaultPreview,
+  "footer-single": FooterSinglePreview,
+
   // Input
   input: InputPreview,
   "input-default": InputDefaultPreview,
@@ -144,10 +160,32 @@ export const previews = {
   "input-error": InputErrorPreview,
   "input-disabled": InputDisabledPreview,
 
+  // Layout shells
+  layout: LayoutPreview,
+  "layout-default": LayoutDefaultPreview,
+  "layout-loading": LayoutLoadingDefaultPreview,
+  "layout-loading-standalone": LayoutLoadingStandalonePreview,
+  "responsive-layout": ResponsiveLayoutPreview,
+  "responsive-layout-default": ResponsiveLayoutDefaultPreview,
+
+  // Markdown
+  markdown: MarkdownPreview,
+  "markdown-default": MarkdownDefaultPreview,
+  "markdown-cms": MarkdownCmsPreview,
+
+  // PickerInput
+  "picker-input": PickerInputPreview,
+  "picker-input-default": PickerInputDefaultPreview,
+  "picker-input-error": PickerInputErrorPreview,
+
   // Placeholder
   placeholder: PlaceholderPreview,
   "placeholder-full": PlaceholderFullPreview,
   "placeholder-title-only": PlaceholderTitleOnlyPreview,
+
+  // PopupSwiper
+  "popup-swiper": PopupSwiperPreview,
+  "popup-swiper-default": PopupSwiperDefaultPreview,
 
   // Radio
   radio: RadioPreview,

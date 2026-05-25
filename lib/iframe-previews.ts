@@ -46,16 +46,38 @@ export const IFRAME_PREVIEWS = new Set<string>([
   "flex-horizontal",
   "flex-between",
   "flex-centered",
+  // Footer
+  "footer",
+  "footer-default",
+  "footer-single",
   // Input
   "input",
   "input-default",
   "input-filled",
   "input-error",
   "input-disabled",
+  // Layout shells
+  "layout",
+  "layout-default",
+  "layout-loading",
+  "layout-loading-standalone",
+  "responsive-layout",
+  "responsive-layout-default",
+  // Markdown
+  "markdown",
+  "markdown-default",
+  "markdown-cms",
+  // PickerInput
+  "picker-input",
+  "picker-input-default",
+  "picker-input-error",
   // Placeholder
   "placeholder",
   "placeholder-full",
   "placeholder-title-only",
+  // PopupSwiper
+  "popup-swiper",
+  "popup-swiper-default",
   // Radio
   "radio",
   "radio-standalone",

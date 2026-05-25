@@ -3,27 +3,16 @@ title: PopupSwiper
 description: Lower-level swipe-dismissable popup. Drawer is built on top of this.
 ---
 
-## Usage
+## Default
 
-`PopupSwiper` is re-exported from Arco for cases where `Drawer`'s defaults aren't right (custom swipe directions, full-screen popups, etc.).
+Use when [Drawer](/docs/components/drawer)'s defaults aren't right (custom direction, full-screen popups, non-bottom sheets). You manage the inner surface — including its background, padding and border radius.
 
-```tsx
-import { PopupSwiper } from "@appboxo/ui-kit"
+<ComponentPreview name="popup-swiper-default" />
 
-export function Example() {
-  const [open, setOpen] = useState(false)
+## Installation
 
-  return (
-    <PopupSwiper
-      visible={open}
-      close={() => setOpen(false)}
-      direction="bottom"
-      allowSwipeDirections={["bottom"]}
-    >
-      <div className="p-6">Custom content</div>
-    </PopupSwiper>
-  )
-}
+```bash
+pnpm add @appboxo/ui-kit
 ```
 
-For the standard bottom-sheet confirmation pattern, prefer [Drawer](/docs/components/drawer).
+For the standard bottom-sheet confirmation pattern, reach for [Drawer](/docs/components/drawer) first.
