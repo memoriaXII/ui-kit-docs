@@ -29,18 +29,21 @@ export function ComponentPreviewTabs({
 
   return (
     <div
-      className={cn("group relative mt-4 mb-12 flex flex-col gap-2", className)}
+      className={cn(
+        "group bg-background relative mt-4 mb-12 flex flex-col gap-2",
+        className
+      )}
       data-freedom-brand={brand}
       {...props}
     >
       <Tabs
-        className="relative mr-auto w-full"
+        className="bg-background relative mr-auto w-full"
         value={tab}
         onValueChange={setTab}
       >
         <div className="flex items-center justify-between">
           {showCode && (
-            <TabsList className="h-auto justify-start gap-6 rounded-none border-b bg-transparent p-0 px-2 md:px-0">
+            <TabsList className="h-auto justify-start gap-6 rounded-none border-0 bg-transparent p-0 px-2 md:px-0">
               <TabsTrigger
                 value="preview"
                 className="text-muted-foreground data-[state=active]:text-foreground hover:text-foreground/80 data-[state=active]:border-foreground -mb-px h-9 rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 pb-2 text-sm font-medium transition-colors data-[state=active]:bg-transparent data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent dark:data-[state=active]:border-b-foreground"

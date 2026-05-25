@@ -88,7 +88,7 @@ export function ExampleViewer({
           value={tab}
           onValueChange={(v) => setTab(v as "preview" | "code")}
         >
-          <TabsList className="h-auto gap-6 rounded-none border-0 bg-transparent p-0">
+          <TabsList className="h-auto gap-6 rounded-none border-0 bg-transparent p-0 [&]:bg-transparent">
             <TabsTrigger
               value="preview"
               disabled={!iframe}
