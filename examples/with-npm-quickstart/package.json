@@ -1,0 +1,29 @@
+{
+  "name": "appboxo-ui-kit-with-npm-quickstart",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@appboxo/ui-kit": "^0.2.1",
+    "@arco-design/mobile-react": "2.34.0",
+    "@arco-design/mobile-utils": "2.20.1",
+    "@tanstack/react-query": "^5.32.0",
+    "i18next": "^23.11.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^14.1.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "less": "^4.2.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.0"
+  }
+}

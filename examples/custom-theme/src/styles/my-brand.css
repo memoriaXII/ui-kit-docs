@@ -1,0 +1,33 @@
+/*
+ * Citrus -- a fictional partner brand used to demo the BYO theme flow.
+ *
+ * Everything below is a delta against `themes/default/theme.css`. Any
+ * token NOT declared here keeps the neutral default. Run
+ * `git diff` against `themes/default/theme.css` to see the full
+ * baseline you are inheriting from.
+ */
+
+#root {
+  /* Brand primary palette. The 6 / 7 stops are the most visible. */
+  --primary-1: #fff5eb;
+  --primary-2: #ffe2c5;
+  --primary-3: #ffb16d;
+  --primary-6: #ff7a00; /* main brand color */
+  --primary-7: #cc6200;
+
+  /* `--primary-color` is the legacy Arco alias for `--primary-6`.
+     Keep both in sync or some Arco internals diverge. */
+  --primary-color: #ff7a00;
+
+  /* Optional: round buttons + cards more aggressively for a softer feel. */
+  --boxo-card-mobile-border-radius: 16px;
+}
+
+#root.arco-theme-dark {
+  --primary-1: #2a1a08;
+  --primary-2: #4d2c10;
+  --primary-3: #cc8444;
+  --primary-6: #ff7a00;
+  --primary-7: #cc6200;
+  --primary-color: #ff7a00;
+}

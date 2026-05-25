@@ -1,0 +1,53 @@
+.banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 20px 16px 20px 20px;
+  background: linear-gradient(219deg, #9da4bd 1.48%, #cae4d5 100%);
+  isolation: isolate;
+}
+
+.textSection {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* max-width: 60%; */
+}
+
+.title {
+  color: #0a0f1f;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.description {
+  color: #0a0f1f;
+  opacity: 0.85;
+}
+
+.redeemButton {
+  margin-top: 16px;
+  align-self: flex-start;
+  background-color: #ffffff;
+  color: #0a0f1f;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  box-shadow: 0 2px 8px rgba(10, 15, 31, 0.08);
+}
+
+.redeemButton:active {
+  transform: scale(0.97);
+}

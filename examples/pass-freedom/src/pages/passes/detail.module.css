@@ -1,0 +1,20 @@
+.qrCarousel :global(.normal-item[data-index="0"]) {
+  transform: translateX(-20px);
+}
+
+.qrCarousel :global(.arco-carousel) {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.dragonPassLogoDark {
+  display: none;
+}
+
+:global(#root.arco-theme-dark) .dragonPassLogoLight {
+  display: none;
+}
+
+:global(#root.arco-theme-dark) .dragonPassLogoDark {
+  display: block;
+}

@@ -14,9 +14,10 @@ out
 .vercel
 .idea
 .vscode
-# themes/ is committed as a snapshot from ../freedom-ui-kit/themes.
-# scripts/sync-themes.mjs refreshes it during local dev when the kit
-# repo is adjacent; on Vercel / CI the committed copy is used as-is.
+# themes/ and examples/ are committed as snapshots from
+# ../freedom-ui-kit/{themes,examples}. scripts/sync-{themes,examples}.mjs
+# refresh them during local dev when the kit repo is adjacent; on
+# Vercel / CI the committed copies are used as-is.
 # preview app: vite cache + build output
 preview/.vite
 preview/dist

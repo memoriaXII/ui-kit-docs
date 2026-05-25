@@ -1,0 +1,30 @@
+.copyPopover :global(.arco-popover-inner) :global(.content-text) {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 8px;
+  color: var(--text-1);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.copyPopover :global(.arco-popover-inner) :global(.popover-bg) {
+  border-radius: 8px;
+  background: var(--text-5);
+}
+
+.copyPopover :global(.arco-popover-inner) :global(.popover-arrow) {
+  background-color: var(--text-5);
+}
+
+@media (prefers-color-scheme: dark) {
+  .copyPopover :global(.arco-popover-inner) :global(.popover-bg) {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  .copyPopover :global(.arco-popover-inner) :global(.popover-arrow) {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}

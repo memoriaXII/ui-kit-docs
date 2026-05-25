@@ -1,0 +1,95 @@
+/**
+ * Minimal English locale for Arco DatePicker/TimePicker.
+ * Inline to avoid importing @arco-design/web-react/es/locale/en-US
+ * (which imports 'dayjs/locale/en' and breaks in ESM resolution).
+ */
+export const arcoLocaleEn = {
+  DatePicker: {
+    today: "Today",
+    now: "Now",
+    ok: "OK",
+    selectDate: "Select Date",
+    selectTime: "Select time",
+    placeholder: {
+      date: "Select date",
+      week: "Select week",
+      month: "Select month",
+      year: "Select year",
+      quarter: "Select quarter",
+    },
+    placeholders: {
+      date: ["Start date", "End date"],
+      week: ["Start week", "End week"],
+      month: ["Start month", "End month"],
+      year: ["Start year", "End year"],
+      quarter: ["Start quarter", "End quarter"],
+    },
+    Calendar: {
+      today: "Today",
+      formatYear: "YYYY",
+      formatMonth: "MMM YYYY",
+      monthBeforeYear: true,
+      monthFormat: "MMM",
+      yearFormat: "YYYY",
+      view: { month: "Month", year: "Year", week: "Week", day: "Day" },
+      month: {
+        long: {
+          January: "January",
+          February: "February",
+          March: "March",
+          April: "April",
+          May: "May",
+          June: "June",
+          July: "July",
+          August: "August",
+          September: "September",
+          October: "October",
+          November: "November",
+          December: "December",
+        },
+        short: {
+          January: "Jan",
+          February: "Feb",
+          March: "Mar",
+          April: "Apr",
+          May: "May",
+          June: "Jun",
+          July: "Jul",
+          August: "Aug",
+          September: "Sept",
+          October: "Oct",
+          November: "Nov",
+          December: "Dec",
+        },
+      },
+      week: {
+        long: {
+          self: "Week",
+          monday: "Monday",
+          tuesday: "Tuesday",
+          wednesday: "Wednesday",
+          thursday: "Thursday",
+          friday: "Friday",
+          saturday: "Saturday",
+          sunday: "Sunday",
+        },
+        short: {
+          self: "Week",
+          monday: "Mon",
+          tuesday: "Tue",
+          wednesday: "Wed",
+          thursday: "Thu",
+          friday: "Fri",
+          saturday: "Sat",
+          sunday: "Sun",
+        },
+      },
+    },
+  },
+  TimePicker: {
+    ok: "OK",
+    placeholder: "Select time",
+    placeholders: ["Start time", "End time"],
+    now: "Now",
+  },
+};

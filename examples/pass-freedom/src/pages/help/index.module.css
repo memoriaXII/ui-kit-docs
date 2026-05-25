@@ -1,0 +1,63 @@
+.questionsSection {
+  padding-top: 24px;
+}
+
+.questionsContainer {
+  overflow: hidden;
+  margin: 16px 16px 0;
+  border-radius: 16px;
+  background: var(--fill-1);
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.questionsContainer :global(.cell-group-body) {
+  background-color: var(--fill-1) !important;
+}
+
+.helpButton {
+  position: fixed;
+  bottom: 34px;
+  width: calc(100% - 48px) !important;
+}
+
+.questionLink {
+  padding: 0;
+}
+
+.questionLink :global(.arco-cell-inner) {
+  height: auto;
+  min-height: 54px;
+  align-items: center;
+}
+
+.questionLink :global(.arco-cell-inner) :global(.cell-label) {
+  margin-right: 0;
+}
+
+.questionTitle {
+  margin-bottom: 16px;
+}
+
+.active {
+  background-color: var(--fill-1);
+}
+
+.markdownUl li {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: var(--text-4);
+}
+
+.content {
+  overscroll-behavior: contain !important;
+  /* Override BaseLayout's `padding-bottom: 20vh` so the page doesn't scroll
+     when content already fits. We only need enough clearance for the fixed
+     footer (~16px top + 56px button + 24px bottom = ~96px) plus safe-area. */
+  padding-bottom: calc(112px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+.loading {
+  position: absolute;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+}

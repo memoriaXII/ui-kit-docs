@@ -1,0 +1,537 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GPT recommended: Safe Area bottom padding */
+:root {
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --vh: 1vh;
+}
+
+/*
+ * Pass-freedom theme variable overrides.
+ * MUST live on `#root` (not `:root`) because the freedom.css bundle loads
+ * AFTER global.css and re-declares the Arco defaults at `:root`. Using `#root`
+ * gives us higher specificity so our overrides win on the host element.
+ */
+#root {
+  /* Form input radius — matches Figma additional-details design. */
+  --boxo-input-border-radius: 12px;
+
+  /* SearchBar uses default `square` shape; freedom theme only sets the round radius,
+     so override the square radius here to match Figma (12px). */
+  --search-bar-square-shape-border-radius: 12px;
+}
+
+/*
+ * Lock Arco NavBar height to 50px regardless of viewport-driven rem from
+ * `setRootPixel`. Arco's compiled CSS hard-codes `height: 0.88rem` on both
+ * `.arco-nav-bar.arco-nav-bar-fixed` and `.arco-nav-bar-wrapper` (it does NOT
+ * use the `--nav-bar-height` variable), so we override the classes directly.
+ * `#root` boosts specificity above the bundled Arco CSS.
+ */
+#root .arco-nav-bar.arco-nav-bar-fixed,
+#root .arco-nav-bar-wrapper {
+  height: 50px;
+}
+
+/* GPT recommended: Body viewport height fix */
+body {
+  min-height: 100vh;
+}
+
+/* GPT recommended: Use dynamic viewport height */
+.fullscreen {
+  min-height: 100dvh;
+  height: 100svh;
+}
+
+/* GPT recommended: App container with safe area */
+.app {
+  padding-bottom: max(20px, var(--safe-bottom));
+  box-sizing: border-box;
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Freedom brand gradient applied to text. */
+  .text-freedom-gradient {
+    background: var(--freedom-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Freedom brand gradient as a background fill — used for gradient outlines. */
+  .bg-freedom-gradient {
+    background: var(--freedom-gradient);
+  }
+}
+
+/* Scroll indicator — iOS-like thin rounded bar on the right of the scrollable Layout content */
+.layout-scroll-indicator {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.layout-scroll-indicator::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+}
+
+.layout-scroll-indicator::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px 0;
+}
+
+.layout-scroll-indicator::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 999px;
+}
+
+.layout-scroll-indicator:hover::-webkit-scrollbar-thumb,
+.layout-scroll-indicator:active::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#root.arco-theme-dark .layout-scroll-indicator {
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+#root.arco-theme-dark .layout-scroll-indicator::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+#root.arco-theme-dark .layout-scroll-indicator:hover::-webkit-scrollbar-thumb,
+#root.arco-theme-dark .layout-scroll-indicator:active::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Picker button colors for compatible devices modal */
+.arco-picker-header-btn,
+.arco-picker-header-btn.right,
+.arco-picker-header-btn.left {
+  color: var(--primary-6) !important;
+}
+
+/* Freedom-specific disabled button opacity fix */
+.arco-button[disabled],
+.arco-button.disabled,
+.arco-button.arco-button-type-primary[disabled],
+.arco-button.arco-button-type-default[disabled] {
+  opacity: 0.6 !important;
+}
+
+.arco-button.loading {
+  opacity: 0.5;
+}
+
+/* Alternative approach: target by CSS variable */
+[class*="footer"][class*="scrollable"] {
+  box-shadow: none !important;
+}
+
+/* Override Arco Design popup content background for Freedom Bank compatible devices modal */
+.arco-popup-content.bottom {
+  background: var(--fill-white) !important;
+}
+
+/* Let tag-divide tabs grow to the tallest label in the row. */
+.arco-tab-cell-container-wrap.vertical.type-tag-divide
+  .arco-tab-cell-container {
+  align-items: stretch;
+}
+
+.arco-tab-cell-container-wrap.vertical.type-tag-divide
+  .arco-tab-cell.vertical.tag-divide {
+  height: auto;
+  align-self: stretch;
+}
+
+/* Hide native number input spin buttons (up/down arrows) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Form inputs (esim-ui Input) — used on additional-details, travelers, booking-details.
+ * Filled style: 48px height, no visible border, --fill-2 background, matches Figma. */
+#root .arco-input-container {
+  height: 48px;
+  min-height: 48px;
+  padding: 0 16px !important;
+  border: 0 !important;
+  border-radius: var(--boxo-input-border-radius, 16px) !important;
+  background-color: var(--boxo-input-background, var(--fill-2)) !important;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+#root .arco-input-container:hover {
+  background-color: var(--boxo-input-background, var(--fill-2)) !important;
+}
+/* Error state — CSS module class names contain `error` substring (e.g. `input_error__abc`).
+ * Use inset box-shadow so the error outline doesn't change the 48px height. */
+#root .arco-input-container[class*="error"] {
+  box-shadow: inset 0 0 0 1px var(--danger-6) !important;
+}
+/* Arco's bundled CSS adds `padding: 0 16px` to `.arco-input-wrap`, which doubles up
+ * with the container's 16px horizontal padding — strip it so text aligns at 16px. */
+#root .arco-input-container .arco-input-wrap {
+  width: 100%;
+  padding: 0 !important;
+  min-height: 0 !important;
+}
+#root .arco-input,
+#root input.arco-input {
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  outline: none !important;
+  box-sizing: border-box;
+}
+#root .arco-input::placeholder,
+#root input.arco-input::placeholder,
+#root .arco-input::-webkit-input-placeholder,
+#root input.arco-input::-webkit-input-placeholder,
+#root .arco-input::-moz-placeholder,
+#root input.arco-input::-moz-placeholder,
+#root .arco-input::-ms-input-placeholder,
+#root input.arco-input::-ms-input-placeholder {
+  color: var(--text-2, #a1abad) !important;
+  -webkit-text-fill-color: var(--text-2, #a1abad) !important;
+  opacity: 1;
+}
+#root .arco-input:hover,
+#root input.arco-input:hover,
+#root .arco-input:focus,
+#root .arco-input.arco-input-focus,
+#root input.arco-input:focus,
+#root input.arco-input.arco-input-focus {
+  border-color: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Dark mode: all input fields */
+#root.arco-theme-dark .arco-input,
+#root.arco-theme-dark input.arco-input {
+  color: var(--text-5) !important;
+}
+#root.arco-theme-dark .arco-input::placeholder,
+#root.arco-theme-dark input.arco-input::placeholder,
+#root.arco-theme-dark .arco-input::-webkit-input-placeholder,
+#root.arco-theme-dark input.arco-input::-webkit-input-placeholder,
+#root.arco-theme-dark .arco-input::-moz-placeholder,
+#root.arco-theme-dark input.arco-input::-moz-placeholder,
+#root.arco-theme-dark .arco-input::-ms-input-placeholder,
+#root.arco-theme-dark input.arco-input::-ms-input-placeholder,
+#root.arco-theme-dark input::placeholder,
+#root.arco-theme-dark input::-webkit-input-placeholder,
+#root.arco-theme-dark input::-moz-placeholder,
+#root.arco-theme-dark input::-ms-input-placeholder {
+  color: var(--text-3, #9e9fa1) !important;
+  -webkit-text-fill-color: var(--text-3, #9e9fa1) !important;
+}
+#root.arco-theme-dark .arco-input-container {
+  background-color: var(--fill-2) !important;
+}
+#root.arco-theme-dark .arco-input-container[class*="error"] {
+  box-shadow: inset 0 0 0 1px var(--danger-6) !important;
+}
+
+/* Desktop date/time picker trigger: match esim-ui Input */
+.picker-trigger-input {
+  border: 1px solid var(--boxo-input-border-color, var(--fill-4)) !important;
+  border-radius: var(--boxo-input-border-radius, 16px) !important;
+  background-color: var(--boxo-input-background, transparent) !important;
+  padding: 12px 16px !important;
+  box-sizing: border-box;
+}
+.picker-trigger-input.active,
+.picker-trigger-input:focus-within {
+  border-color: var(--fill-4) !important;
+}
+.picker-trigger-input .arco-input,
+.picker-trigger-input input {
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  outline: none !important;
+  box-sizing: border-box;
+}
+.picker-trigger-input .arco-input::placeholder,
+.picker-trigger-input input::placeholder {
+  color: var(--text-2, #a1abad) !important;
+  -webkit-text-fill-color: var(--text-2, #a1abad) !important;
+  opacity: 1;
+}
+.picker-trigger-input .arco-input:hover,
+.picker-trigger-input input:hover,
+.picker-trigger-input .arco-input:focus,
+.picker-trigger-input .arco-input.arco-input-focus {
+  border-color: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Mobile date/time picker — booking details: 56px height, L radius, fill-2 */
+.mobile-picker-field.arco-input-container {
+  height: 56px;
+  min-height: 56px;
+  max-height: 56px;
+  border-radius: var(--Corners-L, 16px) !important;
+  background: var(--fill-2, #eaeced) !important;
+  padding: 0 16px !important;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.mobile-picker-field .arco-input,
+.mobile-picker-field input {
+  padding: 0 !important;
+  font-size: 17px !important;
+  line-height: 1.5 !important;
+  outline: none !important;
+  box-sizing: border-box;
+}
+.mobile-picker-field .arco-input::placeholder,
+.mobile-picker-field input::placeholder {
+  color: var(--text-2, #a1abad) !important;
+  -webkit-text-fill-color: var(--text-2, #a1abad) !important;
+  opacity: 1;
+}
+.mobile-date-picker-field .arco-input::placeholder,
+.mobile-date-picker-field input::placeholder {
+  color: var(--text-5) !important;
+  -webkit-text-fill-color: var(--text-5) !important;
+}
+.mobile-time-picker-field .arco-input::placeholder,
+.mobile-time-picker-field input::placeholder {
+  color: var(--text-5) !important;
+  -webkit-text-fill-color: var(--text-5) !important;
+}
+.mobile-picker-field .arco-input:focus,
+.mobile-picker-field .arco-input.arco-input-focus,
+.mobile-picker-field.arco-input:focus,
+.mobile-picker-field.arco-input.arco-input-focus,
+.mobile-picker-field .arco-input:hover,
+.mobile-picker-field.arco-input:hover {
+  border-color: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Dark mode: pickers */
+#root.arco-theme-dark .picker-trigger-input .arco-input::placeholder,
+#root.arco-theme-dark .picker-trigger-input input::placeholder,
+#root.arco-theme-dark .mobile-picker-field .arco-input::placeholder,
+#root.arco-theme-dark .mobile-picker-field input::placeholder {
+  color: var(--text-3, #9e9fa1) !important;
+  -webkit-text-fill-color: var(--text-3, #9e9fa1) !important;
+}
+#root.arco-theme-dark .mobile-picker-field.arco-input-container {
+  background: var(--fill-2) !important;
+}
+
+/* Dark mode: desktop date & time picker popups */
+#root.arco-theme-dark .desktop-date-picker-field .arco-picker-container,
+#root.arco-theme-dark .desktop-time-picker-field .arco-timepicker-container {
+  background-color: var(--fill-1) !important;
+  border-color: var(--fill-3) !important;
+  color: var(--text-5) !important;
+}
+#root.arco-theme-dark
+  .desktop-date-picker-field
+  .arco-picker-container
+  .arco-picker-cell,
+#root.arco-theme-dark
+  .desktop-date-picker-field
+  .arco-picker-container
+  .arco-picker-week-list-item,
+#root.arco-theme-dark .desktop-time-picker-field .arco-timepicker-cell-inner {
+  color: var(--text-5) !important;
+}
+#root.arco-theme-dark
+  .desktop-date-picker-field
+  .arco-picker-container
+  .arco-picker-cell-disabled,
+#root.arco-theme-dark
+  .desktop-date-picker-field
+  .arco-picker-container
+  .arco-picker-cell-in-view.arco-picker-cell-disabled
+  .arco-picker-cell-inner,
+#root.arco-theme-dark
+  .desktop-time-picker-field
+  .arco-timepicker-cell-disabled
+  .arco-timepicker-cell-inner {
+  color: var(--text-3) !important;
+}
+#root.arco-theme-dark
+  .desktop-date-picker-field
+  .arco-picker-container
+  .arco-picker-cell-disabled
+  .arco-picker-date {
+  background-color: rgb(54, 54, 54) !important;
+  cursor: not-allowed;
+}
+#root.arco-theme-dark
+  .desktop-date-picker-field
+  .arco-picker-container
+  .arco-picker-cell-in-view
+  .arco-picker-date-value {
+  color: rgb(180, 188, 200) !important;
+  font-weight: 500 !important;
+}
+#root.arco-theme-dark
+  .desktop-date-picker-field
+  .arco-picker-container
+  .arco-picker-cell-selected
+  .arco-picker-cell-inner,
+#root.arco-theme-dark
+  .desktop-date-picker-field
+  .arco-picker-container
+  .arco-picker-cell-today
+  .arco-picker-cell-inner {
+  background-color: var(--primary-6) !important;
+  color: var(--text-1) !important;
+}
+#root.arco-theme-dark
+  .desktop-time-picker-field
+  .arco-timepicker-cell-selected
+  .arco-timepicker-cell-inner {
+  background-color: #3f4041 !important;
+  color: #ffffff !important;
+}
+#root.arco-theme-dark
+  .desktop-date-picker-field
+  .arco-picker-container
+  .arco-picker-header-label,
+#root.arco-theme-dark
+  .desktop-date-picker-field
+  .arco-picker-container
+  .arco-picker-header-icon,
+#root.arco-theme-dark
+  .desktop-time-picker-field
+  .arco-timepicker-container
+  .arco-timepicker-cell-inner:hover {
+  color: var(--text-5) !important;
+}
+#root.arco-theme-dark .arco-picker-header {
+  border-bottom: 0.02rem solid var(--line-1) !important;
+}
+#root.arco-theme-dark
+  .desktop-date-picker-field
+  .arco-picker-container
+  .arco-picker-header-icon {
+  background-color: transparent !important;
+}
+#root.arco-theme-dark
+  .desktop-time-picker-field
+  .arco-timepicker-container
+  .arco-timepicker-list:not(:last-child) {
+  border-right-color: rgba(66, 66, 68, 1) !important;
+}
+#root.arco-theme-dark
+  .desktop-date-picker-field
+  .arco-picker-container
+  .arco-picker-header-icon:hover,
+#root.arco-theme-dark
+  .desktop-time-picker-field
+  .arco-timepicker-container
+  .arco-timepicker-cell-inner:hover {
+  background-color: var(--fill-2) !important;
+}
+
+/* Dark mode: desktop country code selector dropdown */
+#root.arco-theme-dark .desktop-dial-code-select .arco-select-popup {
+  background-color: var(--fill-1) !important;
+  border-color: var(--fill-3) !important;
+  color: var(--text-5) !important;
+}
+#root.arco-theme-dark
+  .desktop-dial-code-select
+  .arco-select-popup
+  .arco-select-option {
+  color: var(--text-5) !important;
+  background-color: var(--fill-1) !important;
+}
+#root.arco-theme-dark
+  .desktop-dial-code-select
+  .arco-select-popup
+  .arco-select-option-hover,
+#root.arco-theme-dark
+  .desktop-dial-code-select
+  .arco-select-popup
+  .arco-select-option:hover {
+  background-color: var(
+    --boxo-dial-code-selector-item-active-background,
+    var(--fill-2)
+  ) !important;
+  color: var(--text-5) !important;
+}
+#root.arco-theme-dark
+  .desktop-dial-code-select
+  .arco-select-popup
+  .arco-select-option-selected {
+  color: var(--text-5) !important;
+  background-color: var(--fill-1) !important;
+}
+#root.arco-theme-dark
+  .desktop-dial-code-select
+  .arco-select-popup
+  .arco-select-option-empty {
+  color: var(--text-3) !important;
+}
+#root.arco-theme-dark
+  .desktop-dial-code-select
+  .arco-select-popup
+  .dial-code-select-search-wrap {
+  border-bottom-color: var(--fill-3) !important;
+}
+#root.arco-theme-dark
+  .desktop-dial-code-select
+  .arco-select-popup
+  .arco-search-bar-wrap {
+  background-color: var(--fill-1) !important;
+  border-color: var(--line-1) !important;
+}
+#root.arco-theme-dark
+  .desktop-dial-code-select
+  .arco-select-popup
+  .arco-search-bar-input {
+  color: var(--text-5) !important;
+  background-color: transparent !important;
+}
+#root.arco-theme-dark
+  .desktop-dial-code-select
+  .arco-select-popup
+  .arco-search-bar-input::placeholder {
+  color: var(--text-3) !important;
+}
+#root.arco-theme-dark
+  .desktop-dial-code-select
+  .arco-select-popup
+  .arco-search-bar-prefix
+  svg
+  path {
+  fill: var(--text-3) !important;
+}

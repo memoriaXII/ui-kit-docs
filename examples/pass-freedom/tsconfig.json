@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "preserve",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "forceConsistentCasingInFileNames": true,
+    "plugins": [{ "name": "next" }],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@boxo/api": ["src/mocks/api/index.ts"],
+      "@boxo/api/lounge": ["src/mocks/api/lounge.ts"],
+      "@boxo/esim-util": ["src/mocks/esim-util/index.ts"],
+      "@boxo/esim-util/src/bridge/world": ["src/mocks/esim-util/index.ts"],
+      "@boxo/esim-util/src/boxo": ["src/mocks/esim-util/index.ts"],
+      "@boxo/esim-ui": ["../../src/index.ts"],
+      "@boxo/sentry-config": ["src/mocks/boxo-sentry-config/index.ts"],
+      "@appboxo/js-sdk": ["src/mocks/appboxo-sdk/index.ts"],
+      "@sentry/nextjs": ["src/mocks/sentry/index.ts"]
+    }
+  },
+  "include": [
+    "declaration.d.ts",
+    "next-env.d.ts",
+    "next.config.js",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

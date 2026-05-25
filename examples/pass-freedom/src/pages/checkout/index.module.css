@@ -1,0 +1,19 @@
+/* Remove box shadow from footer on checkout page */
+.noShadowFooter:global([class*="scrollable"]),
+.noShadowFooter:global(.scrollable) {
+  box-shadow: none !important;
+}
+
+/* Fallback for higher specificity */
+.checkoutPage
+  :global([class*="responsive-layout_footer"][class*="scrollable"]) {
+  box-shadow: none !important;
+}
+
+/* Things to know card: no border in dark mode on checkout page only */
+:global(#root.arco-theme-dark)
+  .checkoutPage
+  .thingsToKnowWrapper
+  :global([class*="card_card"]) {
+  border-width: 0 !important;
+}
