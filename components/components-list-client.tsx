@@ -28,7 +28,7 @@ export function ComponentsListClient({ list }: { list: Item[] }) {
             className="group bg-card text-card-foreground hover:border-foreground/30 relative flex flex-col overflow-hidden rounded-lg border transition-colors"
           >
             <div className="bg-muted/40 group-hover:bg-muted/60 relative flex h-40 items-center justify-center overflow-hidden px-4 transition-colors">
-              <div className="pointer-events-none flex h-full w-full items-center justify-center [&>*]:max-h-full [&>*]:max-w-full [&>*]:scale-[0.78] [&>*]:transition-transform [&>*]:duration-300 group-hover:[&>*]:scale-[0.82]">
+              <div className="pointer-events-none flex h-full w-full items-center justify-center [&>*]:max-h-full [&>*]:max-w-full [&>*]:origin-center [&>*]:[transform:scale(0.78)] [&>*]:[transition:none]">
                 {Demo ? (
                   <React.Suspense fallback={null}>
                     <Demo />

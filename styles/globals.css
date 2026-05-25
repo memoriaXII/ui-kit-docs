@@ -152,12 +152,18 @@
   ::selection {
     @apply bg-selection text-selection-foreground;
   }
-  html {
-    @apply scroll-smooth;
-  }
   body {
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
+  }
+  /* Force a stable compositor layer for sticky / fixed top elements so
+     they don't repaint on every scroll tick. Without this Safari + Chrome
+     visibly jitter the header on long scrolls. */
+  header[class*="sticky"],
+  .docs-nav {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   @supports (font: -apple-system-body) and (-webkit-appearance: none) {
