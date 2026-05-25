@@ -3,20 +3,11 @@ title: Button
 description: Four button variants for the dominant action on a screen and supporting actions around it.
 ---
 
-<ComponentPreview
-  name="button-demo"
-  description="Primary, secondary, outline and ghost variants."
-/>
+## Variants
 
-## Installation
+Buttons are **separate exports per variant**. Pick the dominant one per screen — at most one `PrimaryButton`, plus supporting `Secondary` / `Tertiary` / `Quaternary` as needed.
 
-```bash
-pnpm add @appboxo/ui-kit
-```
-
-## Usage
-
-Buttons are **separate exports per variant**. Pass copy via `text` (not children). All variants accept an optional `href` + `replace` that route through `<UIKitLink>` (Next's `<Link>` when wrapped in `<NextUIKitProvider>`, plain `<a>` otherwise).
+<ComponentPreview name="button-variants" />
 
 ```tsx
 import {
@@ -26,29 +17,48 @@ import {
   QuaternaryButton,
 } from "@appboxo/ui-kit"
 
-export function Example() {
-  return (
-    <>
-      <PrimaryButton text="Continue" onClick={() => {}} />
-      <SecondaryButton text="Skip" />
-      <TertiaryButton text="More" />
-      <QuaternaryButton text="Filter" />
-
-      {/* As a link */}
-      <PrimaryButton text="Open" href="/checkout" />
-    </>
-  )
-}
+<PrimaryButton text="Primary" onClick={() => {}} />
+<SecondaryButton text="Secondary" />
+<TertiaryButton text="More" />
+<QuaternaryButton text="Filter" />
 ```
 
-## Variants
+## As a link
 
-| Component | Use for |
-|---|---|
-| `PrimaryButton` | The single dominant call-to-action on a screen |
-| `SecondaryButton` | Supporting action sitting beside primary (e.g. Skip / Cancel) |
-| `TertiaryButton` | Inline action inside a card or list row |
-| `QuaternaryButton` | Outline filter / chip-like action |
+Pass `href` and the button renders inside `<UIKitLink>` — that resolves to `next/link` when wrapped in `<NextUIKitProvider>`, a plain `<a>` otherwise. `replace` controls history vs push.
+
+<ComponentPreview name="button-link" />
+
+```tsx
+<PrimaryButton text="Open checkout" href="/checkout" />
+<SecondaryButton text="View terms" href="/terms" replace />
+```
+
+## Disabled
+
+Pass `disabled` — forwarded straight to Arco.
+
+<ComponentPreview name="button-disabled" />
+
+```tsx
+<PrimaryButton text="Disabled" disabled />
+```
+
+## Loading
+
+Pass `loading` and the label is swapped for a spinner. Use during async actions to block double-submits.
+
+<ComponentPreview name="button-loading" />
+
+```tsx
+<PrimaryButton text="Save" loading={isSaving} onClick={save} />
+```
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
+```
 
 ## Theme tokens
 

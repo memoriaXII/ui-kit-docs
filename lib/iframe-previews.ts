@@ -9,6 +9,10 @@
  */
 export const IFRAME_PREVIEWS = new Set<string>([
   "button",
+  "button-variants",
+  "button-link",
+  "button-disabled",
+  "button-loading",
   "card",
   "checkbox",
   "copyable",

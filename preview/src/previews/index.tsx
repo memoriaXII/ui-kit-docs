@@ -1,4 +1,10 @@
-import { ButtonPreview } from "./button"
+import {
+  ButtonDisabledPreview,
+  ButtonLinkPreview,
+  ButtonLoadingPreview,
+  ButtonPreview,
+  ButtonVariantsPreview,
+} from "./button"
 import { CardPreview } from "./card"
 import { CheckboxPreview } from "./checkbox"
 import { CopyablePreview } from "./copyable"
@@ -20,6 +26,10 @@ import { TypographyPreview } from "./typography"
 
 export const previews = {
   button: ButtonPreview,
+  "button-variants": ButtonVariantsPreview,
+  "button-link": ButtonLinkPreview,
+  "button-disabled": ButtonDisabledPreview,
+  "button-loading": ButtonLoadingPreview,
   card: CardPreview,
   checkbox: CheckboxPreview,
   copyable: CopyablePreview,
