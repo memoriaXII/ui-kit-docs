@@ -274,8 +274,8 @@ importers:
   preview:
     dependencies:
       '@appboxo/ui-kit':
-        specifier: npm:@rex-taiwan/ui-kit@^0.2.0
-        version: '@rex-taiwan/ui-kit@0.2.0(@arco-design/mobile-react@2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(@arco-design/mobile-utils@2.23.5)(@tanstack/react-query@5.100.14(react@18.3.1))(@types/react@18.3.29)(next-i18next@15.4.3(@types/react@18.3.29)(i18next@23.16.8)(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-i18next@15.7.4(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react@18.3.1))(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)'
+        specifier: ^0.2.1
+        version: 0.2.1(@arco-design/mobile-react@2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(@arco-design/mobile-utils@2.23.5)(@tanstack/react-query@5.100.14(react@18.3.1))(@types/react@18.3.29)(next-i18next@15.4.3(@types/react@18.3.29)(i18next@23.16.8)(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-i18next@15.7.4(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react@18.3.1))(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@arco-design/mobile-react':
         specifier: ^2.34
         version: 2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
@@ -326,6 +326,18 @@ packages:
   '@antfu/ni@25.0.0':
     resolution: {integrity: sha512-9q/yCljni37pkMr4sPrI3G4jqdIk074+iukc5aFJl7kmDCCsiJrbZ6zKxnES1Gwg+i9RcDZwvktl23puGslmvA==}
     hasBin: true
+
+  '@appboxo/ui-kit@0.2.1':
+    resolution: {integrity: sha512-rijTXwZ/YgkSLbCVmxOkBAWL21Z6vJ4g5UcPmG9DCRcEMZqb0fFErMgnGomEnpN5qsSOZlvBtarE6vvo3/aM7w==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@arco-design/mobile-react': ^2.34
+      '@arco-design/mobile-utils': ^2.20
+      '@tanstack/react-query': ^5
+      next: ^14
+      next-i18next: ^15
+      react: ^18
+      react-dom: ^18
 
   '@arco-design/mobile-react@2.39.0':
     resolution: {integrity: sha512-zR36FGvQ1IDyT1/cOp4jd+tYtnHlxQtp0S7dnoKuCvgFLQHKpiA42novxBUrhp1X8a+1q5VihuU7R5PBBTICnA==}
@@ -2186,18 +2198,6 @@ packages:
 
   '@radix-ui/rect@1.1.1':
     resolution: {integrity: sha512-HPwpGIzkl28mWyZqG52jiqDJ12waP11Pa1lGoiyUkIEuMLBP0oeK/C89esbXrxsky5we7dfd8U58nm0SgAWpVw==}
-
-  '@rex-taiwan/ui-kit@0.2.0':
-    resolution: {integrity: sha512-glC/6Lya9AMIsUpd5QX6rhdxdsXzP9Po9P38eG/gRMJf/Uu/G78sZZS8S0SDKMjAXZLOzVzd+Lz9OFWn0IO8sQ==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      '@arco-design/mobile-react': ^2.34
-      '@arco-design/mobile-utils': ^2.20
-      '@tanstack/react-query': ^5
-      next: ^14
-      next-i18next: ^15
-      react: ^18
-      react-dom: ^18
 
   '@rolldown/pluginutils@1.0.0-beta.27':
     resolution: {integrity: sha512-+d0F4MKMCbeVUJwG96uQ4SgAznZNSq93I3V+9NHA4OpvqG8mRCpGdKmK8l/dl02h2CCDHwW2FqilnTyDcAnqjA==}
@@ -6000,6 +6000,33 @@ snapshots:
       package-manager-detector: 1.6.0
       tinyexec: 1.2.2
 
+  '@appboxo/ui-kit@0.2.1(@arco-design/mobile-react@2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(@arco-design/mobile-utils@2.23.5)(@tanstack/react-query@5.100.14(react@18.3.1))(@types/react@18.3.29)(next-i18next@15.4.3(@types/react@18.3.29)(i18next@23.16.8)(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-i18next@15.7.4(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react@18.3.1))(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@arco-design/mobile-react': 2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+      '@arco-design/mobile-utils': 2.23.5
+      '@emotion/react': 11.14.0(@types/react@18.3.29)(react@18.3.1)
+      '@tanstack/react-query': 5.100.14(react@18.3.1)
+      ahooks: 3.9.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      compare-versions: 6.1.1
+      date-fns: 3.6.0
+      framer-motion: 11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      libphonenumber-js: 1.13.3
+      lodash-es: 4.18.1
+      mime: 4.1.0
+      next: 16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next-i18next: 15.4.3(@types/react@18.3.29)(i18next@23.16.8)(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-i18next@15.7.4(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react@18.3.1)
+      react: 18.3.1
+      react-awesome-reveal: 4.3.1(@emotion/react@11.14.0(@types/react@18.3.29)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-copy-to-clipboard: 5.1.1(react@18.3.1)
+      react-device-detect: 2.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-dom: 18.3.1(react@18.3.1)
+      react-markdown: 9.1.0(@types/react@18.3.29)(react@18.3.1)
+      react-responsive: 10.0.1(react@18.3.1)
+    transitivePeerDependencies:
+      - '@emotion/is-prop-valid'
+      - '@types/react'
+      - supports-color
+
   '@arco-design/mobile-react@2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@arco-design/mobile-utils': 2.23.5
@@ -7701,33 +7728,6 @@ snapshots:
       '@types/react-dom': 19.2.3(@types/react@19.2.7)
 
   '@radix-ui/rect@1.1.1': {}
-
-  '@rex-taiwan/ui-kit@0.2.0(@arco-design/mobile-react@2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(@arco-design/mobile-utils@2.23.5)(@tanstack/react-query@5.100.14(react@18.3.1))(@types/react@18.3.29)(next-i18next@15.4.3(@types/react@18.3.29)(i18next@23.16.8)(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-i18next@15.7.4(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react@18.3.1))(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@arco-design/mobile-react': 2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
-      '@arco-design/mobile-utils': 2.23.5
-      '@emotion/react': 11.14.0(@types/react@18.3.29)(react@18.3.1)
-      '@tanstack/react-query': 5.100.14(react@18.3.1)
-      ahooks: 3.9.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      compare-versions: 6.1.1
-      date-fns: 3.6.0
-      framer-motion: 11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      libphonenumber-js: 1.13.3
-      lodash-es: 4.18.1
-      mime: 4.1.0
-      next: 16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      next-i18next: 15.4.3(@types/react@18.3.29)(i18next@23.16.8)(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-i18next@15.7.4(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react@18.3.1)
-      react: 18.3.1
-      react-awesome-reveal: 4.3.1(@emotion/react@11.14.0(@types/react@18.3.29)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-copy-to-clipboard: 5.1.1(react@18.3.1)
-      react-device-detect: 2.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-dom: 18.3.1(react@18.3.1)
-      react-markdown: 9.1.0(@types/react@18.3.29)(react@18.3.1)
-      react-responsive: 10.0.1(react@18.3.1)
-    transitivePeerDependencies:
-      - '@emotion/is-prop-valid'
-      - '@types/react'
-      - supports-color
 
   '@rolldown/pluginutils@1.0.0-beta.27': {}
 

@@ -1,6 +1,6 @@
 # @appboxo/ui-kit — Docs Site (experimental)
 
-Sandbox / spike for evaluating whether to replace Storybook as the public docs surface for `@appboxo/ui-kit` (formerly `@freedom/ui-kit`; current npm publish is the interim `@rex-taiwan/ui-kit`).
+Sandbox / spike for evaluating whether to replace Storybook as the public docs surface for [`@appboxo/ui-kit`](https://www.npmjs.com/package/@appboxo/ui-kit).
 
 ## Repo layout
 
@@ -71,7 +71,7 @@ The docs site needs the kit's `themes/<brand>/theme.css` files at build time to 
 
 ## Notes
 
-- Package alias: docs currently reference `@appboxo/ui-kit` everywhere. Real npm install today is `pnpm add @appboxo/ui-kit@npm:@rex-taiwan/ui-kit` (see `Setup` page).
+- Package install: `pnpm add @appboxo/ui-kit` — the package is now published under its canonical scope. Earlier sandbox commits referenced an interim `@rex-taiwan/ui-kit` alias; that's no longer needed.
 - Fumadocs MDX 11.6.3 doesn't compile `source.config.ts` → `.source/source.config.mjs` from its CLI. We compile it manually in `scripts/compile-source-config.mjs` and wire as `predev` / `prebuild`.
 - `pnpm-workspace.yaml` is required so `pnpm --filter freedom-ui-kit-docs-preview dev` resolves. Without it, Turbopack also panics because the workspace root inference breaks. We pin `turbopack.root` in `next.config.mjs` to compensate.
 
