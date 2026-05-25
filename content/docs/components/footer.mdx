@@ -1,27 +1,60 @@
 ---
 title: Footer
-description: Sticky bottom action area for Layout / ResponsiveLayout. Adds safe-area padding and shadow on scroll.
+description: Sticky bottom action area for Layout / ResponsiveLayout. Pass a FooterProps object to Layout's `footer` slot.
 ---
+
+> **Note**: `@appboxo/ui-kit@0.2.1` exports the `FooterProps` type but not the
+> `Footer` component itself as a named export — Footer is consumed through
+> `Layout`'s `footer` slot, which accepts either `FooterProps` or any
+> `ReactNode`. Examples below show the standard pattern.
 
 ## Two actions
 
-The standard layout — primary + cancel side by side.
+`primaryButton` + `secondaryButton` — the standard checkout / form footer.
 
 <ComponentPreview name="footer-default" />
 
 ## Single action
 
-For destination screens where there's just one obvious next step.
+Only `primaryButton` for destination screens where there's just one next step.
 
 <ComponentPreview name="footer-single" />
+
+## Usage
+
+```tsx
+import { Layout } from "@appboxo/ui-kit"
+
+<Layout
+  navBar={{ title: "Checkout" }}
+  footer={{
+    primaryButton: { text: "Confirm", onClick: confirm },
+    secondaryButton: { text: "Cancel", onClick: cancel },
+  }}
+>
+  {/* content */}
+</Layout>
+```
+
+For full control over the footer area, pass a `ReactNode` instead of `FooterProps`:
+
+```tsx
+<Layout
+  footer={
+    <div style={{ padding: 16 }}>
+      <YourCustomFooter />
+    </div>
+  }
+>
+  {/* content */}
+</Layout>
+```
 
 ## Installation
 
 ```bash
 pnpm add @appboxo/ui-kit
 ```
-
-Place inside `Layout`'s or `ResponsiveLayout`'s `footer` slot for the full sticky behaviour. Standalone use works too but the safe-area padding assumes a full-screen container.
 
 ## Theme tokens
 
