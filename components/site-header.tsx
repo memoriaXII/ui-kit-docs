@@ -9,8 +9,8 @@ import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
 import { ModeSwitcher } from "@/components/mode-switcher"
-import { Button } from "@/registry/elevenlabs-ui/ui/button"
-import { Separator } from "@/registry/elevenlabs-ui/ui/separator"
+import { Button } from "@/registry/ui/ui/button"
+import { Separator } from "@/registry/ui/ui/separator"
 
 export function SiteHeader() {
   const pageTree = source.pageTree

@@ -15,7 +15,7 @@ import { Index } from "@/registry/__index__"
  * - iframe-mode previews: show the real `preview/src/previews/<slug>.tsx`
  *   that drives the iframe — actual @appboxo/ui-kit code.
  * - placeholder previews: show the shadcn-based demo file under
- *   `registry/freedom/examples/<name>.tsx`.
+ *   `registry/examples/<name>.tsx`.
  *
  * Returns a path relative to the project root, or null if no file is found.
  * `<ComponentSource src={...} />` reads files relative to `process.cwd()`.
@@ -25,7 +25,7 @@ function resolveCodePath(name: string, iframeSlug: string | null) {
   if (iframeSlug) {
     candidates.push(`preview/src/previews/${iframeSlug}.tsx`)
   }
-  candidates.push(`registry/freedom/examples/${name}.tsx`)
+  candidates.push(`registry/examples/${name}.tsx`)
   return candidates.find((p) => fs.existsSync(path.join(process.cwd(), p)))
 }
 

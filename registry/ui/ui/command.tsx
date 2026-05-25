@@ -11,7 +11,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/registry/elevenlabs-ui/ui/dialog"
+} from "@/registry/ui/ui/dialog"
 
 function Command({
   className,

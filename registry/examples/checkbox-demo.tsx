@@ -1,5 +1,5 @@
-import { Checkbox } from "@/registry/elevenlabs-ui/ui/checkbox"
-import { Label } from "@/registry/elevenlabs-ui/ui/label"
+import { Checkbox } from "@/registry/ui/ui/checkbox"
+import { Label } from "@/registry/ui/ui/label"
 
 export default function CheckboxDemo() {
   return (

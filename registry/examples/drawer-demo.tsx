@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/registry/elevenlabs-ui/ui/button"
+import { Button } from "@/registry/ui/ui/button"
 import {
   Drawer,
   DrawerContent,
@@ -9,7 +9,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/registry/elevenlabs-ui/ui/drawer"
+} from "@/registry/ui/ui/drawer"
 
 export default function DrawerDemo() {
   return (

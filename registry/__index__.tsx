@@ -19,7 +19,7 @@ type RegistryEntry = {
 
 function lazyDemo(name: string) {
   return React.lazy(() =>
-    import(`@/registry/freedom/examples/${name}`).then((m) => ({
+    import(`@/registry/examples/${name}`).then((m) => ({
       default: m.default,
     }))
   )
@@ -29,7 +29,7 @@ function example(name: string): RegistryEntry {
   return {
     name,
     type: "registry:example",
-    files: [{ path: `registry/freedom/examples/${name}.tsx` }],
+    files: [{ path: `registry/examples/${name}.tsx` }],
     component: lazyDemo(name),
   }
 }

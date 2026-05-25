@@ -4,7 +4,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry/elevenlabs-ui/ui/alert"
+} from "@/registry/ui/ui/alert"
 
 export default function TipDemo() {
   return (

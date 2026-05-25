@@ -3,7 +3,7 @@
 import { Check, Palette } from "lucide-react"
 
 import { useBrand } from "@/components/brand-context"
-import { Button } from "@/registry/elevenlabs-ui/ui/button"
+import { Button } from "@/registry/ui/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,7 +11,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/registry/elevenlabs-ui/ui/dropdown-menu"
+} from "@/registry/ui/ui/dropdown-menu"
 
 export function BrandSwitcher() {
   const { brand, setBrand, brands } = useBrand()

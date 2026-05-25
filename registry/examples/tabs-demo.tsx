@@ -3,7 +3,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/registry/elevenlabs-ui/ui/tabs"
+} from "@/registry/ui/ui/tabs"
 
 export default function TabsDemo() {
   return (

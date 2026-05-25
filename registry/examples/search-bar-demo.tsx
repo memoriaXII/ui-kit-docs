@@ -1,6 +1,6 @@
 import { Search } from "lucide-react"
 
-import { Input } from "@/registry/elevenlabs-ui/ui/input"
+import { Input } from "@/registry/ui/ui/input"
 
 export default function SearchBarDemo() {
   return (

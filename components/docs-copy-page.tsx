@@ -3,60 +3,30 @@
 import { IconCheck, IconChevronDown, IconCopy } from "@tabler/icons-react"
 
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
-import { Button } from "@/registry/elevenlabs-ui/ui/button"
+import { Button } from "@/registry/ui/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/registry/elevenlabs-ui/ui/dropdown-menu"
+} from "@/registry/ui/ui/dropdown-menu"
 import {
   Popover,
   PopoverAnchor,
   PopoverContent,
   PopoverTrigger,
-} from "@/registry/elevenlabs-ui/ui/popover"
-import { Separator } from "@/registry/elevenlabs-ui/ui/separator"
+} from "@/registry/ui/ui/popover"
+import { Separator } from "@/registry/ui/ui/separator"
 
 function getPromptUrl(baseURL: string, url: string) {
   return `${baseURL}?q=${encodeURIComponent(
-    `I’m looking at this shadcn/ui documentation: ${url}.
+    `I'm looking at this @appboxo/ui-kit documentation: ${url}.
 Help me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.
   `
   )}`
 }
 
 const menuItems = {
-  markdown: (url: string) => (
-    <a href={`${url}.md`} target="_blank" rel="noopener noreferrer">
-      <svg strokeLinejoin="round" viewBox="0 0 22 16">
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M19.5 2.25H2.5C1.80964 2.25 1.25 2.80964 1.25 3.5V12.5C1.25 13.1904 1.80964 13.75 2.5 13.75H19.5C20.1904 13.75 20.75 13.1904 20.75 12.5V3.5C20.75 2.80964 20.1904 2.25 19.5 2.25ZM2.5 1C1.11929 1 0 2.11929 0 3.5V12.5C0 13.8807 1.11929 15 2.5 15H19.5C20.8807 15 22 13.8807 22 12.5V3.5C22 2.11929 20.8807 1 19.5 1H2.5ZM3 4.5H4H4.25H4.6899L4.98715 4.82428L7 7.02011L9.01285 4.82428L9.3101 4.5H9.75H10H11V5.5V11.5H9V7.79807L7.73715 9.17572L7 9.97989L6.26285 9.17572L5 7.79807V11.5H3V5.5V4.5ZM15 8V4.5H17V8H19.5L17 10.5L16 11.5L15 10.5L12.5 8H15Z"
-          fill="currentColor"
-        />
-      </svg>
-      View as Markdown
-    </a>
-  ),
-  v0: (url: string) => (
-    <a
-      href={getPromptUrl("https://v0.dev", url)}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        viewBox="0 0 147 70"
-        className="size-4.5 -translate-x-px"
-      >
-        <path d="M56 50.203V14h14v46.156C70 65.593 65.593 70 60.156 70c-2.596 0-5.158-1-7-2.843L0 14h19.797L56 50.203ZM147 56h-14V23.953L100.953 56H133v14H96.687C85.814 70 77 61.186 77 50.312V14h14v32.156L123.156 14H91V0h36.312C138.186 0 147 8.814 147 19.688V56Z" />
-      </svg>
-      <span className="-translate-x-[2px]">Open in v0</span>
-    </a>
-  ),
   chatgpt: (url: string) => (
     <a
       href={getPromptUrl("https://chatgpt.com", url)}

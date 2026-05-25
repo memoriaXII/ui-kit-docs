@@ -8,7 +8,7 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
-import { Button } from "@/registry/elevenlabs-ui/ui/button"
+import { Button } from "@/registry/ui/ui/button"
 
 const title = "Appboxo UI Kit"
 const description =

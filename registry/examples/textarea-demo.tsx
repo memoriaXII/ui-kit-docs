@@ -1,5 +1,5 @@
-import { Label } from "@/registry/elevenlabs-ui/ui/label"
-import { Textarea } from "@/registry/elevenlabs-ui/ui/textarea"
+import { Label } from "@/registry/ui/ui/label"
+import { Textarea } from "@/registry/ui/ui/textarea"
 
 export default function TextareaDemo() {
   return (

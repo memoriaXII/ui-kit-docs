@@ -4,7 +4,7 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { useBrand } from "@/components/brand-context"
-import { Tabs, TabsList, TabsTrigger } from "@/registry/elevenlabs-ui/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "@/registry/ui/ui/tabs"
 
 export function ComponentPreviewTabs({
   className,

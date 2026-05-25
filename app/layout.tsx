@@ -10,7 +10,7 @@ import { Analytics } from "@/components/analytics"
 import { BrandProvider } from "@/components/brand-context"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Toaster } from "@/registry/elevenlabs-ui/ui/sonner"
+import { Toaster } from "@/registry/ui/ui/sonner"
 
 import "@/styles/globals.css"
 

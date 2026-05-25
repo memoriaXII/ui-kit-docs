@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils"
 import { useConfig } from "@/hooks/use-config"
 import { useIsMac } from "@/hooks/use-is-mac"
 import { useMutationObserver } from "@/hooks/use-mutation-observer"
-import { Button } from "@/registry/elevenlabs-ui/ui/button"
+import { Button } from "@/registry/ui/ui/button"
 import {
   Command,
   CommandEmpty,
@@ -19,7 +19,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/elevenlabs-ui/ui/command"
+} from "@/registry/ui/ui/command"
 import {
   Dialog,
   DialogContent,
@@ -27,8 +27,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/elevenlabs-ui/ui/dialog"
-import { Separator } from "@/registry/elevenlabs-ui/ui/separator"
+} from "@/registry/ui/ui/dialog"
+import { Separator } from "@/registry/ui/ui/separator"
 
 export function CommandMenu({
   tree,

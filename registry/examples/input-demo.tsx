@@ -1,5 +1,5 @@
-import { Input } from "@/registry/elevenlabs-ui/ui/input"
-import { Label } from "@/registry/elevenlabs-ui/ui/label"
+import { Input } from "@/registry/ui/ui/input"
+import { Label } from "@/registry/ui/ui/label"
 
 export default function InputDemo() {
   return (

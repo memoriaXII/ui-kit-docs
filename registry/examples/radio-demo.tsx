@@ -1,8 +1,8 @@
-import { Label } from "@/registry/elevenlabs-ui/ui/label"
+import { Label } from "@/registry/ui/ui/label"
 import {
   RadioGroup,
   RadioGroupItem,
-} from "@/registry/elevenlabs-ui/ui/radio-group"
+} from "@/registry/ui/ui/radio-group"
 
 export default function RadioDemo() {
   return (

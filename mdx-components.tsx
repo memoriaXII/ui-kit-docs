@@ -17,20 +17,20 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/registry/elevenlabs-ui/ui/accordion"
+} from "@/registry/ui/ui/accordion"
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry/elevenlabs-ui/ui/alert"
-import { AspectRatio } from "@/registry/elevenlabs-ui/ui/aspect-ratio"
-import { Button } from "@/registry/elevenlabs-ui/ui/button"
+} from "@/registry/ui/ui/alert"
+import { AspectRatio } from "@/registry/ui/ui/aspect-ratio"
+import { Button } from "@/registry/ui/ui/button"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/registry/elevenlabs-ui/ui/tabs"
+} from "@/registry/ui/ui/tabs"
 
 export const mdxComponents = {
   h1: ({ className, ...props }: React.ComponentProps<"h1">) => (

@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/registry/elevenlabs-ui/ui/select"
+} from "@/registry/ui/ui/select"
 
 export default function DialCodeSelectorDemo() {
   return (

@@ -2,7 +2,7 @@
 
 import { CalendarIcon } from "lucide-react"
 
-import { Button } from "@/registry/elevenlabs-ui/ui/button"
+import { Button } from "@/registry/ui/ui/button"
 
 export default function DatePickerDemo() {
   return (
