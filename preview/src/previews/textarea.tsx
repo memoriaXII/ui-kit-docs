@@ -1,18 +1,67 @@
 import { useState } from "react"
 
-import { Body1, Flex, TextArea } from "@appboxo/ui-kit"
+import { TextArea } from "@appboxo/ui-kit"
+
+import { PreviewLayout, Row, Section } from "./_section"
 
 export function TextareaPreview() {
-  const [value, setValue] = useState("")
+  const [bio, setBio] = useState("")
+  const [report, setReport] = useState(
+    "App froze on the checkout screen after I tapped Confirm. Lost my session twice."
+  )
+
   return (
-    <Flex vertical gap={8} style={{ padding: 16 }}>
-      <Body1 weight="semibold">Tell us what happened</Body1>
-      <TextArea
-        value={value}
-        onChange={(_e, next) => setValue(next)}
-        placeholder="Describe the issue…"
-        autoSize={{ minRows: 4, maxRows: 8 }}
-      />
-    </Flex>
+    <PreviewLayout>
+      <Section
+        title="Default"
+        description="Auto-grows between 3 and 8 rows."
+      >
+        <Row label="Tell us about yourself">
+          <TextArea
+            value={bio}
+            onChange={(_e, v) => setBio(v)}
+            placeholder="A few words…"
+            autoSize={{ minRows: 3, maxRows: 8 }}
+          />
+        </Row>
+      </Section>
+
+      <Section
+        title="Filled"
+        description="Pre-filled content with autoSize."
+      >
+        <Row label="Bug report">
+          <TextArea
+            value={report}
+            onChange={(_e, v) => setReport(v)}
+            autoSize={{ minRows: 3, maxRows: 8 }}
+          />
+        </Row>
+      </Section>
+
+      <Section
+        title="Error state"
+        description="hasError mirrors Input."
+      >
+        <Row label="Notes">
+          <TextArea
+            value="too short"
+            hasError
+            rows={3}
+            onChange={() => {}}
+          />
+        </Row>
+      </Section>
+
+      <Section title="Disabled">
+        <Row label="Read-only summary">
+          <TextArea
+            value="System-generated transcript. Locked for audit."
+            disabled
+            rows={3}
+          />
+        </Row>
+      </Section>
+    </PreviewLayout>
   )
 }

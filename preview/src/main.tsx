@@ -1,6 +1,10 @@
 // Arco Mobile's component CSS must load before the kit theme so the
 // kit's --* tokens win the cascade.
 import "@arco-design/mobile-react/esm/style"
+// The kit's own component-local stylesheets (Input border, Card padding,
+// Tip icon, Toast layout, etc.). Without this most kit components render
+// half-styled — Input shows no border, Card has no padding, etc.
+import "@appboxo/ui-kit/styles.css"
 // Inject every brand stylesheet as a raw string at build time. We
 // flip between them at runtime by mutating a single <style> tag,
 // matching the Storybook brand toolbar mechanism used by the kit.
