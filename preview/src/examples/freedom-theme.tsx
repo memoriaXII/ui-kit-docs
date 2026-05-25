@@ -110,7 +110,12 @@ export function FreedomThemeExample() {
                 <Footnote2 color="text-3">Live tokens</Footnote2>
                 <Flex vertical gap={10}>
                   {SWATCH_TOKENS.map((t) => (
-                    <Flex key={t.name} gap={12} align="center">
+                    <Flex
+                      key={t.name}
+                      vertical={false}
+                      gap={12}
+                      align="center"
+                    >
                       <div
                         className="swatch"
                         style={{ background: `var(${t.name})` }}
@@ -166,7 +171,11 @@ export function FreedomThemeExample() {
                     onChange={(_e, val) => setPhone(val)}
                     placeholder="Toggle error state below"
                   />
-                  <Flex justify="space-between" align="center">
+                  <Flex
+                    vertical={false}
+                    justify="space-between"
+                    align="center"
+                  >
                     <Footnote2 color="text-3">
                       Reads <code>--danger-*</code> when in error.
                     </Footnote2>
@@ -194,11 +203,11 @@ export function FreedomThemeExample() {
             title="Four button variants, four token paths"
           >
             <Card>
-              <Flex gap={8} wrap="wrap">
-                <PrimaryButton
-                  text="Primary"
-                  onClick={() => Toast.info("Primary tapped")}
-                />
+              <Flex vertical={false} gap={8} wrap="wrap">
+                  <PrimaryButton
+                    text="Primary"
+                    onClick={() => Toast.info("Primary tapped")}
+                  />
                 <SecondaryButton
                   text="Secondary"
                   onClick={() => Toast.info("Secondary tapped")}
@@ -240,7 +249,7 @@ export function FreedomThemeExample() {
             <Card>
               <Flex vertical gap={12}>
                 <Body1 weight="semibold">Inline copyable</Body1>
-                <Flex gap={12} align="center">
+                <Flex vertical={false} gap={12} align="center">
                   <Body2>Booking ID</Body2>
                   <Copyable text="BKG-7F3A-92EE-114B">
                     <span className="mono">BKG-7F3A-92EE-114B</span>

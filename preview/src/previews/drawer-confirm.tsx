@@ -22,7 +22,7 @@ export function DrawerConfirmPreview() {
           <Body2 color="text-3">
             You&apos;ll get a $12 voucher emailed within 5 minutes.
           </Body2>
-          <Flex gap={8}>
+          <Flex vertical={false} gap={8}>
             <PrimaryButton text="Confirm" onClick={() => setOpen(false)} />
             <SecondaryButton text="Cancel" onClick={() => setOpen(false)} />
           </Flex>

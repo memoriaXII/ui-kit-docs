@@ -21,7 +21,7 @@ export function RadioGroupPreview() {
             activeClass="cell-active"
             onClick={() => setSelected(opt.value)}
             label={
-              <Flex align="center" gap={12}>
+              <Flex vertical={false} align="center" gap={12}>
                 <Radio active={selected === opt.value} />
                 <Flex vertical gap={2}>
                   <Body1>{opt.label}</Body1>

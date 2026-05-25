@@ -60,7 +60,7 @@ export function BasicAppExample() {
 
       <Tip text="We only use this on your device. Nothing leaves the phone." />
 
-      <Flex gap={8}>
+      <Flex vertical={false} gap={8}>
         <PrimaryButton
           text="Continue"
           onClick={() =>

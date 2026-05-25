@@ -7,7 +7,7 @@ export function FlexCenteredPreview() {
   return (
     <PreviewLayout>
       <Card style={{ minHeight: 120 }}>
-        <Flex align="center" justify="center" style={{ height: "100%" }}>
+        <Flex vertical={false} align="center" justify="center" style={{ height: "100%" }}>
           <Pill>Empty state</Pill>
         </Flex>
       </Card>

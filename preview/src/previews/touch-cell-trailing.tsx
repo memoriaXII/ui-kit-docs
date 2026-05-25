@@ -22,7 +22,7 @@ export function TouchCellTrailingPreview() {
             activeClass="cell-active"
             onClick={() => {}}
             label={
-              <Flex justify="space-between" align="center">
+              <Flex vertical={false} justify="space-between" align="center">
                 <Body1>{key}</Body1>
                 <Footnote1 color="text-3">{val}</Footnote1>
               </Flex>

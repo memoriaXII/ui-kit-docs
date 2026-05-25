@@ -7,7 +7,9 @@ export function FlexHorizontalPreview() {
   return (
     <PreviewLayout>
       <Card>
-        <Flex gap={8} wrap="wrap">
+        {/* kit's Flex defaults to `vertical={true}` — pass vertical={false}
+            explicitly for horizontal rows. */}
+        <Flex vertical={false} gap={8} wrap="wrap">
           <Pill>One</Pill>
           <Pill>Two</Pill>
           <Pill>Three</Pill>

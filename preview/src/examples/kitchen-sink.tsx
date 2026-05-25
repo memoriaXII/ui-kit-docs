@@ -74,7 +74,7 @@ export function KitchenSinkExample() {
         <Section title="Buttons">
           <Card>
             <Flex vertical gap={12}>
-              <Flex gap={8} wrap="wrap">
+              <Flex vertical={false} gap={8} wrap="wrap">
                 <PrimaryButton text="Primary" onClick={() => Toast.info("Primary")} />
                 <SecondaryButton text="Secondary" onClick={() => Toast.info("Secondary")} />
                 <TertiaryButton text="Tertiary" onClick={() => Toast.info("Tertiary")} />
@@ -131,7 +131,7 @@ export function KitchenSinkExample() {
                     onClick={() => setPlan(opt)}
                     activeClass="cell-active"
                     label={
-                      <Flex align="center" gap={10}>
+                      <Flex vertical={false} align="center" gap={10}>
                         <Radio active={plan === opt} />
                         <Body1 style={{ textTransform: "capitalize" }}>{opt}</Body1>
                       </Flex>
@@ -157,7 +157,7 @@ export function KitchenSinkExample() {
 
         <Section title="Toasts">
           <Card>
-            <Flex gap={8}>
+            <Flex vertical={false} gap={8}>
               <PrimaryButton
                 text="Info"
                 onClick={() => Toast.info("Saved")}

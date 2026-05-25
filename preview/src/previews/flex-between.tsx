@@ -7,7 +7,7 @@ export function FlexBetweenPreview() {
   return (
     <PreviewLayout>
       <Card>
-        <Flex justify="space-between" align="center">
+        <Flex vertical={false} justify="space-between" align="center">
           <Body1 weight="semibold">Notifications</Body1>
           <Pill>On</Pill>
         </Flex>

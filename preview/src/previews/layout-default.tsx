@@ -57,7 +57,7 @@ export function LayoutDefaultPreview() {
               </Flex>
             </Card>
             <Card>
-              <Flex justify="space-between" align="center">
+              <Flex vertical={false} justify="space-between" align="center">
                 <Body1>Subtotal</Body1>
                 <Body1 weight="semibold">$117.60</Body1>
               </Flex>

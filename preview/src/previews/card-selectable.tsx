@@ -10,7 +10,7 @@ export function CardSelectablePreview() {
           <Body1>Standard tier</Body1>
         </Card>
         <Card active>
-          <Flex justify="space-between" align="center">
+          <Flex vertical={false} justify="space-between" align="center">
             <Body1 weight="semibold">Premium tier</Body1>
             <Footnote1 color="text-3">Selected</Footnote1>
           </Flex>

@@ -5,7 +5,7 @@ import { PreviewLayout } from "./_section"
 export function RadioStandalonePreview() {
   return (
     <PreviewLayout>
-      <Flex gap={20} align="center">
+      <Flex vertical={false} gap={20} align="center">
         <Flex vertical gap={6} align="center">
           <Radio active />
           <Footnote2 color="text-3">active</Footnote2>

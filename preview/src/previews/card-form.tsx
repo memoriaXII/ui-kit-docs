@@ -18,7 +18,7 @@ export function CardFormPreview() {
           <Body2 color="text-3">
             We&apos;ll only use this to confirm bookings.
           </Body2>
-          <Flex gap={8}>
+          <Flex vertical={false} gap={8}>
             <PrimaryButton text="Confirm" />
             <SecondaryButton text="Cancel" />
           </Flex>
