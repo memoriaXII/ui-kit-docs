@@ -1,7 +1,6 @@
-import { Cell } from "@arco-design/mobile-react";
 import { cls } from "@arco-design/mobile-utils";
 import { HelpCenterCategory } from "@boxo/api/lounge";
-import { Body1, Title1, TouchCell } from "@appboxo/ui-kit";
+import { Body1, Cell, Title1, TouchCell } from "@appboxo/ui-kit";
 import { HELP_REVALIDATE } from "@boxo/esim-util";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";

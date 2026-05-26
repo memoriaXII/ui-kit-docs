@@ -22,18 +22,18 @@ pnpm build                # build @appboxo/ui-kit so dist/ exists
 
 cd examples/pass-freedom
 pnpm install
-pnpm dev                  # http://localhost:3000
+pnpm dev                  # http://localhost:3001
+                          # (port 3001 keeps the docs site free on :3000)
 ```
 
 ## Verified pages
 
-Every screen in the original `pass-freedom` app boots end-to-end against the
-mock layer:
+Every screen in the production `pass-freedom` app boots end-to-end against
+the mock layer:
 
 | Route                 | Status |
 | --------------------- | ------ |
-| `/`                   | 200    |
-| `/introduction`       | 200    |
+| `/`                   | 307 → `/passes` |
 | `/passes`             | 200    |
 | `/passes/detail`      | 200    |
 | `/airports/search`    | 200    |
@@ -43,6 +43,17 @@ mock layer:
 | `/checkout`           | 200    |
 | `/purchase-complete`  | 200    |
 | `/help`               | 200    |
+
+`/` is a thin client-side redirect to `/passes` — it mirrors the real boot
+behaviour of the production app, where the Boxo iframe `useInitialRedirectIframe`
+hook hands the user off to `defaultPath: "/passes"` after the auth handshake.
+
+The legacy `/introduction` full-page route was removed in line with production
+(upstream `apps/pass-freedom/src/pages/index.tsx` marks it as legacy and the
+real app no longer renders it). Onboarding now lives entirely in the
+`OnboardingDrawer` bottom sheet that auto-pops on `/passes` for first-time
+visitors (gated by `localStorage.is_introduction_screen_displayed`). To see it
+again after dismissing once, clear localStorage or use a private window.
 
 ## What this shows
 

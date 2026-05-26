@@ -1,5 +1,5 @@
 import { cls } from "@arco-design/mobile-utils";
-import { Flex, Title3 } from "@appboxo/ui-kit";
+import { Flex, Skeleton, Title3 } from "@appboxo/ui-kit";
 
 export type LoungeSkeletonVariant = "grouped" | "separated";
 
@@ -21,8 +21,8 @@ const CARD_SHADOW = "0 5px 20px 0 rgba(0, 0, 0, 0.05)";
 
 const SkeletonRow = () => (
   <div className="flex items-center gap-[12px]">
-    <div className="w-[44px] h-[44px] bg-fill-2 rounded-full shrink-0" />
-    <div className="h-[16px] bg-fill-2 rounded-full w-[140px]" />
+    <Skeleton width={44} height={44} circle />
+    <Skeleton width={140} height={16} />
   </div>
 );
 

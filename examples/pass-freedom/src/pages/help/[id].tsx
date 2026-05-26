@@ -1,9 +1,8 @@
 import { HelpCenterArticle, HelpCenterArticleList } from "@boxo/api/lounge";
-import { Body1, Markdown, Title1 } from "@appboxo/ui-kit";
+import { Body1, Loading, Markdown, Title1 } from "@appboxo/ui-kit";
 import { HELP_REVALIDATE } from "@boxo/esim-util";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Loading } from "@arco-design/mobile-react";
 
 import { Layout } from "@/components/layout/layout";
 import { getHelpCenterArticle, getHelpCenterList } from "@/lib/help-center-api";

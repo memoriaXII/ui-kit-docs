@@ -36,6 +36,13 @@ type Props = {
   slug: string
   tree: FileNode[]
   iframe: boolean
+  /**
+   * Override the iframe src. When set, the preview iframes this URL
+   * directly instead of the sibling Vite preview app at
+   * `<PREVIEW_ORIGIN>/example/<slug>`. Used for examples that are their
+   * own standalone app (e.g. the Next.js pass-freedom demo on :3001).
+   */
+  previewUrl?: string
   defaultFile: string
   /** Pre-rendered code content per file path, keyed by path. */
   files: Record<string, { language: string; highlightedCode: string }>
@@ -47,6 +54,7 @@ export function ExampleViewer({
   slug,
   tree,
   iframe,
+  previewUrl,
   defaultFile,
   files,
   sourceUrl,
@@ -65,18 +73,25 @@ export function ExampleViewer({
 
   const iframeRef = React.useRef<HTMLIFrameElement | null>(null)
 
+  // postMessage only reaches the Vite preview app (PREVIEW_ORIGIN) — it's
+  // the only one listening for `freedom-preview:update`. Standalone
+  // examples that supply their own `previewUrl` (e.g. pass-freedom) are
+  // brand-locked, so there's nothing to push.
   React.useEffect(() => {
+    if (previewUrl) return
     const win = iframeRef.current?.contentWindow
     if (!win) return
     win.postMessage(
       { type: "freedom-preview:update", brand, dark },
       PREVIEW_ORIGIN
     )
-  }, [brand, dark])
+  }, [brand, dark, previewUrl])
 
-  const previewSrc = `${PREVIEW_ORIGIN}/example/${encodeURIComponent(
-    slug
-  )}?brand=${encodeURIComponent(brand)}&dark=${dark}`
+  const previewSrc = previewUrl
+    ? previewUrl
+    : `${PREVIEW_ORIGIN}/example/${encodeURIComponent(
+        slug
+      )}?brand=${encodeURIComponent(brand)}&dark=${dark}`
 
   const currentFile = files[activeFile]
 

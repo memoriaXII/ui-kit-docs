@@ -2,12 +2,18 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { GetStaticProps } from "next";
 import { useEffect, useRef, useState } from "react";
-import { Body1, Body2, Card, Title2 } from "@appboxo/ui-kit";
+import {
+  Body1,
+  Body2,
+  Card,
+  Carousel,
+  type CarouselRef,
+  Skeleton,
+  Title2,
+} from "@appboxo/ui-kit";
 import { useTrackContext } from "@/mocks/kit-extras";
 import { addHapticFeedback } from "@boxo/esim-util";
 import { cls } from "@arco-design/mobile-utils";
-import { Carousel } from "@arco-design/mobile-react";
-import { CarouselRef } from "@arco-design/mobile-react/cjs/carousel";
 import { Layout } from "@/components/layout/layout";
 import { getServerSideTranslations } from "@/lib/getServerSideTranslations";
 import { usePassesRetrieve } from "@boxo/api/lounge";
@@ -53,7 +59,7 @@ const QRCard = ({ voucher, isLoading }: QRCardProps) => {
 
       {/* QR Code */}
       {isLoading ? (
-        <div className="w-[180px] h-[180px] rounded-[20px] bg-fill-3 flex items-center justify-center"></div>
+        <Skeleton width={180} height={180} radius={20} />
       ) : (
         <QRCode
           value={voucher?.voucher || ""}
@@ -68,10 +74,10 @@ const QRCard = ({ voucher, isLoading }: QRCardProps) => {
         {isLoading ? (
           <>
             <div className="h-[24px] flex items-center justify-center">
-              <div className="w-[80px] h-[12px] rounded-[4px] bg-fill-3" />
+              <Skeleton width={80} height={12} radius={4} />
             </div>
             <div className="h-[24px] flex items-center justify-center">
-              <div className="w-[140px] h-[12px] rounded-[4px] bg-fill-3" />
+              <Skeleton width={140} height={12} radius={4} />
             </div>
           </>
         ) : (
@@ -290,10 +296,10 @@ const PassDetailPage = () => {
             ) : (
               <>
                 <div className="h-[20px] flex items-center">
-                  <div className="w-full h-[12px] rounded-full bg-fill-2" />
+                  <Skeleton width="100%" height={12} />
                 </div>
                 <div className="h-[20px] flex items-center">
-                  <div className="w-[200px] h-[12px] rounded-full bg-fill-2" />
+                  <Skeleton width={200} height={12} />
                 </div>
               </>
             )}

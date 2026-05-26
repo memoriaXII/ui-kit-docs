@@ -18,7 +18,6 @@ import {
   isValidElement,
   useCallback,
   useMemo,
-  useState,
 } from "react";
 
 import ArrowBackIcon from "@/assets/icons/arrow-back.svg";
@@ -36,6 +35,11 @@ import styles from "./layout.module.css";
 // that is controlled by the `--nav-bar-height` CSS variable in global.css.
 const NAV_BAR_SHOW_OFFSET = 50;
 
+// Freedom brand uses a more prominent scroll shadow than the kit default.
+const FREEDOM_SCROLL_SHADOW = {
+  boxShadow: "0 4px 40px 0 rgba(0, 0, 0, 0.10)",
+};
+
 export interface LayoutProps extends Omit<
   BaseLayoutProps,
   "header" | "footer" | "navBar"
@@ -44,7 +48,7 @@ export interface LayoutProps extends Omit<
   headerTitle?: string;
   customHeader?: ReactNode;
   mockStatusBar?: boolean;
-  /** Country / entity name shown in NavBar when the user scrolls past the header. */
+  /** Title that takes over the NavBar once the user scrolls past 20px. */
   scrollTitle?: string;
   navBar?: NavBarProps;
   footer?: FooterProps | ReactNode;
@@ -64,6 +68,13 @@ const LayoutTitle = ({ title }: { title: string }) => {
 const truncateText = (text: string, maxLength = 20): string => {
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength - 1) + "…";
+};
+
+// Wrap a plain string in Freedom's NavBar typography. Pass-through for any
+// non-string ReactNode so consumers can still supply custom JSX.
+const wrapTitle = (title: ReactNode | undefined): ReactNode => {
+  if (title == null || typeof title !== "string") return title;
+  return <Headline weight="bold">{title}</Headline>;
 };
 
 export const Layout = ({
@@ -101,33 +112,16 @@ export const Layout = ({
     router.back();
   }, [router]);
 
-  const [scrollTop, setScrollTop] = useState(0);
-
-  const navBarTitle = useMemo(() => {
-    if (!navBar) return undefined;
-
-    if (scrollTitle && scrollTop >= 20) {
-      return <Headline weight="bold">{truncateText(scrollTitle, 20)}</Headline>;
-    }
-
-    if (navBar.title === null || navBar.title === undefined) {
-      return null;
-    }
-
-    if (typeof navBar.title !== "string") {
-      return navBar.title;
-    }
-
-    return <Headline weight="bold">{navBar.title}</Headline>;
-  }, [navBar, scrollTitle, scrollTop]);
-
+  // Adapter on top of kit's `Layout` NavBar:
+  //   - Default back button uses pass-freedom's history-aware nav helper.
+  //   - String titles are auto-wrapped in `<Headline weight="bold">`.
+  //   - `scrollTitle` is forwarded to the kit's built-in scroll-swap API
+  //     (no scroll tracking duplicated here anymore).
+  //   - Freedom-specific scroll shadow overrides the kit default.
   const processedNavBar: NavBarProps | undefined = useMemo(() => {
     if (!navBar) return undefined;
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { title: _, ...navBarWithoutTitle } = navBar;
-
-    const backButton = () => (
+    const backButton = (
       <div
         role="button"
         aria-label="Go back"
@@ -146,39 +140,20 @@ export const Layout = ({
       </div>
     );
 
-    const result = {
-      ...navBarWithoutTitle,
-      title: navBarTitle,
+    return {
+      ...navBar,
+      title: wrapTitle(navBar.title),
+      scrollTitle: scrollTitle
+        ? wrapTitle(truncateText(scrollTitle, 20))
+        : navBar.scrollTitle,
       leftContent:
-        navBar.leftContent !== undefined ? navBar.leftContent : backButton(),
+        navBar.leftContent !== undefined ? navBar.leftContent : backButton,
       rightContent:
         navBar.rightContent !== undefined ? navBar.rightContent : null,
       showOffset: NAV_BAR_SHOW_OFFSET,
-      scrollStyle: {
-        boxShadow: "0 4px 40px 0 rgba(0, 0, 0, 0.10)",
-      },
-      getComputedStyleByScroll: scrollTitle
-        ? (offset: number) => {
-            setScrollTop(offset);
-            const originalStyle = navBar.getComputedStyleByScroll
-              ? navBar.getComputedStyleByScroll(offset)
-              : {};
-            const defaultStyle =
-              offset > 0
-                ? { boxShadow: "0 4px 40px 0 rgba(0, 0, 0, 0.10)" }
-                : {};
-            return { ...defaultStyle, ...originalStyle };
-          }
-        : navBar.getComputedStyleByScroll ||
-          ((offset: number) =>
-            offset > 0
-              ? { boxShadow: "0 4px 40px 0 rgba(0, 0, 0, 0.10)" }
-              : {}),
-      ...(scrollTitle ? { _scrollTop: scrollTop } : {}),
-    } as NavBarProps & { _scrollTop?: number };
-
-    return result;
-  }, [navBar, navBarTitle, scrollTitle, scrollTop, handleBack]);
+      scrollStyle: navBar.scrollStyle ?? FREEDOM_SCROLL_SHADOW,
+    };
+  }, [navBar, scrollTitle, handleBack]);
 
   const genericErrorPlaceholder: ComponentProps<
     typeof BaseLayout

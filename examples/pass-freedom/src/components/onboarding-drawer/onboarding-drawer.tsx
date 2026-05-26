@@ -1,7 +1,7 @@
-import { Carousel } from "@arco-design/mobile-react";
-import { CarouselRef } from "@arco-design/mobile-react/cjs/carousel";
 import {
   Body1,
+  Carousel,
+  type CarouselRef,
   PopupSwiper,
   SecondaryButton,
   Title1,
@@ -36,6 +36,13 @@ export const OnboardingDrawer = ({
   const [currentSlide, setCurrentSlide] = useState(0);
   const { bottomSafeArea } = useSafeArea();
 
+  // 1:1 with upstream `apps/pass-freedom/src/components/onboarding-drawer`:
+  // all three slides intentionally render the same `FreedomStubIcon` SVG
+  // placeholder. The product copy varies per slide but the imagery is a
+  // single brand-neutral stub graphic, not three distinct PNGs. (The
+  // public/images/slide-image-{1,2,3}.png assets are kept for parity with
+  // the upstream public tree but are NOT consumed by either the drawer
+  // or any other live screen.)
   const ONBOARDING_SLIDES: OnboardingSlideProps[] = [
     {
       id: "slide-image-1",

@@ -8,6 +8,7 @@
  */
 
 import React, { PropsWithChildren, useCallback, useEffect } from "react";
+import { useRouter } from "next/router";
 
 // ---------- useTrackContext ----------
 
@@ -40,14 +41,32 @@ export const useTrackContext = (): TrackContext => {
 
 // ---------- useInitialRedirectIframe ----------
 
+interface UseInitialRedirectIframeArgs {
+  /** Path to navigate to once the boot handshake settles. */
+  defaultPath?: string;
+  /** Production also honours a `/introduction` full-page redirect for legacy
+   *  app versions; current production sets this to `true` because the
+   *  onboarding lives in a bottom-sheet drawer on `/passes`. The demo mirrors
+   *  that behaviour and never visits the legacy route either way. */
+  skipIntroduction?: boolean;
+}
+
 /**
- * In production, this hook handles the auth handshake when the miniapp boots
- * inside the Boxo iframe. For the demo we just no-op.
+ * In production this hook handles the Boxo iframe auth handshake and then
+ * navigates the user to `defaultPath`. The standalone demo doesn't need
+ * the handshake (there's no host iframe), but it DOES need the navigation
+ * piece so that hitting `/` lands on `/passes` — otherwise `pages/index.tsx`
+ * just renders `null` and the demo looks broken.
  */
-export const useInitialRedirectIframe = () => {
+export const useInitialRedirectIframe = ({
+  defaultPath,
+}: UseInitialRedirectIframeArgs = {}) => {
+  const router = useRouter();
   useEffect(() => {
-    // no-op in demo
-  }, []);
+    if (!defaultPath) return;
+    if (router.pathname !== "/") return;
+    router.replace(defaultPath);
+  }, [defaultPath, router]);
 };
 
 // ---------- WithTrack ----------

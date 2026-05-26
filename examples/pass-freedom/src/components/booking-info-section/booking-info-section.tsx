@@ -1,5 +1,5 @@
 import { useTranslation } from "next-i18next";
-import { Body1, Body2 } from "@appboxo/ui-kit";
+import { Body1, Body2, Skeleton } from "@appboxo/ui-kit";
 import { cls } from "@arco-design/mobile-utils";
 import Link from "next/link";
 import { formatBookingDateTime, getAirportInfo } from "@/lib/quote-utils";
@@ -34,14 +34,14 @@ const BookingInfoRow = ({
       <div className="flex flex-col gap-[2px] flex-1">
         {isLoading && !label ? (
           <div className="h-[20px] flex items-center">
-            <div className="w-[240px] h-[12px] rounded-full bg-fill-2" />
+            <Skeleton width={240} height={12} />
           </div>
         ) : (
           <Body1 weight="semibold">{label}</Body1>
         )}
         {isLoading ? (
           <div className="h-[20px] flex items-center">
-            <div className="w-[140px] h-[12px] rounded-full bg-fill-2" />
+            <Skeleton width={140} height={12} />
           </div>
         ) : (
           value && <Body2 className="text-text-4">{value}</Body2>
@@ -109,7 +109,7 @@ export const BookingInfoSection = ({
       <BookingInfoRow
         icon={
           isLoading ? (
-            <div className="w-[24px] h-[24px] rounded-full bg-fill-2" />
+            <Skeleton width={24} height={24} circle />
           ) : (
             <img
               src={airportInfo.flagUrl}

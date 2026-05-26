@@ -1,4 +1,3 @@
-import { Masking } from "@arco-design/mobile-react";
 import {
   FulfillmentStatusEnum,
   Order,
@@ -6,7 +5,7 @@ import {
   useOrdersRetrieve,
 } from "@boxo/api/lounge";
 import { useTrackContext } from "@/mocks/kit-extras";
-import { LayoutLoading } from "@appboxo/ui-kit";
+import { LayoutLoading, Masking } from "@appboxo/ui-kit";
 import { pay } from "@boxo/esim-util";
 import { AxiosError } from "axios";
 import Router, { useRouter } from "next/router";

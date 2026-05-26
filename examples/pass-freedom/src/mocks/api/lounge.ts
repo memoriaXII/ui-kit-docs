@@ -44,7 +44,11 @@ export interface Hub {
   name: string;
   iata_code: string;
   city?: string;
-  country?: string;
+  // Real production `@boxo/api/lounge` returns this as `{ name, image }`
+  // (the flag CDN URL); legacy types had it as a string. Use the object
+  // shape so `airport-list-item.tsx`'s `airport.country.image` access
+  // actually resolves to a real flag in the standalone demo.
+  country?: { name: string; image: string };
   lounges_count?: number;
 }
 
@@ -134,6 +138,14 @@ export interface Country {
   flag?: string;
 }
 
+// Demo flag URLs use flagcdn.com — a free public CDN for country flags
+// keyed by ISO 3166-1 alpha-2 codes. Production pass-freedom serves flags
+// from its own DragonPass CMS; for the standalone mock UI showcase we
+// point at the public CDN so the avatars actually render instead of
+// showing broken-image placeholders.
+const flagUrl = (code: string) =>
+  `https://flagcdn.com/w80/${code.toLowerCase()}.png`;
+
 const makeCountry = (
   code: string,
   title: string,
@@ -145,8 +157,8 @@ const makeCountry = (
   name: title,
   iso_code: code,
   dial_code,
-  image: "",
-  flag: "",
+  image: flagUrl(code),
+  flag: flagUrl(code),
 });
 
 const sampleCountries: Country[] = [
@@ -240,7 +252,7 @@ const sampleHubs: Hub[] = [
     name: "London Heathrow",
     iata_code: "LHR",
     city: "London",
-    country: "United Kingdom",
+    country: { name: "United Kingdom", image: flagUrl("GB") },
     lounges_count: 12,
   },
   {
@@ -248,7 +260,7 @@ const sampleHubs: Hub[] = [
     name: "Dubai International",
     iata_code: "DXB",
     city: "Dubai",
-    country: "United Arab Emirates",
+    country: { name: "United Arab Emirates", image: flagUrl("AE") },
     lounges_count: 18,
   },
   {
@@ -256,8 +268,24 @@ const sampleHubs: Hub[] = [
     name: "Singapore Changi",
     iata_code: "SIN",
     city: "Singapore",
-    country: "Singapore",
+    country: { name: "Singapore", image: flagUrl("SG") },
     lounges_count: 9,
+  },
+  {
+    id: 4,
+    name: "Charles de Gaulle Airport",
+    iata_code: "CDG",
+    city: "Paris",
+    country: { name: "France", image: flagUrl("FR") },
+    lounges_count: 14,
+  },
+  {
+    id: 5,
+    name: "Phuket International Airport",
+    iata_code: "HKT",
+    city: "Phuket",
+    country: { name: "Thailand", image: flagUrl("TH") },
+    lounges_count: 4,
   },
 ];
 
@@ -335,7 +363,7 @@ const makeQuoteShape = (overrides: Record<string, unknown> = {}) => ({
       iata: "LHR",
       iata_code: "LHR",
       city: "London",
-      country: { name: "United Kingdom", image: "" },
+      country: { name: "United Kingdom", image: flagUrl("GB") },
     },
   },
   ...overrides,
@@ -385,7 +413,7 @@ const samplePasses: EPass[] = [
             iata: "DXB",
             iata_code: "DXB",
             city: "Dubai",
-            country: { name: "United Arab Emirates", image: "" },
+            country: { name: "United Arab Emirates", image: flagUrl("AE") },
           },
         },
       }),

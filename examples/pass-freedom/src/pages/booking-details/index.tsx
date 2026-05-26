@@ -2,9 +2,15 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { GetStaticProps } from "next";
-import { Stepper } from "@arco-design/mobile-react";
 import { useQuotesCreate } from "@boxo/api/lounge";
-import { Body1, Footnote1, Title1, Toast } from "@appboxo/ui-kit";
+import {
+  Body1,
+  Card,
+  Footnote1,
+  Stepper,
+  Title1,
+  Toast,
+} from "@appboxo/ui-kit";
 import { addHapticFeedback } from "@boxo/esim-util";
 import { useAtom } from "jotai";
 import { z } from "zod";
@@ -246,7 +252,7 @@ const BookingDetailsPage = () => {
           {t("Booking details")}
         </Title1>
         <div className="flex flex-col gap-[8px]">
-          <div className="flex items-center justify-between bg-fill-1 rounded-[16px] p-[16px] shadow-[0_5px_20px_0_rgba(0,0,0,0.05)]">
+          <Card className="flex items-center justify-between bg-fill-1 shadow-[0_5px_20px_0_rgba(0,0,0,0.05)]">
             <Body1 weight="semibold">{t("Traveler(s)")}</Body1>
             <Stepper
               defaultValue={bookingDetails.passenger_count}
@@ -272,7 +278,7 @@ const BookingDetailsPage = () => {
                 </div>
               }
             />
-          </div>
+          </Card>
           {lounge?.child_policy && (
             <Footnote1 className="text-text-3">
               {t("Free for children age 6 and under traveling with you")}

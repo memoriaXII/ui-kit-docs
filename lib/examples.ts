@@ -67,7 +67,14 @@ export const EXAMPLES = [
       "Full 11-page mini-app forked from production pass-freedom. All backend / host calls stubbed. Best soak test for the kit.",
     tags: ["Next.js", "Full app", "Mocked backend"],
     categories: ["featured", "full-app"] as ExampleCategorySlug[],
-    iframe: false,
+    iframe: true,
+    // Pass-freedom is its own Next.js app (cannot be bundled into the
+    // Vite preview app at :4001), so we iframe a separately-running
+    // instance. Default is `localhost:3001` — same port the example's
+    // own `pnpm dev` script pins to. To embed a hosted instance in
+    // deployed docs, set `NEXT_PUBLIC_PASS_FREEDOM_URL`.
+    previewUrl:
+      process.env.NEXT_PUBLIC_PASS_FREEDOM_URL ?? "http://localhost:3001",
   },
   {
     slug: "with-npm-quickstart",

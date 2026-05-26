@@ -1,7 +1,6 @@
 import { useTranslation } from "next-i18next";
-import { Body1, PopupSwiper, Title1 } from "@appboxo/ui-kit";
+import { Body1, PopupSwiper, PrimaryButton, Title1 } from "@appboxo/ui-kit";
 import { addHapticFeedback } from "@boxo/esim-util";
-import { PrimaryButton } from "@/components/button/button";
 
 interface TimeSlotUnavailablePopupProps {
   visible: boolean;

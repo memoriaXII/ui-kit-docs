@@ -1,6 +1,5 @@
-import { Cell } from "@arco-design/mobile-react";
 import { useTranslation } from "next-i18next";
-import { Body2, Title3, TouchCell } from "@appboxo/ui-kit";
+import { Body2, Cell, Title3, TouchCell } from "@appboxo/ui-kit";
 import GiftIcon from "@/assets/icons/gift.svg";
 
 interface BenefitsListProps {

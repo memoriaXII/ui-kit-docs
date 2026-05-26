@@ -1,9 +1,20 @@
 import "./global.css";
+// Compiled @arco-design/mobile-react component styles with CSS-variable
+// hooks (var(--primary-color) etc.). Built once by the kit's
+// `scripts/build-arco-mobile-css.mjs` using the same rollup + postcss +
+// less pipeline as production `@boxo/esim-theme/dist/freedom.css`. The
+// Arco-shipped `dist/style.min.css` is just a mixin reference and bakes
+// in literal Arco defaults (#165DFF blue), so brand overrides can't
+// take effect against it — we ship the var-enabled variant from the
+// kit instead.
+import "@appboxo/ui-kit/themes/arco-mobile.css";
 // Kit component-local stylesheets (Tip icon sizing, Card padding,
 // Input borders, etc.). Tsup extracts these into a single bundle.
 import "@appboxo/ui-kit/styles.css";
-// Freedom brand tokens (compiled from `themes/freedom/theme.less`). Bundles
-// Arco Design Mobile component styles + Freedom design tokens.
+// Freedom brand tokens. The `#root` block here overrides Arco defaults
+// like `--primary-color: var(--primary-6)` so every Arco component
+// inherits the Freedom green palette + `--button-radius: 16px` pill
+// shape, identical to the production esim-theme freedom bundle.
 import "@appboxo/ui-kit/themes/freedom/theme.css";
 // Arco Design Web (DatePicker, TimePicker on booking-details)
 import "@arco-design/web-react/dist/css/arco.css";
