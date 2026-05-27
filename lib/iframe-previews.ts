@@ -119,6 +119,25 @@ export const IFRAME_PREVIEWS = new Set<string>([
   "typography-scale",
   "typography-colors",
   "typography-weights",
+  // Skeleton
+  "skeleton",
+  "skeleton-bar",
+  "skeleton-circle",
+  "skeleton-list-row",
+  "skeleton-card",
+  // Carousel
+  "carousel",
+  "carousel-default",
+  "carousel-no-indicator",
+  // Arco passthroughs (raw re-exports, kit graduates to designed wrappers later)
+  "cell",
+  "cell-default",
+  "stepper",
+  "stepper-default",
+  "masking",
+  "masking-default",
+  "loading",
+  "loading-default",
 ])
 
 export const PREVIEW_ORIGIN =

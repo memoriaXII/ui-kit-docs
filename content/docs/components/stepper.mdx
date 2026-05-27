@@ -1,0 +1,33 @@
+---
+title: Stepper
+description: Quantity input with +/- buttons. Raw Arco passthrough.
+---
+
+`Stepper` is the kit's re-export of `@arco-design/mobile-react`'s `Stepper`. Used in
+booking flows (passenger count, guest count, room nights, etc.) where a free-form
+number input would be too loose.
+
+The kit re-exports it as a **passthrough** so consumers can keep imports inside
+`@appboxo/ui-kit`. A designed wrapper with kit-native +/- icons and consistent sizing
+is on the roadmap once we ship the kit's icon set.
+
+<ComponentPreview name="stepper-default" />
+
+## API
+
+The component accepts every Arco `StepperProps` prop verbatim. See the
+[Arco Mobile React `Stepper` docs](https://arco.design/mobile/react/en-US/components/stepper)
+for the full API.
+
+```ts
+import { Stepper } from "@appboxo/ui-kit"
+```
+
+Common props: `defaultValue`, `value`, `onChange`, `min`, `max`, `step`, `disabled`,
+`theme="round"`, `minusButton` / `addButton` (custom slot overrides).
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
+```

@@ -20,6 +20,49 @@ Pass `screenState={{ isLoading: true }}` + a `loadingNode={<LayoutLoading />}` f
 - `Layout` — original full-screen app shell. Owns viewport, has built-in scroll state.
 - [`ResponsiveLayout`](/docs/components/responsive-layout) — newer responsive shell that adds a desktop layer.
 
+## NavBar `scrollTitle`
+
+The iOS-style "big title in the content area, small title slides into the nav on scroll"
+pattern. Set `navBar.scrollTitle` to any `ReactNode` and it takes over once the user
+scrolls past `scrollTitleThreshold` pixels (default `20`).
+
+```tsx
+<Layout
+  navBar={{
+    title: null,
+    scrollTitle: <Headline weight="bold">Checkout</Headline>,
+    scrollTitleThreshold: 20,
+  }}
+  header={<LargeTitle weight="bold">Checkout</LargeTitle>}
+>
+  …
+</Layout>
+```
+
+The kit tracks scroll via Arco's `getComputedStyleByScroll` hook, so the default scroll
+shadow keeps working. Apps that already pass their own `getComputedStyleByScroll` see it
+wrapped, not replaced.
+
+## Default error placeholder
+
+When `screenState.isError` flips to `true` and the consumer hasn't supplied an explicit
+`errorPlaceholder`, the kit now falls back to a sensible generic message ("Something went
+wrong / Please try again in a moment.") plus a "Try again" button wired to
+`screenState.refetch` when present.
+
+Previously the kit silently rendered nothing on error — a footgun for first-time
+consumers. Apps that want a custom error graphic, brand-specific copy, or different copy
+should still pass their own `errorPlaceholder` to override.
+
+```tsx
+<Layout
+  screenState={{ isError, refetch }}
+  // No errorPlaceholder → kit ships a generic Try-again fallback.
+>
+  …
+</Layout>
+```
+
 ## Installation
 
 ```bash
@@ -28,4 +71,6 @@ pnpm add @appboxo/ui-kit
 
 ## Types
 
-`Layout`, `LayoutProps`, `NavBarProps`, `ScreenStateProps` are all exported. `combineHooksResultsToLayoutScreenState` helps merge multiple data-loading hooks into Layout's screen state.
+`Layout`, `LayoutProps`, `NavBarProps`, `ScreenStateProps` are all exported.
+`combineHooksResultsToLayoutScreenState` helps merge multiple data-loading hooks into
+Layout's screen state.

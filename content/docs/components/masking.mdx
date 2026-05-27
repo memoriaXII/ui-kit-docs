@@ -1,0 +1,39 @@
+---
+title: Masking
+description: Full-screen blocking overlay. Raw Arco passthrough — use for confirms and inline auth prompts.
+---
+
+`Masking` is the kit's re-export of `@arco-design/mobile-react`'s `Masking` — a
+full-screen blocking overlay that prevents underlying content from receiving taps
+until dismissed. The kit's `Drawer` and `PopupSwiper` use it internally; expose it
+directly when you need a custom layout (e.g. an inline auth handshake or a confirm
+dialog) that doesn't fit either surface.
+
+<ComponentPreview name="masking-default" />
+
+## When to use vs Drawer / PopupSwiper
+
+| Component | Use when |
+|---|---|
+| [`Drawer`](/docs/components/drawer) | Sheet content that slides in from an edge with the kit's chrome (drag handle, footer slot, etc.). |
+| [`PopupSwiper`](/docs/components/popup-swiper) | Same as Drawer but with native-feeling swipe-to-dismiss in any of 4 directions. |
+| `Masking` | Anything else that needs to block the page — custom modals, full-screen loaders, transient confirms. |
+
+## API
+
+Accepts every Arco `MaskingProps` prop verbatim. See the
+[Arco Mobile React `Masking` docs](https://arco.design/mobile/react/en-US/components/masking)
+for the full API.
+
+```ts
+import { Masking } from "@appboxo/ui-kit"
+```
+
+Common props: `visible`, `onClose`, `maskClass`, `contentClass`, `direction`,
+`mountOnEnter`, `unmountOnExit`.
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
+```

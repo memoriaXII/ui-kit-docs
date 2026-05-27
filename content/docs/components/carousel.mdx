@@ -1,0 +1,44 @@
+---
+title: Carousel
+description: Mobile-first wrapper around Arco's Carousel. Sensible defaults baked in; everything overridable.
+---
+
+`Carousel` is the kit's thin wrapper around `@arco-design/mobile-react`'s `<Carousel>`
+with three defaults baked in for the common mini-app onboarding / image-swipe pattern:
+
+- `autoPlay={false}` — mobile UX never advances without user input.
+- `loop={false}` — predictable swipe-to-end behaviour.
+- `indicatorType="circle"` + `indicatorOutside` — circle dots rendered below the slide
+  area, not on top of content.
+
+Every default is overridable by passing the prop explicitly — see the QR-card pattern
+below for the typical "I want my own counter and arrows" case.
+
+## Default
+
+The standard onboarding-drawer pattern: three slides, swipe, dot indicators outside.
+
+<ComponentPreview name="carousel-default" />
+
+## Custom controls (no indicator)
+
+`showIndicator={false}` removes the built-in dots so the app can render its own counter
+/ arrow chrome. `ref={carouselRef}` exposes Arco's `CarouselRef` (also re-exported from
+the kit) for imperative `.changeIndex(idx)` calls.
+
+<ComponentPreview name="carousel-no-indicator" />
+
+## API
+
+The component accepts every Arco `CarouselProps` prop verbatim — the kit just changes
+four of the defaults. The typings are re-exported as:
+
+```ts
+import { Carousel, type CarouselProps, type CarouselRef } from "@appboxo/ui-kit"
+```
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
+```

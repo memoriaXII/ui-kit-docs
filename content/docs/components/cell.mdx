@@ -1,0 +1,39 @@
+---
+title: Cell
+description: Single-row settings / list item. Raw Arco passthrough — designed wrapper TBD.
+---
+
+`Cell` is the kit's re-export of `@arco-design/mobile-react`'s `Cell` component. It's
+currently a **passthrough** — no kit-specific design tokens layered on top — so the
+import surface stays inside `@appboxo/ui-kit` and apps don't need to declare Arco as
+a direct dependency.
+
+Brand themes shape the visual via the standard `--cell-*` CSS custom properties (see
+`themes/<brand>/theme.css`), so the kit's Freedom brand and Arco defaults both work
+without any extra wiring at the call site.
+
+<ComponentPreview name="cell-default" />
+
+## Why a passthrough vs a designed wrapper?
+
+The kit graduates passthroughs to designed wrappers (`Carousel`, `Skeleton`) when a
+real design token surface or prop sugar gets added on top. `Cell` will graduate the
+moment we ship per-row variant tokens (compact / divided / inset) and a typed
+`leading` / `trailing` slot API. Until then, please file an issue if Arco's `CellProps`
+type doesn't cover your use case.
+
+## API
+
+The component accepts every Arco `CellProps` prop verbatim. See the
+[Arco Mobile React `Cell` docs](https://arco.design/mobile/react/en-US/components/cell)
+for the full API.
+
+```ts
+import { Cell } from "@appboxo/ui-kit"
+```
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
+```

@@ -1,0 +1,56 @@
+---
+title: Skeleton
+description: Shimmer-block primitive for loading states. Compose to mock the layout of whatever you're loading.
+---
+
+`Skeleton` is the single shimmer-block primitive the kit ships. Compose it to mock the
+layout of whatever you're loading — list rows, card content, headers — instead of
+peppering your codebase with one-off `bg-fill-2 rounded-full w-[X]` utility classes.
+
+The background tone is `var(--fill-2)` so brand themes recolour it for free, and the
+shimmer keyframe respects `prefers-reduced-motion: reduce` for accessibility.
+
+## Pill bars
+
+`width` / `height` take numbers (pixels) or any CSS length string. Default radius is `999px`
+(pill), giving a single text-line look out of the box.
+
+<ComponentPreview name="skeleton-bar" />
+
+## Avatars + status dots
+
+`circle` overrides `radius` and forces a perfect circle.
+
+<ComponentPreview name="skeleton-circle" />
+
+## List row composition
+
+The point of a primitive: mock a real list row by composing `<Skeleton>` inside the same
+`<Flex>` / `<Card>` structure you'd use after data loads. Keeping the surrounding layout
+identical between loading and loaded states means the page doesn't reflow when data arrives.
+
+<ComponentPreview name="skeleton-list-row" />
+
+## Card content
+
+Heavier mock for richer card content — a header row + a 3-line body. Demonstrates mixing
+`width={"100%"}` (string) with `width={220}` (number).
+
+<ComponentPreview name="skeleton-card" />
+
+## API
+
+| Prop | Type | Default | Notes |
+|---|---|---|---|
+| `width` | `number \| string` | — | Number → pixels. String → any CSS length (`"100%"`, `"12rem"`, `"calc(100% - 16px)"`). |
+| `height` | `number \| string` | — | Same convention as `width`. |
+| `circle` | `boolean` | `false` | Force a circle. Wins over `radius`. |
+| `radius` | `number \| string` | `999` | Border radius. Number → pixels. Defaults to a pill. |
+| `noAnimation` | `boolean` | `false` | Stop the shimmer (e.g. permanently empty placeholders by design). |
+| ...rest | `HTMLAttributes<HTMLDivElement>` | — | `className`, `style`, `aria-*`, etc. are all forwarded. |
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
+```

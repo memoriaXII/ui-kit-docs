@@ -104,6 +104,18 @@ import {
   TypographyScalePreview,
   TypographyWeightsPreview,
 } from "./typography"
+import {
+  SkeletonBarPreview,
+  SkeletonCardPreview,
+  SkeletonCirclePreview,
+  SkeletonListRowPreview,
+  SkeletonPreview,
+} from "./skeleton"
+import { CarouselDefaultPreview, CarouselNoIndicatorPreview, CarouselPreview } from "./carousel"
+import { CellDefaultPreview, CellPreview } from "./cell"
+import { StepperDefaultPreview, StepperPreview } from "./stepper"
+import { MaskingDefaultPreview, MaskingPreview } from "./masking"
+import { LoadingDefaultPreview, LoadingPreview } from "./loading"
 
 export const previews = {
   // Button
@@ -236,6 +248,28 @@ export const previews = {
   "typography-scale": TypographyScalePreview,
   "typography-colors": TypographyColorsPreview,
   "typography-weights": TypographyWeightsPreview,
+
+  // Skeleton
+  skeleton: SkeletonPreview,
+  "skeleton-bar": SkeletonBarPreview,
+  "skeleton-circle": SkeletonCirclePreview,
+  "skeleton-list-row": SkeletonListRowPreview,
+  "skeleton-card": SkeletonCardPreview,
+
+  // Carousel
+  carousel: CarouselPreview,
+  "carousel-default": CarouselDefaultPreview,
+  "carousel-no-indicator": CarouselNoIndicatorPreview,
+
+  // Arco passthroughs (raw re-exports)
+  cell: CellPreview,
+  "cell-default": CellDefaultPreview,
+  stepper: StepperPreview,
+  "stepper-default": StepperDefaultPreview,
+  masking: MaskingPreview,
+  "masking-default": MaskingDefaultPreview,
+  loading: LoadingPreview,
+  "loading-default": LoadingDefaultPreview,
 } as const
 
 export type PreviewName = keyof typeof previews

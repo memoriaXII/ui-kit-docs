@@ -1,0 +1,32 @@
+---
+title: Loading
+description: Small inline spinner. Raw Arco passthrough — distinct from the full-screen route loader.
+---
+
+`Loading` is the kit's re-export of `@arco-design/mobile-react`'s `Loading` — a small
+inline spinner for transient states like "submitting", "fetching", or progress inside
+a button / row.
+
+For **full-screen route loaders** (e.g. while a page's primary data is fetching) use
+[`LayoutLoading`](/docs/components/layout-loading) instead — it owns the whole content
+area, sets `aria-busy`, and pairs with `Layout`'s `screenState.isLoading`.
+
+<ComponentPreview name="loading-default" />
+
+## API
+
+Accepts every Arco `LoadingProps` prop verbatim. See the
+[Arco Mobile React `Loading` docs](https://arco.design/mobile/react/en-US/components/loading)
+for the full API.
+
+```ts
+import { Loading } from "@appboxo/ui-kit"
+```
+
+Common props: `radius` (spinner size), `color`, `className`.
+
+## Installation
+
+```bash
+pnpm add @appboxo/ui-kit
+```
