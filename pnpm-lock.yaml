@@ -274,8 +274,8 @@ importers:
   preview:
     dependencies:
       '@appboxo/ui-kit':
-        specifier: file:../../freedom-ui-kit
-        version: file:../freedom-ui-kit(@arco-design/mobile-react@2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(@arco-design/mobile-utils@2.23.5)(@tanstack/react-query@5.100.14(react@18.3.1))(@types/react@18.3.29)(next-i18next@15.4.3(@types/react@18.3.29)(i18next@23.16.8)(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-i18next@15.7.4(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react@18.3.1))(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^0.3.0
+        version: 0.3.0(@arco-design/mobile-react@2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(@arco-design/mobile-utils@2.23.5)(@tanstack/react-query@5.100.14(react@18.3.1))(@types/react@18.3.29)(next-i18next@15.4.3(@types/react@18.3.29)(i18next@23.16.8)(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-i18next@15.7.4(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react@18.3.1))(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@arco-design/mobile-react':
         specifier: ^2.34
         version: 2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
@@ -327,8 +327,8 @@ packages:
     resolution: {integrity: sha512-9q/yCljni37pkMr4sPrI3G4jqdIk074+iukc5aFJl7kmDCCsiJrbZ6zKxnES1Gwg+i9RcDZwvktl23puGslmvA==}
     hasBin: true
 
-  '@appboxo/ui-kit@file:../freedom-ui-kit':
-    resolution: {directory: ../freedom-ui-kit, type: directory}
+  '@appboxo/ui-kit@0.3.0':
+    resolution: {integrity: sha512-dMkkrRufQF6rYjzFabqQjxcGWrf15QqwcjF5h4G4qui36gfKMwrXZrMFQq0qJqj3Rmmb+bR5SUVSQutZv2TN9g==}
     engines: {node: '>=18'}
     peerDependencies:
       '@arco-design/mobile-react': ^2.34
@@ -6000,7 +6000,7 @@ snapshots:
       package-manager-detector: 1.6.0
       tinyexec: 1.2.2
 
-  '@appboxo/ui-kit@file:../freedom-ui-kit(@arco-design/mobile-react@2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(@arco-design/mobile-utils@2.23.5)(@tanstack/react-query@5.100.14(react@18.3.1))(@types/react@18.3.29)(next-i18next@15.4.3(@types/react@18.3.29)(i18next@23.16.8)(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-i18next@15.7.4(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react@18.3.1))(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@appboxo/ui-kit@0.3.0(@arco-design/mobile-react@2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(@arco-design/mobile-utils@2.23.5)(@tanstack/react-query@5.100.14(react@18.3.1))(@types/react@18.3.29)(next-i18next@15.4.3(@types/react@18.3.29)(i18next@23.16.8)(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-i18next@15.7.4(i18next@23.16.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(react@18.3.1))(next@16.0.10(@babel/core@7.29.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@arco-design/mobile-react': 2.39.0(@types/react-dom@18.3.7(@types/react@18.3.29))(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react-transition-group@4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       '@arco-design/mobile-utils': 2.23.5
