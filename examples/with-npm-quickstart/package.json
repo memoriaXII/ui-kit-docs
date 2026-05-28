@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@appboxo/ui-kit": "^0.2.1",
+    "@appboxo/ui-kit": "^0.3.2",
     "@arco-design/mobile-react": "2.34.0",
     "@arco-design/mobile-utils": "2.20.1",
     "@tanstack/react-query": "^5.32.0",

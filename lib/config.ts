@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "A themeable, host-agnostic React UI kit for Boxo and partner mini-apps.",
   packageName: "@appboxo/ui-kit",
-  packageVersion: "0.2.1",
+  packageVersion: "0.3.2",
   installCommand: "pnpm add @appboxo/ui-kit",
   links: {
     twitter: "",

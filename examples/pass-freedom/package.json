@@ -11,15 +11,15 @@
     "type-check": "tsc --noEmit --pretty"
   },
   "dependencies": {
+    "@appboxo/ui-kit": "^0.3.2",
     "@arco-design/mobile-react": "2.34.0",
     "@arco-design/mobile-utils": "2.20.1",
     "@arco-design/web-react": "^2.66.10",
-    "@appboxo/ui-kit": "file:../..",
-    "async-mutex": "^0.5.0",
-    "axios": "^1.7.0",
     "@lottiefiles/dotlottie-react": "^0.7.2",
     "@tanstack/react-query": "^5.32.0",
     "ahooks": "^3.8.0",
+    "async-mutex": "^0.5.0",
+    "axios": "^1.7.0",
     "bytes": "^3.1.2",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.10",

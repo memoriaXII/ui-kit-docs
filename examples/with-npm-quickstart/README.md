@@ -19,7 +19,7 @@ Use this one to:
 // package.json
 {
   "dependencies": {
-    "@appboxo/ui-kit": "^0.2.1"
+    "@appboxo/ui-kit": "^0.3.2"
   }
 }
 ```
