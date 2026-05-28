@@ -43,6 +43,14 @@ type Props = {
    * own standalone app (e.g. the Next.js pass-freedom demo on :3001).
    */
   previewUrl?: string
+  /**
+   * Override the iframe wrapper height (px). Defaults to 640 — small
+   * enough for the Vite kit demos (kitchen-sink, basic-app, freedom-theme)
+   * that have a docs-style aspect ratio. Full-app mobile examples like
+   * pass-freedom set this to ~855 so the iframe matches a real phone
+   * silhouette instead of looking squat.
+   */
+  previewHeight?: number
   defaultFile: string
   /** Pre-rendered code content per file path, keyed by path. */
   files: Record<string, { language: string; highlightedCode: string }>
@@ -55,6 +63,7 @@ export function ExampleViewer({
   tree,
   iframe,
   previewUrl,
+  previewHeight = 640,
   defaultFile,
   files,
   sourceUrl,
@@ -189,6 +198,7 @@ export function ExampleViewer({
           src={previewSrc}
           device={device}
           iframeRef={iframeRef}
+          height={previewHeight}
         />
       ) : (
         <CodeBody
@@ -244,14 +254,19 @@ function PreviewBody({
   src,
   device,
   iframeRef,
+  height,
 }: {
   src: string
   device: Device
   iframeRef: React.RefObject<HTMLIFrameElement | null>
+  height: number
 }) {
   const width = DEVICE_WIDTHS[device]
   return (
-    <div className="bg-muted/40 flex h-[950px] items-stretch justify-center overflow-auto p-4">
+    <div
+      className="bg-muted/40 flex items-stretch justify-center overflow-auto p-4"
+      style={{ height }}
+    >
       <div
         className="bg-background h-full overflow-hidden rounded-md border shadow-sm"
         style={{

@@ -150,6 +150,11 @@ export function ExamplesGallery({ entries }: { entries: GalleryEntry[] }) {
                     ? entry.example.previewUrl
                     : undefined
                 }
+                previewHeight={
+                  "previewHeight" in entry.example
+                    ? entry.example.previewHeight
+                    : undefined
+                }
                 defaultFile={entry.defaultFile}
                 files={entry.files}
                 sourceUrl={entry.sourceUrl}

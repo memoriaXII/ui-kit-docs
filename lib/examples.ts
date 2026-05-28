@@ -75,6 +75,11 @@ export const EXAMPLES = [
     // deployed docs, set `NEXT_PUBLIC_PASS_FREEDOM_URL`.
     previewUrl:
       process.env.NEXT_PUBLIC_PASS_FREEDOM_URL ?? "http://localhost:3001",
+    // Pass-freedom is a full mobile mini-app port — render it inside a
+    // tall device frame so the iframe matches a real phone silhouette
+    // (375 × 823 ≈ iPhone 14 ratio). Other examples are smaller demos
+    // that don't need phone-aspect framing.
+    previewHeight: 855,
   },
   {
     slug: "with-npm-quickstart",

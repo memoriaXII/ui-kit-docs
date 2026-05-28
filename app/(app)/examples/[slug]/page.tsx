@@ -74,6 +74,9 @@ export default async function ExampleDetailPage({
           tree={data.tree}
           iframe={example.iframe}
           previewUrl={"previewUrl" in example ? example.previewUrl : undefined}
+          previewHeight={
+            "previewHeight" in example ? example.previewHeight : undefined
+          }
           defaultFile={data.defaultFile}
           files={data.files}
           sourceUrl={data.sourceUrl}
