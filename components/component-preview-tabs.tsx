@@ -23,7 +23,7 @@ export function ComponentPreviewTabs({
   source,
   marginOff = false,
   iframe = false,
-  defaultDevice = "desktop",
+  defaultDevice = "mobile",
   ...props
 }: React.ComponentProps<"div"> & {
   align?: "center" | "start" | "end"

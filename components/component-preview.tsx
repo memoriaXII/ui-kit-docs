@@ -36,7 +36,7 @@ export function ComponentPreview({
   align = "center",
   hideCode = false,
   marginOff = false,
-  device,
+  device = "mobile",
   ...props
 }: React.ComponentProps<"div"> & {
   name: string
@@ -45,7 +45,7 @@ export function ComponentPreview({
   hideCode?: boolean
   type?: "block" | "component" | "example"
   marginOff?: boolean
-  /** Initial device when the preview is iframe-backed. Defaults to desktop. */
+  /** Initial device when the preview is iframe-backed. Defaults to mobile. */
   device?: "desktop" | "tablet" | "mobile"
 }) {
   const iframeSlug = resolveIframeSlug(name)
