@@ -145,6 +145,11 @@ export function ExamplesGallery({ entries }: { entries: GalleryEntry[] }) {
                 slug={entry.example.slug}
                 tree={entry.tree}
                 iframe={entry.example.iframe}
+                previewUrl={
+                  "previewUrl" in entry.example
+                    ? entry.example.previewUrl
+                    : undefined
+                }
                 defaultFile={entry.defaultFile}
                 files={entry.files}
                 sourceUrl={entry.sourceUrl}
