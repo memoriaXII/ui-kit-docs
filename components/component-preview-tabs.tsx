@@ -115,7 +115,7 @@ export function ComponentPreviewTabs({
           className="invisible data-[active=true]:visible"
         >
           {useDeviceFrame ? (
-            <div className="bg-muted/40 flex h-[600px] items-stretch justify-center overflow-auto p-4">
+            <div className="bg-muted/40 flex h-[820px] items-stretch justify-center overflow-auto p-4">
               <div
                 className="bg-background h-full overflow-hidden rounded-md border shadow-sm"
                 style={{
