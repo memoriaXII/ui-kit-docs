@@ -73,10 +73,10 @@ export function KitchenSinkExample() {
         <Section eyebrow="Buttons" title="Four variants, four token paths">
           <Card>
             <Flex vertical gap={10}>
-              <PrimaryButton text="Primary" onClick={() => Toast.info("Primary")} />
-              <SecondaryButton text="Secondary" onClick={() => Toast.info("Secondary")} />
-              <TertiaryButton text="Tertiary" onClick={() => Toast.info("Tertiary")} />
-              <QuaternaryButton text="Quaternary" onClick={() => Toast.info("Quaternary")} />
+              <PrimaryButton text="Primary" />
+              <SecondaryButton text="Secondary" />
+              <TertiaryButton text="Tertiary" />
+              <QuaternaryButton text="Quaternary" />
             </Flex>
           </Card>
         </Section>

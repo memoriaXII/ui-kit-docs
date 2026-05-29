@@ -21,7 +21,6 @@ import {
   PrimaryButton,
   SecondaryButton,
   Tip,
-  Toast,
 } from "@appboxo/ui-kit";
 
 export const App = () => {
@@ -59,8 +58,8 @@ export const App = () => {
         <Tip text="Tip's icon should be ~20px and read --info-* tokens. If it's huge or invisible, the kit's component CSS bundle didn't load." />
 
         <Flex gap={8} wrap="wrap">
-          <PrimaryButton text="Primary" onClick={() => Toast.info("Primary tapped")} />
-          <SecondaryButton text="Secondary" onClick={() => Toast.info("Secondary tapped")} />
+          <PrimaryButton text="Primary" />
+          <SecondaryButton text="Secondary" />
         </Flex>
       </Flex>
     </div>

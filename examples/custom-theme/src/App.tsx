@@ -16,7 +16,6 @@ import {
   Tip,
   Title2,
   Title3,
-  Toast,
   TouchCell,
 } from "@appboxo/ui-kit";
 
@@ -208,27 +207,15 @@ export const App = ({
           <Section
             eyebrow="Action"
             title="Four button variants, four token paths"
-            blurb="Each variant pulls from its own slice of the token contract -- Primary lives on --primary-6, Tertiary on the gradient stack, and so on. Click any to confirm Toast inherits the same palette."
+            blurb="Each variant pulls from its own slice of the token contract -- Primary lives on --primary-6, Tertiary on the gradient stack, and so on."
           >
             <Card>
               <Flex vertical gap={12}>
                 <Flex gap={8} wrap="wrap">
-                  <PrimaryButton
-                    text="Primary"
-                    onClick={() => Toast.info("Primary tapped")}
-                  />
-                  <SecondaryButton
-                    text="Secondary"
-                    onClick={() => Toast.info("Secondary tapped")}
-                  />
-                  <TertiaryButton
-                    text="Tertiary"
-                    onClick={() => Toast.info("Tertiary tapped")}
-                  />
-                  <QuaternaryButton
-                    text="Quaternary"
-                    onClick={() => Toast.info("Quaternary tapped")}
-                  />
+                  <PrimaryButton text="Primary" />
+                  <SecondaryButton text="Secondary" />
+                  <TertiaryButton text="Tertiary" />
+                  <QuaternaryButton text="Quaternary" />
                 </Flex>
                 <Footnote2 color="text-3">
                   Buttons use <code>--primary-*</code> and Arco's
@@ -248,19 +235,16 @@ export const App = ({
                 activeClass="cell-active"
                 label="Account"
                 desc="Profile, name, email"
-                onClick={() => Toast.info("Opened account")}
               />
               <TouchCell
                 activeClass="cell-active"
                 label="Payments"
                 desc="Cards, wallets, billing history"
-                onClick={() => Toast.info("Opened payments")}
               />
               <TouchCell
                 activeClass="cell-active"
                 label="Notifications"
                 desc="Push, email and SMS preferences"
-                onClick={() => Toast.info("Opened notifications")}
               />
             </Card>
 

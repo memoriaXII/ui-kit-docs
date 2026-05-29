@@ -16,7 +16,6 @@ import {
   PrimaryButton,
   SecondaryButton,
   Tip,
-  Toast,
 } from "@appboxo/ui-kit"
 
 export function BasicAppExample() {
@@ -61,13 +60,8 @@ export function BasicAppExample() {
       <Tip text="We only use this on your device. Nothing leaves the phone." />
 
       <Flex vertical={false} gap={8}>
-        <PrimaryButton
-          text="Continue"
-          onClick={() =>
-            Toast.info(trimmed ? `See you, ${trimmed}` : "Add your name first")
-          }
-        />
-        <SecondaryButton text="Skip" onClick={() => Toast.error("Skipped")} />
+        <PrimaryButton text="Continue" />
+        <SecondaryButton text="Skip" />
       </Flex>
     </main>
   )

@@ -3,7 +3,6 @@ import {
   SecondaryButton,
   TertiaryButton,
   QuaternaryButton,
-  Toast,
 } from "@appboxo/ui-kit";
 
 import { Section, Subhead } from "./Section";
@@ -24,22 +23,10 @@ export function ButtonsSection() {
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <Subhead label="Default state" />
         <div style={ROW_STYLE}>
-          <PrimaryButton
-            text="Primary"
-            onClick={() => Toast.info("Primary clicked")}
-          />
-          <SecondaryButton
-            text="Secondary"
-            onClick={() => Toast.info("Secondary clicked")}
-          />
-          <TertiaryButton
-            text="Tertiary"
-            onClick={() => Toast.info("Tertiary clicked")}
-          />
-          <QuaternaryButton
-            text="Quaternary"
-            onClick={() => Toast.info("Quaternary clicked")}
-          />
+          <PrimaryButton text="Primary" />
+          <SecondaryButton text="Secondary" />
+          <TertiaryButton text="Tertiary" />
+          <QuaternaryButton text="Quaternary" />
         </div>
       </div>
 

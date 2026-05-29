@@ -10,7 +10,6 @@ import {
   PrimaryButton,
   SecondaryButton,
   Tip,
-  Toast,
 } from "@appboxo/ui-kit";
 
 // `basic-app` is the smallest @appboxo/ui-kit consumer that still
@@ -58,13 +57,8 @@ export const App = () => {
       <Tip text="We only use this on your device. Nothing leaves the phone." />
 
       <Flex gap={8}>
-        <PrimaryButton
-          text="Continue"
-          onClick={() =>
-            Toast.info(trimmed ? `See you, ${trimmed}` : "Add your name first")
-          }
-        />
-        <SecondaryButton text="Skip" onClick={() => Toast.error("Skipped")} />
+        <PrimaryButton text="Continue" />
+        <SecondaryButton text="Skip" />
       </Flex>
     </main>
   );

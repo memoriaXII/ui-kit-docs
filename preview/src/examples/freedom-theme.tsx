@@ -26,7 +26,6 @@ import {
   Tip,
   Title2,
   Title3,
-  Toast,
   TouchCell,
 } from "@appboxo/ui-kit"
 
@@ -204,22 +203,10 @@ export function FreedomThemeExample() {
           >
             <Card>
               <Flex vertical={false} gap={8} wrap="wrap">
-                  <PrimaryButton
-                    text="Primary"
-                    onClick={() => Toast.info("Primary tapped")}
-                  />
-                <SecondaryButton
-                  text="Secondary"
-                  onClick={() => Toast.info("Secondary tapped")}
-                />
-                <TertiaryButton
-                  text="Tertiary"
-                  onClick={() => Toast.info("Tertiary tapped")}
-                />
-                <QuaternaryButton
-                  text="Quaternary"
-                  onClick={() => Toast.info("Quaternary tapped")}
-                />
+                <PrimaryButton text="Primary" />
+                <SecondaryButton text="Secondary" />
+                <TertiaryButton text="Tertiary" />
+                <QuaternaryButton text="Quaternary" />
               </Flex>
             </Card>
           </Section>
@@ -230,19 +217,16 @@ export function FreedomThemeExample() {
                 activeClass="cell-active"
                 label="Account"
                 desc="Profile, name, email"
-                onClick={() => Toast.info("Opened account")}
               />
               <TouchCell
                 activeClass="cell-active"
                 label="Payments"
                 desc="Cards, wallets, billing history"
-                onClick={() => Toast.info("Opened payments")}
               />
               <TouchCell
                 activeClass="cell-active"
                 label="Notifications"
                 desc="Push, email and SMS preferences"
-                onClick={() => Toast.info("Opened notifications")}
               />
             </Card>
 
