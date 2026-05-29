@@ -3,21 +3,15 @@
 // Layout's `footer` slot, which accepts either FooterProps or a ReactNode.
 // Showcase the realistic usage: a Layout with the footer slot wired.
 
-import { Body1, Card, Flex, Layout, Toast } from "@appboxo/ui-kit"
+import { Body1, Card, Flex, Layout } from "@appboxo/ui-kit"
 
 export function FooterDefaultPreview() {
   return (
     <Layout
       navBar={{ title: "Checkout" }}
       footer={{
-        primaryButton: {
-          text: "Confirm",
-          onClick: () => Toast.info("Confirmed"),
-        },
-        secondaryButton: {
-          text: "Cancel",
-          onClick: () => Toast.info("Cancelled"),
-        },
+        primaryButton: { text: "Confirm" },
+        secondaryButton: { text: "Cancel" },
       }}
     >
       <Flex vertical gap={12}>

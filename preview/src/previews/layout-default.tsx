@@ -6,7 +6,6 @@ import {
   Layout,
   PrimaryButton,
   Title3,
-  Toast,
 } from "@appboxo/ui-kit"
 
 /**
@@ -22,12 +21,7 @@ export function LayoutDefaultPreview() {
         title: "Checkout",
         hideBack: false,
       }}
-      footer={
-        <PrimaryButton
-          text="Confirm payment"
-          onClick={() => Toast.info("Confirmed")}
-        />
-      }
+      footer={<PrimaryButton text="Confirm payment" />}
     >
       <Flex vertical gap={16}>
         <Card>

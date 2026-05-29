@@ -6,14 +6,13 @@ import {
   PrimaryButton,
   ResponsiveLayout,
   Title3,
-  Toast,
 } from "@appboxo/ui-kit"
 
 export function ResponsiveLayoutDefaultPreview() {
   return (
     <ResponsiveLayout
       navBar={{ title: "Profile" }}
-      footer={<PrimaryButton text="Save" onClick={() => Toast.info("Saved")} />}
+      footer={<PrimaryButton text="Save" />}
     >
       <Flex vertical gap={16}>
         <Card>
