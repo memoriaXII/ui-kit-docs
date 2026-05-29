@@ -15,3 +15,21 @@
   padding-left: 0;
   padding-right: 0;
 }
+
+/*
+ * SearchBar field is nearly square — Arco's "square" shape resolves
+ * --search-bar-square-shape-border-radius to ~2px. Round it to match the
+ * kit's input/card radius (12px). Selector matches Arco's own specificity.
+ */
+.arco-search-bar-square .arco-search-bar-wrap {
+  border-radius: 12px;
+}
+
+/*
+ * DialCodeSelector bottom sheet hardcodes 40px padding-bottom for the iOS
+ * home-indicator safe area. On desktop / inside the docs iframe there is no
+ * safe area, so it reads as a weird dead gap. Use the real inset (0 when none).
+ */
+.dial_code_selector_content {
+  padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+}
