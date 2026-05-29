@@ -1,0 +1,17 @@
+/*
+ * Docs-side patches for @appboxo/ui-kit CSS quirks. These belong upstream in
+ * the kit's published styles.css; kept here so the docs render correctly
+ * without waiting on a kit release. Remove an entry once the kit ships the fix.
+ */
+
+/*
+ * Input renders double horizontal padding: the kit's `.input_input`
+ * container already pads 16px (plus its 1px border), and Arco's inner
+ * `.arco-input-wrap` adds another `--input-horizontal-padding` (0.32rem ≈
+ * 16px) on top, pushing the text/placeholder ~33px off the left border.
+ * Drop the redundant inner padding so text sits a single 16px from the edge.
+ */
+.input_input.arco-input-container .arco-input-wrap {
+  padding-left: 0;
+  padding-right: 0;
+}

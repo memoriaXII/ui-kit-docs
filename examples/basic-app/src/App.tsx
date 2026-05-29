@@ -47,7 +47,7 @@ export const App = () => {
           <Input
             value={name}
             onChange={(_e, value) => setName(value)}
-            placeholder="e.g. Nurs"
+            placeholder="e.g. Alex Morgan"
           />
           {trimmed && (
             <Footnote1 color="text-3">Hi, {trimmed} — looking good.</Footnote1>

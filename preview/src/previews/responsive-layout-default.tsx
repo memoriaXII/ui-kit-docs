@@ -25,7 +25,7 @@ export function ResponsiveLayoutDefaultPreview() {
           </Flex>
         </Card>
         <Card>
-          <Body1>nurs@boxo.com</Body1>
+          <Body1>alex.morgan@example.com</Body1>
         </Card>
       </Flex>
     </ResponsiveLayout>

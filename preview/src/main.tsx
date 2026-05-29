@@ -14,8 +14,13 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import { ContextProvider } from "@arco-design/mobile-react"
 import { UIKitProvider } from "@appboxo/ui-kit"
+// Arco Mobile defaults its locale to zh-CN, so built-in strings (SearchBar
+// "取消", DatePicker "确定/取消", etc.) render in Chinese. Force English.
+// @ts-expect-error - the en-US locale file ships without type declarations
+import enUS from "@arco-design/mobile-utils/esm/locale/en-US"
 
 import { App } from "./App"
+import "./kit-overrides.css"
 
 // Build-time inline: every brand's compiled theme.css as a string.
 const BRAND_CSS_MAP: Record<string, string> = Object.fromEntries(
@@ -83,7 +88,12 @@ function mount(brand: string, dark: boolean) {
   document.documentElement.classList.toggle("arco-theme-dark", dark)
   root.render(
     <React.StrictMode>
-      <ContextProvider system="ios" useRtl={false} useDarkMode={dark}>
+      <ContextProvider
+        system="ios"
+        locale={enUS}
+        useRtl={false}
+        useDarkMode={dark}
+      >
         <UIKitProvider>
           <App />
         </UIKitProvider>

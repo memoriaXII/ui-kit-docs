@@ -6,7 +6,7 @@ import { PreviewLayout } from "./_section"
 
 const OPTIONS = [
   { value: "card", label: "Credit card", desc: "•••• 4242" },
-  { value: "paypal", label: "PayPal", desc: "nurs@boxo.com" },
+  { value: "paypal", label: "PayPal", desc: "alex.morgan@example.com" },
   { value: "apple", label: "Apple Pay", desc: "Default device" },
 ] as const
 

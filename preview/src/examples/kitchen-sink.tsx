@@ -94,7 +94,7 @@ export function KitchenSinkExample() {
                 <Input
                   value={name}
                   onChange={(_e, v) => setName(v)}
-                  placeholder="e.g. Nurs"
+                  placeholder="e.g. Alex Morgan"
                 />
               </Flex>
 

@@ -13,7 +13,7 @@ export function InputDefaultPreview() {
         <Input
           value={value}
           onChange={(_e, v) => setValue(v)}
-          placeholder="e.g. Nurs"
+          placeholder="e.g. Alex Morgan"
         />
       </Flex>
     </PreviewLayout>

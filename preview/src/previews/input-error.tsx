@@ -5,7 +5,7 @@ import { Body1, Flex, Footnote2, Input } from "@appboxo/ui-kit"
 import { PreviewLayout } from "./_section"
 
 export function InputErrorPreview() {
-  const [value, setValue] = useState("+886 invalid")
+  const [value, setValue] = useState("+1 555 invalid")
   return (
     <PreviewLayout>
       <Flex vertical gap={6}>
@@ -14,7 +14,7 @@ export function InputErrorPreview() {
           value={value}
           hasError
           onChange={(_e, v) => setValue(v)}
-          placeholder="+886 9xx xxx xxx"
+          placeholder="+1 555 000 0000"
         />
         <Footnote2 color="text-3">
           Please enter a valid phone number.
