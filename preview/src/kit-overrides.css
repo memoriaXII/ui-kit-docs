@@ -33,3 +33,24 @@
 .dial_code_selector_content {
   padding-bottom: env(safe-area-inset-bottom, 0px) !important;
 }
+
+/*
+ * Buttons had no hover feedback (Arco is touch-first, zero :hover rules) and
+ * the generic theme's pressed background is nearly invisible on the black
+ * primary. Add a subtle, color-agnostic opacity shift on hover/active plus a
+ * pointer cursor so buttons feel interactive on desktop (docs) regardless of
+ * variant or brand. Disabled buttons are excluded.
+ */
+.arco-button:not(.disabled):not(.arco-button-disabled):not([disabled]) {
+  cursor: pointer;
+  transition:
+    opacity 0.15s ease,
+    transform 0.05s ease;
+}
+.arco-button:not(.disabled):not(.arco-button-disabled):not([disabled]):hover {
+  opacity: 0.88;
+}
+.arco-button:not(.disabled):not(.arco-button-disabled):not([disabled]):active {
+  opacity: 0.72;
+  transform: scale(0.99);
+}
